@@ -4,16 +4,16 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='PHP底层 GC 垃圾回收机制 PHP: 引用计数基本知识 - Manual 建议一定先看完 PHP官方手册的说明 简单理解为一个对象没有被引用的时候 就会被GC机制回收 在被回收'>
 <title>PHP底层_GC_垃圾回收机制</title>
 
-<link rel='canonical' href='http://main1o.eu.org/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/'>
+<link rel='canonical' href='http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/'>
 
 <link rel="stylesheet" href="/scss/style.min.b9d3b9e1847a2abb770d14e8117e1dcb6cdae19de947eed1abc74cc7f25e5042.css"><meta property='og:title' content='PHP底层_GC_垃圾回收机制'>
 <meta property='og:description' content='PHP底层 GC 垃圾回收机制 PHP: 引用计数基本知识 - Manual 建议一定先看完 PHP官方手册的说明 简单理解为一个对象没有被引用的时候 就会被GC机制回收 在被回收'>
-<meta property='og:url' content='http://main1o.eu.org/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/'>
+<meta property='og:url' content='http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/'>
 <meta property='og:site_name' content='main1o&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='php' /><meta property='article:published_time' content='2023-01-20T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-01-20T00:00:00&#43;00:00'/><meta property='og:image' content='http://main1o.eu.org/%E5%A4%AA%E7%A9%BA%E5%A2%99%E7%BA%B8.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='php' /><meta property='article:published_time' content='2023-01-20T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-01-20T00:00:00&#43;00:00'/><meta property='og:image' content='http://main1o.github.io/%E5%A4%AA%E7%A9%BA%E5%A2%99%E7%BA%B8.jpg' />
 <meta name="twitter:title" content="PHP底层_GC_垃圾回收机制">
 <meta name="twitter:description" content="PHP底层 GC 垃圾回收机制 PHP: 引用计数基本知识 - Manual 建议一定先看完 PHP官方手册的说明 简单理解为一个对象没有被引用的时候 就会被GC机制回收 在被回收"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='http://main1o.eu.org/%E5%A4%AA%E7%A9%BA%E5%A2%99%E7%BA%B8.jpg' />
+    <meta name="twitter:image" content='http://main1o.github.io/%E5%A4%AA%E7%A9%BA%E5%A2%99%E7%BA%B8.jpg' />
     <link rel="shortcut icon" href="/monv.ico" />
 
     </head>
