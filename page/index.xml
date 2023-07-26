@@ -5,11 +5,11 @@
         <link>http://main1o.github.io/page/</link>
         <description>Recent content in Pages on main1o&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language>
-        <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://main1o.github.io/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <language>en-us</language>
+        <lastBuildDate>Sun, 12 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://main1o.github.io/page/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Archives</title>
         <link>http://main1o.github.io/archives/</link>
-        <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+        <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
         
         <guid>http://main1o.github.io/archives/</guid>
         <description></description>
@@ -21,10 +21,11 @@
         
         <guid>http://main1o.github.io/about/</guid>
         <description>&lt;img src="http://main1o.github.io/axieladou.png" alt="Featured image of post About" /&gt;&lt;h1 id=&#34;关于我&#34;&gt;关于我&lt;/h1&gt;
-&lt;p&gt;废物一个&lt;/p&gt;
+&lt;p&gt;在校学生 一无是处的废物&lt;/p&gt;
+&lt;p&gt;博客所写仅表示个人拙见 如有不当多多担待！&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;代码😅: &lt;!-- raw HTML omitted --&gt;NodeJs/Python/PHP/Java  &lt;del&gt;没一个精通&lt;/del&gt;&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
-&lt;li&gt;技术🚩: &lt;!-- raw HTML omitted --&gt;&lt;del&gt;大大滴脚本小子&lt;/del&gt;&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;li&gt;代码😅: &lt;!-- raw HTML omitted --&gt;JavaScript/Python/PHP/Java/Shell  &lt;del&gt;没一个精通&lt;/del&gt;&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;li&gt;技术🚩: &lt;!-- raw HTML omitted --&gt;&lt;del&gt;脚本小子&lt;/del&gt; &lt;del&gt;高级CV工程师&lt;/del&gt;&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         </item>

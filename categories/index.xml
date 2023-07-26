@@ -5,22 +5,14 @@
         <link>http://main1o.github.io/categories/</link>
         <description>Recent content in Categories on main1o&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language>
-        <lastBuildDate>Thu, 18 May 2023 11:31:40 +0800</lastBuildDate><atom:link href="http://main1o.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>CTF</title>
+        <language>en-us</language>
+        <lastBuildDate>Wed, 24 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://main1o.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>ctf</title>
         <link>http://main1o.github.io/categories/ctf/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
         
         <guid>http://main1o.github.io/categories/ctf/</guid>
-        <description>&lt;img src="http://main1o.github.io/categories/ctf/109951167652810254.jpg" alt="Featured image of post CTF" /&gt;</description>
-        </item>
-        <item>
-        <title>杂项</title>
-        <link>http://main1o.github.io/categories/%E6%9D%82%E9%A1%B9/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
-        <guid>http://main1o.github.io/categories/%E6%9D%82%E9%A1%B9/</guid>
-        <description>&lt;img src="http://main1o.github.io/categories/%E6%9D%82%E9%A1%B9/image80.png" alt="Featured image of post 杂项" /&gt;</description>
+        <description></description>
         </item>
         
     </channel>
