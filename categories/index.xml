@@ -6,7 +6,15 @@
         <description>Recent content in Categories on main1o&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Wed, 24 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://main1o.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 30 Jul 2023 00:23:51 +0800</lastBuildDate><atom:link href="http://main1o.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Java安全</title>
+        <link>http://main1o.github.io/categories/java%E5%AE%89%E5%85%A8/</link>
+        <pubDate>Sun, 30 Jul 2023 00:23:51 +0800</pubDate>
+        
+        <guid>http://main1o.github.io/categories/java%E5%AE%89%E5%85%A8/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>ctf</title>
         <link>http://main1o.github.io/categories/ctf/</link>
         <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
