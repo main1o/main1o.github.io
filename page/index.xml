@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on main1o</title>
+    <link>https://main1o.github.io/page/</link>
+    <description>Recent content in Pages on main1o</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <copyright>Example Person</copyright>
+    <lastBuildDate>Fri, 28 May 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://main1o.github.io/page/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>https://main1o.github.io/about/</link>
+      <pubDate>Fri, 28 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://main1o.github.io/about/</guid>
+      <description>&lt;p&gt;在校学生 一无是处的废物&lt;/p&gt;&#xA;&lt;p&gt;博客所写仅表示个人拙见 如有不当多多担待！&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;代码😅: &lt;span style=&#34;opacity: 0.3&#34;&gt;JavaScript/Python/PHP/Java/Shell&lt;del&gt;没一个精通&lt;/del&gt;&lt;/span&gt;&lt;/li&gt;&#xA;&lt;li&gt;技术🚩: &lt;span style=&#34;opacity: 0.3&#34;&gt;&lt;del&gt;脚本小子&lt;/del&gt; &lt;del&gt;高级CV工程师&lt;/del&gt;&lt;/span&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

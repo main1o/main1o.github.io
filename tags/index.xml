@@ -4,53 +4,45 @@
     <title>Tags on main1o</title>
     <link>https://main1o.github.io/tags/</link>
     <description>Recent content in Tags on main1o</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 29 Aug 2023 23:10:53 +0800</lastBuildDate><atom:link href="https://main1o.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <copyright>Example Person</copyright>
+    <lastBuildDate>Tue, 29 Aug 2023 23:10:53 +0800</lastBuildDate>
+    <atom:link href="https://main1o.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>ctf</title>
+      <title>Ctf</title>
       <link>https://main1o.github.io/tags/ctf/</link>
       <pubDate>Tue, 29 Aug 2023 23:10:53 +0800</pubDate>
-      
       <guid>https://main1o.github.io/tags/ctf/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>nodejs</title>
+      <title>Nodejs</title>
       <link>https://main1o.github.io/tags/nodejs/</link>
       <pubDate>Tue, 29 Aug 2023 23:10:53 +0800</pubDate>
-      
       <guid>https://main1o.github.io/tags/nodejs/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Java</title>
       <link>https://main1o.github.io/tags/java/</link>
       <pubDate>Sun, 30 Jul 2023 00:23:51 +0800</pubDate>
-      
       <guid>https://main1o.github.io/tags/java/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>python</title>
+      <title>Python</title>
       <link>https://main1o.github.io/tags/python/</link>
       <pubDate>Thu, 18 May 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://main1o.github.io/tags/python/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>php</title>
+      <title>Php</title>
       <link>https://main1o.github.io/tags/php/</link>
       <pubDate>Fri, 09 Sep 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://main1o.github.io/tags/php/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

